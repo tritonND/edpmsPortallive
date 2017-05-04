@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7134703d-734b-42f7-a70f-d1193c7de7ae" name="Default" comment="">
+    <list default="true" id="7134703d-734b-42f7-a70f-d1193c7de7ae" name="Default" comment="Working on Dashboard">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboard.php" afterPath="$PROJECT_DIR$/dashboard.php" />
     </list>
@@ -12,9 +14,21 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="edpms" />
+  </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="dbconfig.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dbconfig.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -28,35 +42,34 @@
       <file leaf-file-name="dashboard.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="288" column="15" lean-forward="false" selection-start-line="288" selection-start-column="15" selection-end-line="288" selection-end-column="15" />
+            <state relative-caret-position="72">
+              <caret line="639" column="30" lean-forward="true" selection-start-line="639" selection-start-column="30" selection-end-line="639" selection-end-column="30" />
               <folding>
-                <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1493902728841" expanded="true" signature="4265:4376" ph="SELECT count... projectdetails" />
-                <marker date="1493902728841" expanded="true" signature="4399:4432" ph="SELECT COUNT... supervisors" />
-                <marker date="1493902728841" expanded="true" signature="10668:10763" ph="SELECT lga, projectdetails" />
-                <marker date="1493902728841" expanded="true" signature="13019:13042" ph="select * fro... polylines" />
-                <marker date="1493902728841" expanded="true" signature="13283:13311" ph="select lat, geodata" />
-                <marker date="1493902728841" expanded="true" signature="20088:20656" ph="SELECT proje... projectdetails" />
-                <marker date="1493902728841" expanded="true" signature="20150:20274" ph="SELECT SUM(A... certificates" />
-                <marker date="1493902728841" expanded="true" signature="20289:20407" ph="SELECT SUM(A... variations" />
-                <marker date="1493902728841" expanded="true" signature="23392:23445" ph="SELECT COMPA... supervisors" />
-                <marker date="1493902728841" expanded="true" signature="26122:26249" ph="SELECT procu... projectdetails" />
-                <marker date="1493902728841" expanded="true" signature="28620:28740" ph="SELECT procu... projectdetails" />
-                <marker date="1493902728841" expanded="true" signature="31393:31496" ph="SELECT lga, projectdetails" />
-                <marker date="1493902728841" expanded="true" signature="33911:34017" ph="SELECT proje... projectdetails" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1493904280530" expanded="true" signature="4265:4376" ph="SELECT count... projectdetails" />
+                <marker date="1493904280530" expanded="true" signature="4399:4432" ph="SELECT COUNT... supervisors" />
+                <marker date="1493904280530" expanded="true" signature="10654:10749" ph="SELECT lga, projectdetails" />
+                <marker date="1493904280530" expanded="true" signature="13005:13028" ph="select * fro... polylines" />
+                <marker date="1493904280530" expanded="true" signature="13269:13297" ph="select lat, geodata" />
+                <marker date="1493904280530" expanded="true" signature="20095:20665" ph="SELECT proje... projectdetails" />
+                <marker date="1493904280530" expanded="true" signature="20157:20281" ph="SELECT SUM(A... certificates" />
+                <marker date="1493904280530" expanded="true" signature="20296:20414" ph="SELECT SUM(A... variations" />
+                <marker date="1493904280530" expanded="true" signature="23401:23454" ph="SELECT COMPA... supervisors" />
+                <marker date="1493904280530" expanded="true" signature="26131:26258" ph="SELECT procu... projectdetails" />
+                <marker date="1493904280530" expanded="true" signature="28629:28749" ph="SELECT procu... projectdetails" />
+                <marker date="1493904280530" expanded="true" signature="31402:31505" ph="SELECT lga, projectdetails" />
+                <marker date="1493904280530" expanded="true" signature="33920:34026" ph="SELECT proje... projectdetails" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Total Funds</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="SYNC" />
@@ -99,6 +112,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -113,7 +127,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -127,6 +140,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -220,7 +234,8 @@
       <option name="presentableId" value="Default" />
       <updated>1493889002919</updated>
       <workItem from="1493889004863" duration="1923000" />
-      <workItem from="1493901402723" duration="1310000" />
+      <workItem from="1493901402723" duration="1752000" />
+      <workItem from="1493903296595" duration="2487000" />
     </task>
     <task id="LOCAL-00001" summary="Arranging for my Localhost">
       <created>1493901998226</created>
@@ -229,27 +244,34 @@
       <option name="project" value="LOCAL" />
       <updated>1493901998226</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Working on Dashboard">
+      <created>1493902773603</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1493902773603</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3233000" />
+    <option name="totallyTimeSpent" value="6162000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14641288" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1830161" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16913946" sideWeight="0.50300753" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32789317" sideWeight="0.49699247" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32872504" sideWeight="0.4969743" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32872504" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22273426" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32718894" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15128593" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18910742" sideWeight="0.49199083" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22239032" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18910742" sideWeight="0.50800914" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -263,12 +285,55 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_WIDTH">
+      <map>
+        <entry key="3" value="162" />
+      </map>
+    </option>
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
     <MESSAGE value="Arranging for my Localhost" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arranging for my Localhost" />
+    <MESSAGE value="Working on Dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on Dashboard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -285,29 +350,54 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="288" column="15" lean-forward="false" selection-start-line="288" selection-start-column="15" selection-end-line="288" selection-end-column="15" />
+        <state relative-caret-position="4913">
+          <caret line="289" column="0" lean-forward="false" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
           <folding>
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1493902728841" expanded="true" signature="4265:4376" ph="SELECT count... projectdetails" />
-            <marker date="1493902728841" expanded="true" signature="4399:4432" ph="SELECT COUNT... supervisors" />
-            <marker date="1493902728841" expanded="true" signature="10668:10763" ph="SELECT lga, projectdetails" />
-            <marker date="1493902728841" expanded="true" signature="13019:13042" ph="select * fro... polylines" />
-            <marker date="1493902728841" expanded="true" signature="13283:13311" ph="select lat, geodata" />
-            <marker date="1493902728841" expanded="true" signature="20088:20656" ph="SELECT proje... projectdetails" />
-            <marker date="1493902728841" expanded="true" signature="20150:20274" ph="SELECT SUM(A... certificates" />
-            <marker date="1493902728841" expanded="true" signature="20289:20407" ph="SELECT SUM(A... variations" />
-            <marker date="1493902728841" expanded="true" signature="23392:23445" ph="SELECT COMPA... supervisors" />
-            <marker date="1493902728841" expanded="true" signature="26122:26249" ph="SELECT procu... projectdetails" />
-            <marker date="1493902728841" expanded="true" signature="28620:28740" ph="SELECT procu... projectdetails" />
-            <marker date="1493902728841" expanded="true" signature="31393:31496" ph="SELECT lga, projectdetails" />
-            <marker date="1493902728841" expanded="true" signature="33911:34017" ph="SELECT proje... projectdetails" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1493904280530" expanded="true" signature="4265:4376" ph="SELECT count... projectdetails" />
+            <marker date="1493904280530" expanded="true" signature="4399:4432" ph="SELECT COUNT... supervisors" />
+            <marker date="1493904280530" expanded="true" signature="10654:10749" ph="SELECT lga, projectdetails" />
+            <marker date="1493904280530" expanded="true" signature="13005:13028" ph="select * fro... polylines" />
+            <marker date="1493904280530" expanded="true" signature="13269:13297" ph="select lat, geodata" />
+            <marker date="1493904280530" expanded="true" signature="20095:20665" ph="SELECT proje... projectdetails" />
+            <marker date="1493904280530" expanded="true" signature="20157:20281" ph="SELECT SUM(A... certificates" />
+            <marker date="1493904280530" expanded="true" signature="20296:20414" ph="SELECT SUM(A... variations" />
+            <marker date="1493904280530" expanded="true" signature="23401:23454" ph="SELECT COMPA... supervisors" />
+            <marker date="1493904280530" expanded="true" signature="26131:26258" ph="SELECT procu... projectdetails" />
+            <marker date="1493904280530" expanded="true" signature="28629:28749" ph="SELECT procu... projectdetails" />
+            <marker date="1493904280530" expanded="true" signature="31402:31505" ph="SELECT lga, projectdetails" />
+            <marker date="1493904280530" expanded="true" signature="33920:34026" ph="SELECT proje... projectdetails" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dbconfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="639" column="30" lean-forward="true" selection-start-line="639" selection-start-column="30" selection-end-line="639" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1493904280530" expanded="true" signature="4265:4376" ph="SELECT count... projectdetails" />
+            <marker date="1493904280530" expanded="true" signature="4399:4432" ph="SELECT COUNT... supervisors" />
+            <marker date="1493904280530" expanded="true" signature="10654:10749" ph="SELECT lga, projectdetails" />
+            <marker date="1493904280530" expanded="true" signature="13005:13028" ph="select * fro... polylines" />
+            <marker date="1493904280530" expanded="true" signature="13269:13297" ph="select lat, geodata" />
+            <marker date="1493904280530" expanded="true" signature="20095:20665" ph="SELECT proje... projectdetails" />
+            <marker date="1493904280530" expanded="true" signature="20157:20281" ph="SELECT SUM(A... certificates" />
+            <marker date="1493904280530" expanded="true" signature="20296:20414" ph="SELECT SUM(A... variations" />
+            <marker date="1493904280530" expanded="true" signature="23401:23454" ph="SELECT COMPA... supervisors" />
+            <marker date="1493904280530" expanded="true" signature="26131:26258" ph="SELECT procu... projectdetails" />
+            <marker date="1493904280530" expanded="true" signature="28629:28749" ph="SELECT procu... projectdetails" />
+            <marker date="1493904280530" expanded="true" signature="31402:31505" ph="SELECT lga, projectdetails" />
+            <marker date="1493904280530" expanded="true" signature="33920:34026" ph="SELECT proje... projectdetails" />
           </folding>
         </state>
       </provider>

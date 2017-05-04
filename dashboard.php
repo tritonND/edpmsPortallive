@@ -291,7 +291,7 @@ if(  mysqli_num_rows($results) >0)
 
                 <div class="col-md-4 col-sm-6 col-xs-6 tile_stats_count">
                     <span class="count_top"><i class="fa fa-user"></i> Total Funds Disbursed </span>
-                    <div id="projfund" style="font-size: xx-large" class="count green"> <?php echo  $row1[2]; ?> </div>
+                    <div id="projfund2" style="font-size: xx-large" class="count green"> <?php echo  $row1[2]; ?> </div>
                 </div>
 
 
@@ -579,7 +579,7 @@ if(  mysqli_num_rows($results) >0)
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart">
                                     
-                <table id="table2" class="table table-striped table-bordered table-hover">
+                <table id="table7" class="table table-striped table-bordered table-hover">
     <thead class="bg-orange">
         <tr>
             <th  style="text-transform: uppercase;">Project ID</th>
@@ -603,7 +603,8 @@ if(  mysqli_num_rows($results) >0)
 			
 			// WHERE YEAR(a.DATEOFAWARD)='".$yr."' GROUP BY a.procuringentity LIMIT 5
 
-$query1 = "SELECT projectdetails.PROJECTID, projectdetails.CONTRACTSUM, (SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID GROUP BY certificates.PROJECTID) as cAmount, (SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID GROUP BY variations.PROJECTID ) as vAmount FROM projectdetails JOIN variations ON projectdetails.PROJECTID = variations.PROJECTID OR variations.PROJECTID = \"aa111\" JOIN certificates ON projectdetails.PROJECTID = certificates.PROJECTID GROUP BY projectdetails.PROJECTID LIMIT 5";
+    $yr = date('Y');
+$query1 = "SELECT projectdetails.PROJECTID, projectdetails.CONTRACTSUM, (SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID GROUP BY certificates.PROJECTID) as cAmount, (SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID GROUP BY variations.PROJECTID ) as vAmount FROM projectdetails   JOIN variations ON projectdetails.PROJECTID = variations.PROJECTID OR variations.PROJECTID = \"aa111\" JOIN certificates ON projectdetails.PROJECTID = certificates.PROJECTID GROUP BY projectdetails.PROJECTID LIMIT 5";
       $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
     ?>
     <tbody>
@@ -649,7 +650,7 @@ $query1 = "SELECT projectdetails.PROJECTID, projectdetails.CONTRACTSUM, (SELECT 
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart">
-   <table id="table3" class="table table-striped table-bordered table-hover">
+   <table id="table8" class="table table-striped table-bordered table-hover">
         <thead class="bg-info">
             <tr >
             <th  style="text-transform: uppercase;">Contractor</th>
