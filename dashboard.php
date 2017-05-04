@@ -241,7 +241,7 @@ if(  mysqli_num_rows($results) >0)
 
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-user"></i> Total Projects</span>
-              <div id="projtotal" class="count"><?php echo  $row1[0];  ?></div>
+              <div id="projtotal" style="font-size: xx-large"  class="count"><?php echo  $row1[0];  ?></div>
               <span class="count_bottom"><i class="green"> </i> </span>
             </div>
 
@@ -254,13 +254,13 @@ if(  mysqli_num_rows($results) >0)
 
             <div class="col-md-4 col-sm-6 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-user"></i> All Project Sum </span>
-              <div id="projfund" class="count green"> <?php echo  $row1[2]; ?> </div>
+              <div id="projfund" style="font-size: xx-large" class="count green"> <?php echo  $row1[2]; ?> </div>
             </div>
 
 
      <div class="col-md-4 col-sm-6 col-xs-6 tile_stats_count">
          <span class="count_top"><i class="fa fa-user"></i> Consultants and Contractors </span>
-         <div  class="count green"> <?php echo  $rows[0]; ?> </div>
+         <div  class="count green" style="font-size: xx-large"> <?php echo  $rows[0]; ?> </div>
      </div>
 			
             
@@ -277,10 +277,38 @@ if(  mysqli_num_rows($results) >0)
   </div>
 
 
- 
+            <div class="row tile_count" style="font-family: 'Montserrat', sans-serif;">
 
 
-          <div class="">
+
+                <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                    <span class="count_top"><i class="fa fa-user"></i> Total Projects</span>
+                    <div id="projtotal" style="font-size: xx-large"  class="count"><?php echo  $row1[0];  ?></div>
+                    <span class="count_bottom"><i class="green"> </i> </span>
+                </div>
+
+
+
+                <div class="col-md-4 col-sm-6 col-xs-6 tile_stats_count">
+                    <span class="count_top"><i class="fa fa-user"></i> Total Funds Disbursed </span>
+                    <div id="projfund" style="font-size: xx-large" class="count green"> <?php echo  $row1[2]; ?> </div>
+                </div>
+
+
+                <div class="col-md-4 col-sm-6 col-xs-6 tile_stats_count">
+                    <span class="count_top"><i class="fa fa-user"></i> Outstanding Payment </span>
+                    <div  class="count green" style="font-size: xx-large"> <?php echo  $rows[0]; ?> </div>
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+            <div class="">
             <div class="page-title">
               <div class="title_left" style="font-family: 'Montserrat', sans-serif;">
                <h3>All Projects Summary <a href="mdareport.php"> <input type="button" class="btn btn-primary" value="View All Project Data" > </a>
@@ -299,18 +327,6 @@ if(  mysqli_num_rows($results) >0)
 
              -->
 
-
-             <!--
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Search</button>
-                    </span>
-                  </div>
-                </div>
-              </div>   -->
 
             </div>
 
