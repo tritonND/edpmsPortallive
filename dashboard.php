@@ -1365,7 +1365,7 @@ var x01 = $.ajax({
 
      var x06 = $.ajax({
          type: "POST",
-         url: 'php/oth/reportScr06.php',
+         url: 'php/oth/reportSrc06.php',
          contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
          data: "yr=" + encodeURIComponent(yr),
          dataType: "text"

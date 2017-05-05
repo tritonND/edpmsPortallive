@@ -18,7 +18,19 @@ if(  mysqli_num_rows($result) >0)
 
     while($user=mysqli_fetch_array($result))
     {
-        echo "<div id=\"projfund4\" class=\"count green currency-format\">".((($row1[3] / ($row1[2] + $row1[4])) * 100 ))."</div>";
+        if(is_null($user[2]))
+        {
+            echo "<div id=\"projfund4\" class=\"count green currency-format\">".( 0 )."</div>";
+
+        }
+
+      elseif(is_null($user[1]) && is_null($user[3]))
+        {
+            echo "<div id=\"projfund4\" class=\"count green currency-format\">".( 0 )."</div>";
+
+        }
+
+       else echo "<div id=\"projfund4\" class=\"count green currency-format\">".((($user[2] / ($user[1] + $user[3])) * 100 ) + 0)."</div>";
     }
 }
 
