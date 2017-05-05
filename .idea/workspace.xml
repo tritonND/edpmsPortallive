@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7134703d-734b-42f7-a70f-d1193c7de7ae" name="Default" comment="Working on Dashboard">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
+    <list default="true" id="7134703d-734b-42f7-a70f-d1193c7de7ae" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboard.php" afterPath="$PROJECT_DIR$/dashboard.php" />
     </list>
@@ -22,6 +20,48 @@
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="edpms@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="edpms@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="edpms" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="variations" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="edpms@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="edpms" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -42,24 +82,57 @@
       <file leaf-file-name="dashboard.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="639" column="30" lean-forward="true" selection-start-line="639" selection-start-column="30" selection-end-line="639" selection-end-column="30" />
+            <state relative-caret-position="244">
+              <caret line="597" column="79" lean-forward="false" selection-start-line="597" selection-start-column="79" selection-end-line="597" selection-end-column="79" />
               <folding>
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1493904280530" expanded="true" signature="4265:4376" ph="SELECT count... projectdetails" />
-                <marker date="1493904280530" expanded="true" signature="4399:4432" ph="SELECT COUNT... supervisors" />
-                <marker date="1493904280530" expanded="true" signature="10654:10749" ph="SELECT lga, projectdetails" />
-                <marker date="1493904280530" expanded="true" signature="13005:13028" ph="select * fro... polylines" />
-                <marker date="1493904280530" expanded="true" signature="13269:13297" ph="select lat, geodata" />
-                <marker date="1493904280530" expanded="true" signature="20095:20665" ph="SELECT proje... projectdetails" />
-                <marker date="1493904280530" expanded="true" signature="20157:20281" ph="SELECT SUM(A... certificates" />
-                <marker date="1493904280530" expanded="true" signature="20296:20414" ph="SELECT SUM(A... variations" />
-                <marker date="1493904280530" expanded="true" signature="23401:23454" ph="SELECT COMPA... supervisors" />
-                <marker date="1493904280530" expanded="true" signature="26131:26258" ph="SELECT procu... projectdetails" />
-                <marker date="1493904280530" expanded="true" signature="28629:28749" ph="SELECT procu... projectdetails" />
-                <marker date="1493904280530" expanded="true" signature="31402:31505" ph="SELECT lga, projectdetails" />
-                <marker date="1493904280530" expanded="true" signature="33920:34026" ph="SELECT proje... projectdetails" />
+                <marker date="1493977631078" expanded="true" signature="4265:4376" ph="SELECT count... projectdetails" />
+                <marker date="1493977631078" expanded="true" signature="4399:4432" ph="SELECT COUNT... supervisors" />
+                <marker date="1493977631078" expanded="true" signature="10654:10749" ph="SELECT lga, projectdetails" />
+                <marker date="1493977631078" expanded="true" signature="13005:13028" ph="select * fro... polylines" />
+                <marker date="1493977631078" expanded="true" signature="13269:13297" ph="select lat, geodata" />
+                <marker date="1493977631078" expanded="true" signature="18988:19558" ph="SELECT proje... projectdetails" />
+                <marker date="1493977631078" expanded="true" signature="19050:19174" ph="SELECT SUM(A... certificates" />
+                <marker date="1493977631078" expanded="true" signature="19189:19307" ph="SELECT SUM(A... variations" />
+                <marker date="1493977631078" expanded="true" signature="19577:19973" ph="SELECT proje... " />
+                <marker date="1493977631078" expanded="true" signature="19577:19981" ph="SELECT proje... " />
+                <marker date="1493977631078" expanded="true" signature="19577:19989" ph="SELECT proje... projectdetails" />
+                <marker date="1493977631078" expanded="true" signature="19639:19763" ph="SELECT SUM(A... certificates" />
+                <marker date="1493977631078" expanded="true" signature="19778:19896" ph="SELECT SUM(A... variations" />
+                <marker date="1493977631078" expanded="true" signature="22990:23043" ph="SELECT COMPA... supervisors" />
+                <marker date="1493977631078" expanded="true" signature="25720:25847" ph="SELECT procu... projectdetails" />
+                <marker date="1493977631078" expanded="true" signature="28218:28338" ph="SELECT procu... projectdetails" />
+                <marker date="1493977631078" expanded="true" signature="30991:31094" ph="SELECT lga, projectdetails" />
+                <marker date="1493977631078" expanded="true" signature="33509:33615" ph="SELECT proje... projectdetails" />
+                <marker date="1493977631078" expanded="true" signature="36525:36570" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a5f85944-27b9-4be6-80e3-fa2a6320d195/console.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="61" lean-forward="false" selection-start-line="0" selection-start-column="61" selection-end-line="0" selection-end-column="61" />
+              <folding>
+                <marker date="1493975018022" expanded="true" signature="0:6" ph="create table... thisTab" />
+                <marker date="1493975018022" expanded="true" signature="1:6" ph="SELECT proje... projectdetails" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edpms.variations" pinned="false" current-in-tab="false">
+        <entry file="dbDummy://dbtable:/284b4f1f/a5f85944-27b9-4be6-80e3-fa2a6320d195/edpms.variations">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -69,6 +142,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Total Funds</find>
+      <find>Fund Dis</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -79,6 +153,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/a5f85944-27b9-4be6-80e3-fa2a6320d195/console.sql" />
         <option value="$PROJECT_DIR$/dashboard.php" />
       </list>
     </option>
@@ -113,6 +188,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -127,7 +203,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -138,7 +213,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$APPLICATION_CONFIG_DIR$/jdbc-drivers/mysql-connector-java-5.1.40-bin.jar" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
@@ -235,7 +310,8 @@
       <updated>1493889002919</updated>
       <workItem from="1493889004863" duration="1923000" />
       <workItem from="1493901402723" duration="1752000" />
-      <workItem from="1493903296595" duration="2487000" />
+      <workItem from="1493903296595" duration="5209000" />
+      <workItem from="1493972010750" duration="5240000" />
     </task>
     <task id="LOCAL-00001" summary="Arranging for my Localhost">
       <created>1493901998226</created>
@@ -251,32 +327,50 @@
       <option name="project" value="LOCAL" />
       <updated>1493902773603</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Working on Dashboard">
+      <created>1493905816900</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1493905816900</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6162000" />
+    <option name="totallyTimeSpent" value="14124000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32872504" sideWeight="0.4969743" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32872504" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22273426" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32718894" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15128593" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18910742" sideWeight="0.49199083" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22239032" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32872504" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19213313" sideWeight="0.49199083" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.265745" sideWeight="0.4969743" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1797235" sideWeight="0.5060514" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14372164" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.48789713" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18910742" sideWeight="0.50800914" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32718894" sideWeight="0.48487142" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18910742" sideWeight="0.50800914" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1797235" sideWeight="0.49394855" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22273426" sideWeight="0.49092284" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -350,23 +444,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4913">
-          <caret line="289" column="0" lean-forward="false" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
+        <state relative-caret-position="10319">
+          <caret line="607" column="1" lean-forward="false" selection-start-line="606" selection-start-column="0" selection-end-line="607" selection-end-column="1" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1493904280530" expanded="true" signature="4265:4376" ph="SELECT count... projectdetails" />
-            <marker date="1493904280530" expanded="true" signature="4399:4432" ph="SELECT COUNT... supervisors" />
-            <marker date="1493904280530" expanded="true" signature="10654:10749" ph="SELECT lga, projectdetails" />
-            <marker date="1493904280530" expanded="true" signature="13005:13028" ph="select * fro... polylines" />
-            <marker date="1493904280530" expanded="true" signature="13269:13297" ph="select lat, geodata" />
-            <marker date="1493904280530" expanded="true" signature="20095:20665" ph="SELECT proje... projectdetails" />
-            <marker date="1493904280530" expanded="true" signature="20157:20281" ph="SELECT SUM(A... certificates" />
-            <marker date="1493904280530" expanded="true" signature="20296:20414" ph="SELECT SUM(A... variations" />
-            <marker date="1493904280530" expanded="true" signature="23401:23454" ph="SELECT COMPA... supervisors" />
-            <marker date="1493904280530" expanded="true" signature="26131:26258" ph="SELECT procu... projectdetails" />
-            <marker date="1493904280530" expanded="true" signature="28629:28749" ph="SELECT procu... projectdetails" />
-            <marker date="1493904280530" expanded="true" signature="31402:31505" ph="SELECT lga, projectdetails" />
-            <marker date="1493904280530" expanded="true" signature="33920:34026" ph="SELECT proje... projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="4265:4376" ph="SELECT count... projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="4399:4432" ph="SELECT COUNT... supervisors" />
+            <marker date="1493977631078" expanded="true" signature="10654:10749" ph="SELECT lga, projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="13005:13028" ph="select * fro... polylines" />
+            <marker date="1493977631078" expanded="true" signature="13269:13297" ph="select lat, geodata" />
+            <marker date="1493977631078" expanded="true" signature="18988:19558" ph="SELECT proje... projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="19050:19174" ph="SELECT SUM(A... certificates" />
+            <marker date="1493977631078" expanded="true" signature="19189:19307" ph="SELECT SUM(A... variations" />
+            <marker date="1493977631078" expanded="true" signature="19577:19973" ph="SELECT proje... " />
+            <marker date="1493977631078" expanded="true" signature="19577:19981" ph="SELECT proje... " />
+            <marker date="1493977631078" expanded="true" signature="19577:19989" ph="SELECT proje... projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="19639:19763" ph="SELECT SUM(A... certificates" />
+            <marker date="1493977631078" expanded="true" signature="19778:19896" ph="SELECT SUM(A... variations" />
+            <marker date="1493977631078" expanded="true" signature="22990:23043" ph="SELECT COMPA... supervisors" />
+            <marker date="1493977631078" expanded="true" signature="25720:25847" ph="SELECT procu... projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="28218:28338" ph="SELECT procu... projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="30991:31094" ph="SELECT lga, projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="33509:33615" ph="SELECT proje... projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="36525:36570" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a5f85944-27b9-4be6-80e3-fa2a6320d195/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="72" lean-forward="true" selection-start-line="9" selection-start-column="72" selection-end-line="9" selection-end-column="72" />
+          <folding>
+            <marker date="1493975018022" expanded="true" signature="0:6" ph="create table... thisTab" />
+            <marker date="1493975018022" expanded="true" signature="1:6" ph="SELECT proje... projectdetails" />
           </folding>
         </state>
       </provider>
@@ -381,23 +491,127 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="639" column="30" lean-forward="true" selection-start-line="639" selection-start-column="30" selection-end-line="639" selection-end-column="30" />
+        <state relative-caret-position="4913">
+          <caret line="289" column="0" lean-forward="false" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1493904280530" expanded="true" signature="4265:4376" ph="SELECT count... projectdetails" />
-            <marker date="1493904280530" expanded="true" signature="4399:4432" ph="SELECT COUNT... supervisors" />
-            <marker date="1493904280530" expanded="true" signature="10654:10749" ph="SELECT lga, projectdetails" />
-            <marker date="1493904280530" expanded="true" signature="13005:13028" ph="select * fro... polylines" />
-            <marker date="1493904280530" expanded="true" signature="13269:13297" ph="select lat, geodata" />
-            <marker date="1493904280530" expanded="true" signature="20095:20665" ph="SELECT proje... projectdetails" />
-            <marker date="1493904280530" expanded="true" signature="20157:20281" ph="SELECT SUM(A... certificates" />
-            <marker date="1493904280530" expanded="true" signature="20296:20414" ph="SELECT SUM(A... variations" />
-            <marker date="1493904280530" expanded="true" signature="23401:23454" ph="SELECT COMPA... supervisors" />
-            <marker date="1493904280530" expanded="true" signature="26131:26258" ph="SELECT procu... projectdetails" />
-            <marker date="1493904280530" expanded="true" signature="28629:28749" ph="SELECT procu... projectdetails" />
-            <marker date="1493904280530" expanded="true" signature="31402:31505" ph="SELECT lga, projectdetails" />
-            <marker date="1493904280530" expanded="true" signature="33920:34026" ph="SELECT proje... projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="4265:4376" ph="SELECT count... projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="4399:4432" ph="SELECT COUNT... supervisors" />
+            <marker date="1493977631078" expanded="true" signature="10654:10749" ph="SELECT lga, projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="13005:13028" ph="select * fro... polylines" />
+            <marker date="1493977631078" expanded="true" signature="13269:13297" ph="select lat, geodata" />
+            <marker date="1493977631078" expanded="true" signature="18988:19558" ph="SELECT proje... projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="19050:19174" ph="SELECT SUM(A... certificates" />
+            <marker date="1493977631078" expanded="true" signature="19189:19307" ph="SELECT SUM(A... variations" />
+            <marker date="1493977631078" expanded="true" signature="19577:19973" ph="SELECT proje... " />
+            <marker date="1493977631078" expanded="true" signature="19577:19981" ph="SELECT proje... " />
+            <marker date="1493977631078" expanded="true" signature="19577:19989" ph="SELECT proje... projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="19639:19763" ph="SELECT SUM(A... certificates" />
+            <marker date="1493977631078" expanded="true" signature="19778:19896" ph="SELECT SUM(A... variations" />
+            <marker date="1493977631078" expanded="true" signature="22990:23043" ph="SELECT COMPA... supervisors" />
+            <marker date="1493977631078" expanded="true" signature="25720:25847" ph="SELECT procu... projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="28218:28338" ph="SELECT procu... projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="30991:31094" ph="SELECT lga, projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="33509:33615" ph="SELECT proje... projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="36525:36570" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dbconfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/js/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="55" column="3" lean-forward="false" selection-start-line="55" selection-start-column="3" selection-end-line="55" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/a5f85944-27b9-4be6-80e3-fa2a6320d195.SCHEMA:edpms">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>a5f85944-27b9-4be6-80e3-fa2a6320d195.SCHEMA:edpms</OriginalElement>
+          <nodes>
+            <node x="" y="">a5f85944-27b9-4be6-80e3-fa2a6320d195.TABLE:edpms.variations</node>
+            <node x="" y="">a5f85944-27b9-4be6-80e3-fa2a6320d195.TABLE:edpms.supervisors</node>
+            <node x="" y="">a5f85944-27b9-4be6-80e3-fa2a6320d195.TABLE:edpms.progress</node>
+            <node x="" y="">a5f85944-27b9-4be6-80e3-fa2a6320d195.TABLE:edpms.projectdetailsold1</node>
+            <node x="" y="">a5f85944-27b9-4be6-80e3-fa2a6320d195.TABLE:edpms.projectdetails</node>
+            <node x="" y="">a5f85944-27b9-4be6-80e3-fa2a6320d195.TABLE:edpms.supervisors1</node>
+            <node x="" y="">a5f85944-27b9-4be6-80e3-fa2a6320d195.TABLE:edpms.certificates</node>
+            <node x="" y="">a5f85944-27b9-4be6-80e3-fa2a6320d195.TABLE:edpms.polylines</node>
+            <node x="" y="">a5f85944-27b9-4be6-80e3-fa2a6320d195.TABLE:edpms.geodata</node>
+            <node x="" y="">a5f85944-27b9-4be6-80e3-fa2a6320d195.TABLE:edpms.sectors</node>
+            <node x="" y="">a5f85944-27b9-4be6-80e3-fa2a6320d195.TABLE:edpms.projectdetailsold</node>
+            <node x="" y="">a5f85944-27b9-4be6-80e3-fa2a6320d195.TABLE:edpms.budget</node>
+            <node x="" y="">a5f85944-27b9-4be6-80e3-fa2a6320d195.TABLE:edpms.users</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.30658105939004815" x="673.0" y="613.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Columns</Category>
+            <Category>Key columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/284b4f1f/a5f85944-27b9-4be6-80e3-fa2a6320d195/edpms.variations">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a5f85944-27b9-4be6-80e3-fa2a6320d195/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="61" lean-forward="false" selection-start-line="0" selection-start-column="61" selection-end-line="0" selection-end-column="61" />
+          <folding>
+            <marker date="1493975018022" expanded="true" signature="0:6" ph="create table... thisTab" />
+            <marker date="1493975018022" expanded="true" signature="1:6" ph="SELECT proje... projectdetails" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="597" column="79" lean-forward="false" selection-start-line="597" selection-start-column="79" selection-end-line="597" selection-end-column="79" />
+          <folding>
+            <marker date="1493977631078" expanded="true" signature="4265:4376" ph="SELECT count... projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="4399:4432" ph="SELECT COUNT... supervisors" />
+            <marker date="1493977631078" expanded="true" signature="10654:10749" ph="SELECT lga, projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="13005:13028" ph="select * fro... polylines" />
+            <marker date="1493977631078" expanded="true" signature="13269:13297" ph="select lat, geodata" />
+            <marker date="1493977631078" expanded="true" signature="18988:19558" ph="SELECT proje... projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="19050:19174" ph="SELECT SUM(A... certificates" />
+            <marker date="1493977631078" expanded="true" signature="19189:19307" ph="SELECT SUM(A... variations" />
+            <marker date="1493977631078" expanded="true" signature="19577:19973" ph="SELECT proje... " />
+            <marker date="1493977631078" expanded="true" signature="19577:19981" ph="SELECT proje... " />
+            <marker date="1493977631078" expanded="true" signature="19577:19989" ph="SELECT proje... projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="19639:19763" ph="SELECT SUM(A... certificates" />
+            <marker date="1493977631078" expanded="true" signature="19778:19896" ph="SELECT SUM(A... variations" />
+            <marker date="1493977631078" expanded="true" signature="22990:23043" ph="SELECT COMPA... supervisors" />
+            <marker date="1493977631078" expanded="true" signature="25720:25847" ph="SELECT procu... projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="28218:28338" ph="SELECT procu... projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="30991:31094" ph="SELECT lga, projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="33509:33615" ph="SELECT proje... projectdetails" />
+            <marker date="1493977631078" expanded="true" signature="36525:36570" ph="..." />
           </folding>
         </state>
       </provider>

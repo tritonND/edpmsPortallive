@@ -583,29 +583,21 @@ if(  mysqli_num_rows($results) >0)
     <thead class="bg-orange">
         <tr>
             <th  style="text-transform: uppercase;">Project ID</th>
-			<th  style="text-transform: uppercase;">Project Sum</th>
-            <th style="text-transform: uppercase;">Fund Disbursed</th>   
+			<th  style="text-transform: uppercase;">Initial Project Sum</th>
+            <th style="text-transform: uppercase;">Fund Disbursed</th>
+            <th style="text-transform: uppercase;">Outstanding Payment</th>
         </tr>
     </thead>
     <?php
-    //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
-    $yr = date('Y');
-       //$query1 = "SELECT procuringentity, sum(contractsum) FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' GROUP BY procuringentity LIMIT 5";
-       // $query1 = "SELECT a.PROJECTID, sum(a.AMOUNT), sum(b.AMOUNT) FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' GROUP BY procuringentity LIMIT 5";
-   // $query1 = "SELECT procuringentity, contractsum, agreedmobilization  FROM projectdetails limit 3";
-    // $query1 = "SELECT projectdetails.PROJECTID, projectdetails.CONTRACTSUM,
-    //  (SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID GROUP BY certificates.PROJECTID) as cAmount,
-    //(SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID GROUP BY variations.PROJECTID ) as vAmount
-   //   FROM projectdetails
-   //   JOIN variations ON projectdetails.PROJECTID = variations.PROJECTID
-   // JOIN certificates ON projectdetails.PROJECTID = certificates.PROJECTID
-   // GROUP BY projectdetails.PROJECTID LIMIT 5 ";
-			
-			// WHERE YEAR(a.DATEOFAWARD)='".$yr."' GROUP BY a.procuringentity LIMIT 5
 
     $yr = date('Y');
-$query1 = "SELECT projectdetails.PROJECTID, projectdetails.CONTRACTSUM, (SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID GROUP BY certificates.PROJECTID) as cAmount, (SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID GROUP BY variations.PROJECTID ) as vAmount FROM projectdetails   JOIN variations ON projectdetails.PROJECTID = variations.PROJECTID OR variations.PROJECTID = \"aa111\" JOIN certificates ON projectdetails.PROJECTID = certificates.PROJECTID GROUP BY projectdetails.PROJECTID LIMIT 5";
-      $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
+//$query1 = "SELECT projectdetails.PROJECTID, projectdetails.CONTRACTSUM, (SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID GROUP BY certificates.PROJECTID) as cAmount, (SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID GROUP BY variations.PROJECTID ) as vAmount FROM projectdetails   JOIN variations ON projectdetails.PROJECTID = variations.PROJECTID OR variations.PROJECTID = \"aa111\" JOIN certificates ON projectdetails.PROJECTID = certificates.PROJECTID GROUP BY projectdetails.PROJECTID LIMIT 5";
+    $query1 = " SELECT projectdetails.PROJECTID, projectdetails.CONTRACTSUM,
+(SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID GROUP BY certificates.PROJECTID) as cAmount,
+(SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID GROUP BY variations.PROJECTID ) as vAmount
+FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 5";
+
+    $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
     ?>
     <tbody>
       <?php while ($row = mysqli_fetch_array($result)) { ?>
@@ -613,12 +605,18 @@ $query1 = "SELECT projectdetails.PROJECTID, projectdetails.CONTRACTSUM, (SELECT 
             <td  style="text-transform: uppercase;"><?php echo $row[0]; ?></td>
             <td class="currency-format" style="text-transform: uppercase;">
                 <?php
-                if($row[3] = "")
+                if(is_null($row[3]))
                    {  echo $row[1]; }
                 else {  echo $row[1] + $row[3]; }
 
                 ?></td>
              <td class="currency-format" style="text-transform: uppercase;"><?php echo $row[2]; ?></td>
+              <td class="currency-format" style="text-transform: uppercase;"><?php
+                  if(is_null($row[3]))
+                  {  echo ($row[1] - $row[2]); }
+                  else {  echo ($row[1] + $row[3]) - $row[2]; }
+
+                  ?></td>
           </tr>
       <?php } ?>
     </tbody>
