@@ -14,7 +14,7 @@ $query1 = "SELECT sum(CONTRACTSUM)  FROM projectdetails WHERE YEAR(DATEOFAWARD)=
 
 while($user=mysqli_fetch_array($result))
   {
-    echo "<div id=\"projfund\" class=\"count currency-format\">".$user[0]."</div>";
+    echo "<div id=\"projfund\" class=\"count currency-format\">".($user[0] + 0)."</div>";
   } 
 }
 

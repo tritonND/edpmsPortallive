@@ -304,7 +304,10 @@ if(  mysqli_num_rows($results) >0)
 
                 <div class="col-md-4 col-sm-6 col-xs-6 tile_stats_count">
                     <span class="count_top"><i class="fa fa-user"></i>Percentage Payments(%) </span>
-                    <div id="projfund4" class="count green currency-format" style="font-size: xx-large"> <?php echo  (($row1[3] / ($row1[2] + $row1[4])) * 100 ); ?> </div>
+                    <div id="projfund4" class="count green currency-format" style="font-size: xx-large">
+                        <?php
+                        echo  (($row1[3] / ($row1[2] + $row1[4])) * 100 );
+                        ?> </div>
                 </div>
 
 
@@ -1356,6 +1359,41 @@ var x01 = $.ajax({
      });
 
      x05.fail(function(){
+         // swal("Server Error!", "Server could not process this request, please try again later!", "error");
+     });
+
+
+     var x06 = $.ajax({
+         type: "POST",
+         url: 'php/oth/reportScr06.php',
+         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+         data: "yr=" + encodeURIComponent(yr),
+         dataType: "text"
+     });
+
+     x06.done(function(serverResponse)
+     {
+         var servervalue=serverResponse.trim();
+         if(servervalue=='error')
+         {
+             //swal("Error!", "An error occured, please try again later ", "error");
+         }
+
+         else
+         {
+             $('#projfund4').html(serverResponse.trim());
+             var pf = kendo.toString(kendo.parseFloat($('#projfund').text().trim()), 'n2');
+             $('#projfund').text(pf);
+             //console.log(pf
+
+             $('.currency-format').each(function(index, element) {
+                 $(element).text(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
+                 console.log(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
+             });
+         }
+     });
+
+     x06.fail(function(){
          // swal("Server Error!", "Server could not process this request, please try again later!", "error");
      });
 
