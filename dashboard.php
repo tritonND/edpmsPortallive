@@ -191,8 +191,8 @@ $yr = date('Y');
 // $query1 = "SELECT count(PROJECTID), count(STATUS), sum(CONTRACTSUM)  FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' ";
 $query = "SELECT COUNT(ID) FROM supervisors";
 $query1 = " SELECT COUNT(projectdetails.PROJECTID), count(STATUS), SUM(projectdetails.CONTRACTSUM),
-(SELECT SUM(AMOUNT) from certificates) as cAmount,
-(SELECT SUM(AMOUNT) from variations ) as vAmount
+(SELECT SUM(AMOUNT) from certificates where YEAR(DATEISSUED) ='".$yr."') as cAmount,
+(SELECT SUM(AMOUNT) from variations where YEAR(DATEISSUED) ='".$yr."' ) as vAmount
 FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' ";
 
 $results = mysqli_query($con, $query);
@@ -1327,7 +1327,7 @@ var x01 = $.ajax({
 
      var x05 = $.ajax({
          type: "POST",
-         url: 'php/oth/reportScr04.php',
+         url: 'php/oth/reportScr05.php',
          contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
          data: "yr=" + encodeURIComponent(yr),
          dataType: "text"
