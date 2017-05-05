@@ -188,10 +188,13 @@ include 'php/dbconnect.php';
 
 <?php 
 $yr = date('Y');
- $query1 = "SELECT count(PROJECTID), count(STATUS), sum(CONTRACTSUM)  FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' "; 
-      
-
+// $query1 = "SELECT count(PROJECTID), count(STATUS), sum(CONTRACTSUM)  FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' ";
 $query = "SELECT COUNT(ID) FROM supervisors";
+$query1 = " SELECT COUNT(projectdetails.PROJECTID), count(STATUS), SUM(projectdetails.CONTRACTSUM),
+(SELECT SUM(AMOUNT) from certificates) as cAmount,
+(SELECT SUM(AMOUNT) from variations ) as vAmount
+FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' ";
+
 $results = mysqli_query($con, $query);
 $result = mysqli_query($con, $query1);
 
@@ -254,7 +257,7 @@ if(  mysqli_num_rows($results) >0)
 
             <div class="col-md-4 col-sm-6 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-user"></i> All Project Sum </span>
-              <div id="projfund" style="font-size: xx-large" class="count green"> <?php echo  $row1[2]; ?> </div>
+              <div id="projfund" style="font-size: xx-large" class="count green"> <?php echo  $row1[2] + $row1[4]; ?> </div>
             </div>
 
 
@@ -280,26 +283,23 @@ if(  mysqli_num_rows($results) >0)
             <div class="row tile_count" style="font-family: 'Montserrat', sans-serif;">
 
 
-
-                <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                    <span class="count_top"><i class="fa fa-user"></i> Total Projects</span>
-                    <div id="projtotal" style="font-size: xx-large"  class="count"><?php echo  $row1[0];  ?></div>
-                    <span class="count_bottom"><i class="green"> </i> </span>
-                </div>
-
-
-
                 <div class="col-md-4 col-sm-6 col-xs-6 tile_stats_count">
                     <span class="count_top"><i class="fa fa-user"></i> Total Funds Disbursed </span>
-                    <div id="projfund2" style="font-size: xx-large" class="count green"> <?php echo  $row1[2]; ?> </div>
+                    <div id="projfund2" style="font-size: xx-large" class="count green currency-format"> <?php echo  $row1[3]; ?> </div>
                 </div>
 
 
                 <div class="col-md-4 col-sm-6 col-xs-6 tile_stats_count">
                     <span class="count_top"><i class="fa fa-user"></i> Outstanding Payment </span>
-                    <div  class="count green" style="font-size: xx-large"> <?php echo  $rows[0]; ?> </div>
+                    <div  class="count green currency-format" style="font-size: xx-large"> <?php echo  $row1[2] + $row1[4] - $row1[3] ; ?> </div>
                 </div>
 
+
+                <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                    <span class="count_top"><i class="fa fa-user"></i> All Payments in %</span>
+                    <div id="projtotal" style="font-size: xx-large"  class="count currency-format"><?php echo (($row1[3] / ($row1[2] + $row1[4])) * 100 );?></div>
+                    <span class="count_bottom"><i class="green"> </i> </span>
+                </div>
 
 
             </div>
