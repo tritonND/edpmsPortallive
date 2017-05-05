@@ -291,14 +291,20 @@ if(  mysqli_num_rows($results) >0)
 
                 <div class="col-md-4 col-sm-6 col-xs-6 tile_stats_count">
                     <span class="count_top"><i class="fa fa-user"></i> Outstanding Payment </span>
-                    <div  class="count green currency-format" style="font-size: xx-large"> <?php echo  $row1[2] + $row1[4] - $row1[3] ; ?> </div>
+                    <div id="projfund3"  class="count green currency-format" style="font-size: xx-large"> <?php echo  $row1[2] + $row1[4] - $row1[3] ; ?> </div>
                 </div>
 
-
+     <!--
                 <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                    <span class="count_top"><i class="fa fa-user"></i> All Payments in %</span>
-                    <div id="projtotal" style="font-size: xx-large"  class="count currency-format"><?php echo (($row1[3] / ($row1[2] + $row1[4])) * 100 );?></div>
+                    <span class="count_top"><i class="fa fa-user"></i> Percentage Payments</span>
+                    <div id="projtotal" style="font-size: xx-large"  class="count currency-format"><?php// echo (($row1[3] / ($row1[2] + $row1[4])) * 100 );?></div>
                     <span class="count_bottom"><i class="green"> </i> </span>
+                </div>  -->
+
+
+                <div class="col-md-4 col-sm-6 col-xs-6 tile_stats_count">
+                    <span class="count_top"><i class="fa fa-user"></i>Percentage Payments(%) </span>
+                    <div id="projfund4" class="count green currency-format" style="font-size: xx-large"> <?php echo  (($row1[3] / ($row1[2] + $row1[4])) * 100 ); ?> </div>
                 </div>
 
 
@@ -583,7 +589,7 @@ if(  mysqli_num_rows($results) >0)
     <thead class="bg-orange">
         <tr>
             <th  style="text-transform: uppercase;">Project ID</th>
-			<th  style="text-transform: uppercase;">Initial Project Sum</th>
+			<th  style="text-transform: uppercase;">Total Project Sum</th>
             <th style="text-transform: uppercase;">Fund Disbursed</th>
             <th style="text-transform: uppercase;">Outstanding Payment</th>
         </tr>
@@ -980,6 +986,8 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 5"
 	});
 	
 	</script>
+
+
 <script>
  $(document).on("change", "#yearoption", function(event)
     {
@@ -1282,9 +1290,82 @@ var x01 = $.ajax({
 
 
 
+     var x04 = $.ajax({
+         type: "POST",
+         url: 'php/oth/reportScr04.php',
+         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+         data: "yr=" + encodeURIComponent(yr),
+         dataType: "text"
+     });
 
-});
+     x04.done(function(serverResponse)
+     {
+         var servervalue=serverResponse.trim();
+         if(servervalue=='error')
+         {
+             //swal("Error!", "An error occured, please try again later ", "error");
+         }
 
+         else
+         {
+             $('#projfund2').html(serverResponse.trim());
+             var pf = kendo.toString(kendo.parseFloat($('#projfund').text().trim()), 'n2');
+             $('#projfund').text(pf);
+             //console.log(pf
+
+             $('.currency-format').each(function(index, element) {
+                 $(element).text(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
+                 console.log(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
+             });
+         }
+     });
+
+     x04.fail(function(){
+         // swal("Server Error!", "Server could not process this request, please try again later!", "error");
+     });
+
+
+     var x05 = $.ajax({
+         type: "POST",
+         url: 'php/oth/reportScr04.php',
+         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+         data: "yr=" + encodeURIComponent(yr),
+         dataType: "text"
+     });
+
+     x05.done(function(serverResponse)
+     {
+         var servervalue=serverResponse.trim();
+         if(servervalue=='error')
+         {
+             //swal("Error!", "An error occured, please try again later ", "error");
+         }
+
+         else
+         {
+             $('#projfund3').html(serverResponse.trim());
+             var pf = kendo.toString(kendo.parseFloat($('#projfund').text().trim()), 'n2');
+             $('#projfund').text(pf);
+             //console.log(pf
+
+             $('.currency-format').each(function(index, element) {
+                 $(element).text(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
+                 console.log(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
+             });
+         }
+     });
+
+     x05.fail(function(){
+         // swal("Server Error!", "Server could not process this request, please try again later!", "error");
+     });
+
+
+
+ });
+
+
+
+ // adding more scripts
 
 function myfunc() {
     var x = document.getElementById("yearoption").value;
