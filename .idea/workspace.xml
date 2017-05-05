@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7134703d-734b-42f7-a70f-d1193c7de7ae" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/oth/reportScr6.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboard.php" afterPath="$PROJECT_DIR$/dashboard.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/oth/reportSrc06.php" afterPath="$PROJECT_DIR$/php/oth/reportSrc06.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -121,7 +121,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reportSrc06.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="reportSrc06.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/oth/reportSrc06.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="158">
@@ -164,33 +164,64 @@
       <file leaf-file-name="dashboard.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="1367" column="40" lean-forward="true" selection-start-line="1367" selection-start-column="40" selection-end-line="1367" selection-end-column="40" />
+            <state relative-caret-position="259">
+              <caret line="604" column="113" lean-forward="false" selection-start-line="604" selection-start-column="113" selection-end-line="604" selection-end-column="113" />
               <folding>
-                <marker date="1493993798156" expanded="true" signature="4267:4378" ph="SELECT count... projectdetails" />
-                <marker date="1493993798156" expanded="true" signature="4392:4425" ph="SELECT COUNT... supervisors" />
-                <marker date="1493993798156" expanded="true" signature="4440:4758" ph="SELECT proje... projectdetails" />
-                <marker date="1493993798156" expanded="true" signature="4440:4767" ph="SELECT proje... projectdetails" />
-                <marker date="1493993798156" expanded="true" signature="4529:4565" ph="SELECT SUM(A... certificates" />
-                <marker date="1493993798156" expanded="true" signature="4614:4648" ph="SELECT SUM(A... variations" />
-                <marker date="1493993798156" expanded="true" signature="4614:4683" ph="SELECT SUM(A... variations" />
-                <marker date="1493993798156" expanded="true" signature="11582:11677" ph="SELECT lga, projectdetails" />
-                <marker date="1493993798156" expanded="true" signature="13933:13956" ph="select * fro... polylines" />
-                <marker date="1493993798156" expanded="true" signature="14197:14225" ph="select lat, geodata" />
-                <marker date="1493993798156" expanded="true" signature="19914:20484" ph="SELECT proje... projectdetails" />
-                <marker date="1493993798156" expanded="true" signature="19976:20100" ph="SELECT SUM(A... certificates" />
-                <marker date="1493993798156" expanded="true" signature="20115:20233" ph="SELECT SUM(A... variations" />
-                <marker date="1493993798156" expanded="true" signature="20503:20899" ph="SELECT proje... " />
-                <marker date="1493993798156" expanded="true" signature="20503:20907" ph="SELECT proje... " />
-                <marker date="1493993798156" expanded="true" signature="20503:20915" ph="SELECT proje... projectdetails" />
-                <marker date="1493993798156" expanded="true" signature="20565:20689" ph="SELECT SUM(A... certificates" />
-                <marker date="1493993798156" expanded="true" signature="20704:20822" ph="SELECT SUM(A... variations" />
-                <marker date="1493993798156" expanded="true" signature="23916:23969" ph="SELECT COMPA... supervisors" />
-                <marker date="1493993798156" expanded="true" signature="26646:26773" ph="SELECT procu... projectdetails" />
-                <marker date="1493993798156" expanded="true" signature="29144:29264" ph="SELECT procu... projectdetails" />
-                <marker date="1493993798156" expanded="true" signature="31917:32020" ph="SELECT lga, projectdetails" />
-                <marker date="1493993798156" expanded="true" signature="34435:34541" ph="SELECT proje... projectdetails" />
-                <marker date="1493993798156" expanded="true" signature="37451:37496" ph="..." />
+                <marker date="1493995132168" expanded="true" signature="4267:4378" ph="SELECT count... projectdetails" />
+                <marker date="1493995132168" expanded="true" signature="4392:4425" ph="SELECT COUNT... supervisors" />
+                <marker date="1493995132168" expanded="true" signature="4440:4758" ph="SELECT proje... projectdetails" />
+                <marker date="1493995132168" expanded="true" signature="4440:4767" ph="SELECT proje... projectdetails" />
+                <marker date="1493995132168" expanded="true" signature="4529:4565" ph="SELECT SUM(A... certificates" />
+                <marker date="1493995132168" expanded="true" signature="4614:4648" ph="SELECT SUM(A... variations" />
+                <marker date="1493995132168" expanded="true" signature="4614:4683" ph="SELECT SUM(A... variations" />
+                <marker date="1493995132168" expanded="true" signature="11582:11677" ph="SELECT lga, projectdetails" />
+                <marker date="1493995132168" expanded="true" signature="13933:13956" ph="select * fro... polylines" />
+                <marker date="1493995132168" expanded="true" signature="14197:14225" ph="select lat, geodata" />
+                <marker date="1493995132168" expanded="true" signature="19914:20484" ph="SELECT proje... projectdetails" />
+                <marker date="1493995132168" expanded="true" signature="19976:20100" ph="SELECT SUM(A... certificates" />
+                <marker date="1493995132168" expanded="true" signature="20115:20233" ph="SELECT SUM(A... variations" />
+                <marker date="1493995132168" expanded="true" signature="20503:20991" ph="SELECT proje... " />
+                <marker date="1493995132168" expanded="true" signature="20503:20999" ph="SELECT proje... " />
+                <marker date="1493995132168" expanded="true" signature="20503:21006" ph="SELECT proje... projectdetails" />
+                <marker date="1493995132168" expanded="true" signature="20503:21007" ph="SELECT proje... projectdetails" />
+                <marker date="1493995132168" expanded="true" signature="20565:20734" ph="SELECT SUM(A... certificates" />
+                <marker date="1493995132168" expanded="true" signature="20749:20914" ph="SELECT SUM(A... variations" />
+                <marker date="1493995132168" expanded="true" signature="24008:24061" ph="SELECT COMPA... supervisors" />
+                <marker date="1493995132168" expanded="true" signature="26738:26865" ph="SELECT procu... projectdetails" />
+                <marker date="1493995132168" expanded="true" signature="29236:29356" ph="SELECT procu... projectdetails" />
+                <marker date="1493995132168" expanded="true" signature="32009:32112" ph="SELECT lga, projectdetails" />
+                <marker date="1493995132168" expanded="true" signature="34527:34633" ph="SELECT proje... projectdetails" />
+                <marker date="1493995132168" expanded="true" signature="37543:37588" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reportScr6.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/php/oth/reportScr6.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+              <folding>
+                <marker date="1493995132434" expanded="true" signature="498:1002" ph="SELECT proje... " />
+                <marker date="1493995132434" expanded="true" signature="1270:1295" ph="..." />
+                <marker date="1493995132434" expanded="true" signature="1344:1369" ph="..." />
+                <marker date="1493995132434" expanded="true" signature="1418:1443" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reportScr5.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/oth/reportScr5.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="40" selection-end-column="2" />
+              <folding>
+                <marker date="1491820651000" expanded="true" signature="488:594" ph="SELECT proje... projectdetails" />
+                <marker date="1491820651000" expanded="true" signature="852:877" ph="..." />
+                <marker date="1491820651000" expanded="true" signature="921:946" ph="..." />
+                <marker date="1491820651000" expanded="true" signature="991:1016" ph="..." />
               </folding>
             </state>
           </provider>
@@ -221,8 +252,9 @@
         <option value="$PROJECT_DIR$/php/oth/reportScr05.php" />
         <option value="$PROJECT_DIR$/php/oth/reportScr04.php" />
         <option value="$PROJECT_DIR$/php/oth/reportScr03.php" />
-        <option value="$PROJECT_DIR$/dashboard.php" />
         <option value="$PROJECT_DIR$/php/oth/reportSrc06.php" />
+        <option value="$PROJECT_DIR$/php/oth/reportScr6.php" />
+        <option value="$PROJECT_DIR$/dashboard.php" />
       </list>
     </option>
   </component>
@@ -411,7 +443,7 @@
       <workItem from="1493889004863" duration="1923000" />
       <workItem from="1493901402723" duration="1752000" />
       <workItem from="1493903296595" duration="5209000" />
-      <workItem from="1493972010750" duration="19173000" />
+      <workItem from="1493972010750" duration="19875000" />
     </task>
     <task id="LOCAL-00001" summary="Arranging for my Localhost">
       <created>1493901998226</created>
@@ -469,11 +501,18 @@
       <option name="project" value="LOCAL" />
       <updated>1493993466618</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary=" More on Dashboard">
+      <created>1493994485308</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1493994485308</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28057000" />
+    <option name="totallyTimeSpent" value="28759000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -486,7 +525,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.265745" sideWeight="0.4969743" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1797235" sideWeight="0.5060514" order="7" side_tool="true" content_ui="tabs" />
@@ -494,7 +532,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22580644" sideWeight="0.48789713" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32718894" sideWeight="0.48487142" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15128593" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15128593" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.123298034" sideWeight="0.49199083" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14372164" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -583,30 +621,31 @@
         <state relative-caret-position="10319">
           <caret line="607" column="1" lean-forward="false" selection-start-line="606" selection-start-column="0" selection-end-line="607" selection-end-column="1" />
           <folding>
-            <marker date="1493993798156" expanded="true" signature="4267:4378" ph="SELECT count... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="4392:4425" ph="SELECT COUNT... supervisors" />
-            <marker date="1493993798156" expanded="true" signature="4440:4758" ph="SELECT proje... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="4440:4767" ph="SELECT proje... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="4529:4565" ph="SELECT SUM(A... certificates" />
-            <marker date="1493993798156" expanded="true" signature="4614:4648" ph="SELECT SUM(A... variations" />
-            <marker date="1493993798156" expanded="true" signature="4614:4683" ph="SELECT SUM(A... variations" />
-            <marker date="1493993798156" expanded="true" signature="11582:11677" ph="SELECT lga, projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="13933:13956" ph="select * fro... polylines" />
-            <marker date="1493993798156" expanded="true" signature="14197:14225" ph="select lat, geodata" />
-            <marker date="1493993798156" expanded="true" signature="19914:20484" ph="SELECT proje... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="19976:20100" ph="SELECT SUM(A... certificates" />
-            <marker date="1493993798156" expanded="true" signature="20115:20233" ph="SELECT SUM(A... variations" />
-            <marker date="1493993798156" expanded="true" signature="20503:20899" ph="SELECT proje... " />
-            <marker date="1493993798156" expanded="true" signature="20503:20907" ph="SELECT proje... " />
-            <marker date="1493993798156" expanded="true" signature="20503:20915" ph="SELECT proje... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="20565:20689" ph="SELECT SUM(A... certificates" />
-            <marker date="1493993798156" expanded="true" signature="20704:20822" ph="SELECT SUM(A... variations" />
-            <marker date="1493993798156" expanded="true" signature="23916:23969" ph="SELECT COMPA... supervisors" />
-            <marker date="1493993798156" expanded="true" signature="26646:26773" ph="SELECT procu... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="29144:29264" ph="SELECT procu... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="31917:32020" ph="SELECT lga, projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="34435:34541" ph="SELECT proje... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="37451:37496" ph="..." />
+            <marker date="1493995132168" expanded="true" signature="4267:4378" ph="SELECT count... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="4392:4425" ph="SELECT COUNT... supervisors" />
+            <marker date="1493995132168" expanded="true" signature="4440:4758" ph="SELECT proje... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="4440:4767" ph="SELECT proje... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="4529:4565" ph="SELECT SUM(A... certificates" />
+            <marker date="1493995132168" expanded="true" signature="4614:4648" ph="SELECT SUM(A... variations" />
+            <marker date="1493995132168" expanded="true" signature="4614:4683" ph="SELECT SUM(A... variations" />
+            <marker date="1493995132168" expanded="true" signature="11582:11677" ph="SELECT lga, projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="13933:13956" ph="select * fro... polylines" />
+            <marker date="1493995132168" expanded="true" signature="14197:14225" ph="select lat, geodata" />
+            <marker date="1493995132168" expanded="true" signature="19914:20484" ph="SELECT proje... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="19976:20100" ph="SELECT SUM(A... certificates" />
+            <marker date="1493995132168" expanded="true" signature="20115:20233" ph="SELECT SUM(A... variations" />
+            <marker date="1493995132168" expanded="true" signature="20503:20991" ph="SELECT proje... " />
+            <marker date="1493995132168" expanded="true" signature="20503:20999" ph="SELECT proje... " />
+            <marker date="1493995132168" expanded="true" signature="20503:21006" ph="SELECT proje... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="20503:21007" ph="SELECT proje... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="20565:20734" ph="SELECT SUM(A... certificates" />
+            <marker date="1493995132168" expanded="true" signature="20749:20914" ph="SELECT SUM(A... variations" />
+            <marker date="1493995132168" expanded="true" signature="24008:24061" ph="SELECT COMPA... supervisors" />
+            <marker date="1493995132168" expanded="true" signature="26738:26865" ph="SELECT procu... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="29236:29356" ph="SELECT procu... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="32009:32112" ph="SELECT lga, projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="34527:34633" ph="SELECT proje... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="37543:37588" ph="..." />
           </folding>
         </state>
       </provider>
@@ -635,30 +674,31 @@
         <state relative-caret-position="4913">
           <caret line="289" column="0" lean-forward="false" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
           <folding>
-            <marker date="1493993798156" expanded="true" signature="4267:4378" ph="SELECT count... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="4392:4425" ph="SELECT COUNT... supervisors" />
-            <marker date="1493993798156" expanded="true" signature="4440:4758" ph="SELECT proje... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="4440:4767" ph="SELECT proje... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="4529:4565" ph="SELECT SUM(A... certificates" />
-            <marker date="1493993798156" expanded="true" signature="4614:4648" ph="SELECT SUM(A... variations" />
-            <marker date="1493993798156" expanded="true" signature="4614:4683" ph="SELECT SUM(A... variations" />
-            <marker date="1493993798156" expanded="true" signature="11582:11677" ph="SELECT lga, projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="13933:13956" ph="select * fro... polylines" />
-            <marker date="1493993798156" expanded="true" signature="14197:14225" ph="select lat, geodata" />
-            <marker date="1493993798156" expanded="true" signature="19914:20484" ph="SELECT proje... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="19976:20100" ph="SELECT SUM(A... certificates" />
-            <marker date="1493993798156" expanded="true" signature="20115:20233" ph="SELECT SUM(A... variations" />
-            <marker date="1493993798156" expanded="true" signature="20503:20899" ph="SELECT proje... " />
-            <marker date="1493993798156" expanded="true" signature="20503:20907" ph="SELECT proje... " />
-            <marker date="1493993798156" expanded="true" signature="20503:20915" ph="SELECT proje... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="20565:20689" ph="SELECT SUM(A... certificates" />
-            <marker date="1493993798156" expanded="true" signature="20704:20822" ph="SELECT SUM(A... variations" />
-            <marker date="1493993798156" expanded="true" signature="23916:23969" ph="SELECT COMPA... supervisors" />
-            <marker date="1493993798156" expanded="true" signature="26646:26773" ph="SELECT procu... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="29144:29264" ph="SELECT procu... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="31917:32020" ph="SELECT lga, projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="34435:34541" ph="SELECT proje... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="37451:37496" ph="..." />
+            <marker date="1493995132168" expanded="true" signature="4267:4378" ph="SELECT count... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="4392:4425" ph="SELECT COUNT... supervisors" />
+            <marker date="1493995132168" expanded="true" signature="4440:4758" ph="SELECT proje... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="4440:4767" ph="SELECT proje... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="4529:4565" ph="SELECT SUM(A... certificates" />
+            <marker date="1493995132168" expanded="true" signature="4614:4648" ph="SELECT SUM(A... variations" />
+            <marker date="1493995132168" expanded="true" signature="4614:4683" ph="SELECT SUM(A... variations" />
+            <marker date="1493995132168" expanded="true" signature="11582:11677" ph="SELECT lga, projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="13933:13956" ph="select * fro... polylines" />
+            <marker date="1493995132168" expanded="true" signature="14197:14225" ph="select lat, geodata" />
+            <marker date="1493995132168" expanded="true" signature="19914:20484" ph="SELECT proje... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="19976:20100" ph="SELECT SUM(A... certificates" />
+            <marker date="1493995132168" expanded="true" signature="20115:20233" ph="SELECT SUM(A... variations" />
+            <marker date="1493995132168" expanded="true" signature="20503:20991" ph="SELECT proje... " />
+            <marker date="1493995132168" expanded="true" signature="20503:20999" ph="SELECT proje... " />
+            <marker date="1493995132168" expanded="true" signature="20503:21006" ph="SELECT proje... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="20503:21007" ph="SELECT proje... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="20565:20734" ph="SELECT SUM(A... certificates" />
+            <marker date="1493995132168" expanded="true" signature="20749:20914" ph="SELECT SUM(A... variations" />
+            <marker date="1493995132168" expanded="true" signature="24008:24061" ph="SELECT COMPA... supervisors" />
+            <marker date="1493995132168" expanded="true" signature="26738:26865" ph="SELECT procu... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="29236:29356" ph="SELECT procu... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="32009:32112" ph="SELECT lga, projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="34527:34633" ph="SELECT proje... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="37543:37588" ph="..." />
           </folding>
         </state>
       </provider>
@@ -789,35 +829,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/php/oth/reportScr5.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="40" selection-end-column="2" />
+          <folding>
+            <marker date="1491820651000" expanded="true" signature="488:594" ph="SELECT proje... projectdetails" />
+            <marker date="1491820651000" expanded="true" signature="852:877" ph="..." />
+            <marker date="1491820651000" expanded="true" signature="921:946" ph="..." />
+            <marker date="1491820651000" expanded="true" signature="991:1016" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="1367" column="40" lean-forward="true" selection-start-line="1367" selection-start-column="40" selection-end-line="1367" selection-end-column="40" />
+        <state relative-caret-position="259">
+          <caret line="604" column="113" lean-forward="false" selection-start-line="604" selection-start-column="113" selection-end-line="604" selection-end-column="113" />
           <folding>
-            <marker date="1493993798156" expanded="true" signature="4267:4378" ph="SELECT count... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="4392:4425" ph="SELECT COUNT... supervisors" />
-            <marker date="1493993798156" expanded="true" signature="4440:4758" ph="SELECT proje... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="4440:4767" ph="SELECT proje... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="4529:4565" ph="SELECT SUM(A... certificates" />
-            <marker date="1493993798156" expanded="true" signature="4614:4648" ph="SELECT SUM(A... variations" />
-            <marker date="1493993798156" expanded="true" signature="4614:4683" ph="SELECT SUM(A... variations" />
-            <marker date="1493993798156" expanded="true" signature="11582:11677" ph="SELECT lga, projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="13933:13956" ph="select * fro... polylines" />
-            <marker date="1493993798156" expanded="true" signature="14197:14225" ph="select lat, geodata" />
-            <marker date="1493993798156" expanded="true" signature="19914:20484" ph="SELECT proje... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="19976:20100" ph="SELECT SUM(A... certificates" />
-            <marker date="1493993798156" expanded="true" signature="20115:20233" ph="SELECT SUM(A... variations" />
-            <marker date="1493993798156" expanded="true" signature="20503:20899" ph="SELECT proje... " />
-            <marker date="1493993798156" expanded="true" signature="20503:20907" ph="SELECT proje... " />
-            <marker date="1493993798156" expanded="true" signature="20503:20915" ph="SELECT proje... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="20565:20689" ph="SELECT SUM(A... certificates" />
-            <marker date="1493993798156" expanded="true" signature="20704:20822" ph="SELECT SUM(A... variations" />
-            <marker date="1493993798156" expanded="true" signature="23916:23969" ph="SELECT COMPA... supervisors" />
-            <marker date="1493993798156" expanded="true" signature="26646:26773" ph="SELECT procu... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="29144:29264" ph="SELECT procu... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="31917:32020" ph="SELECT lga, projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="34435:34541" ph="SELECT proje... projectdetails" />
-            <marker date="1493993798156" expanded="true" signature="37451:37496" ph="..." />
+            <marker date="1493995132168" expanded="true" signature="4267:4378" ph="SELECT count... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="4392:4425" ph="SELECT COUNT... supervisors" />
+            <marker date="1493995132168" expanded="true" signature="4440:4758" ph="SELECT proje... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="4440:4767" ph="SELECT proje... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="4529:4565" ph="SELECT SUM(A... certificates" />
+            <marker date="1493995132168" expanded="true" signature="4614:4648" ph="SELECT SUM(A... variations" />
+            <marker date="1493995132168" expanded="true" signature="4614:4683" ph="SELECT SUM(A... variations" />
+            <marker date="1493995132168" expanded="true" signature="11582:11677" ph="SELECT lga, projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="13933:13956" ph="select * fro... polylines" />
+            <marker date="1493995132168" expanded="true" signature="14197:14225" ph="select lat, geodata" />
+            <marker date="1493995132168" expanded="true" signature="19914:20484" ph="SELECT proje... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="19976:20100" ph="SELECT SUM(A... certificates" />
+            <marker date="1493995132168" expanded="true" signature="20115:20233" ph="SELECT SUM(A... variations" />
+            <marker date="1493995132168" expanded="true" signature="20503:20991" ph="SELECT proje... " />
+            <marker date="1493995132168" expanded="true" signature="20503:20999" ph="SELECT proje... " />
+            <marker date="1493995132168" expanded="true" signature="20503:21006" ph="SELECT proje... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="20503:21007" ph="SELECT proje... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="20565:20734" ph="SELECT SUM(A... certificates" />
+            <marker date="1493995132168" expanded="true" signature="20749:20914" ph="SELECT SUM(A... variations" />
+            <marker date="1493995132168" expanded="true" signature="24008:24061" ph="SELECT COMPA... supervisors" />
+            <marker date="1493995132168" expanded="true" signature="26738:26865" ph="SELECT procu... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="29236:29356" ph="SELECT procu... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="32009:32112" ph="SELECT lga, projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="34527:34633" ph="SELECT proje... projectdetails" />
+            <marker date="1493995132168" expanded="true" signature="37543:37588" ph="..." />
           </folding>
         </state>
       </provider>
@@ -828,6 +882,19 @@
           <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
           <folding>
             <marker date="1493994263105" expanded="true" signature="273:585" ph="SELECT COUNT... projectdetails" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/oth/reportScr6.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <marker date="1493995132434" expanded="true" signature="498:1002" ph="SELECT proje... " />
+            <marker date="1493995132434" expanded="true" signature="1270:1295" ph="..." />
+            <marker date="1493995132434" expanded="true" signature="1344:1369" ph="..." />
+            <marker date="1493995132434" expanded="true" signature="1418:1443" ph="..." />
           </folding>
         </state>
       </provider>

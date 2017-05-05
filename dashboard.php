@@ -602,9 +602,9 @@ if(  mysqli_num_rows($results) >0)
     $yr = date('Y');
 //$query1 = "SELECT projectdetails.PROJECTID, projectdetails.CONTRACTSUM, (SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID GROUP BY certificates.PROJECTID) as cAmount, (SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID GROUP BY variations.PROJECTID ) as vAmount FROM projectdetails   JOIN variations ON projectdetails.PROJECTID = variations.PROJECTID OR variations.PROJECTID = \"aa111\" JOIN certificates ON projectdetails.PROJECTID = certificates.PROJECTID GROUP BY projectdetails.PROJECTID LIMIT 5";
     $query1 = " SELECT projectdetails.PROJECTID, projectdetails.CONTRACTSUM,
-(SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID GROUP BY certificates.PROJECTID) as cAmount,
-(SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID GROUP BY variations.PROJECTID ) as vAmount
-FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 5";
+(SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID AND YEAR(variations.DATEISSUED) = '".$yr."'  GROUP BY certificates.PROJECTID) as cAmount,
+(SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID AND YEAR(certificates.DATEISSUED) = '".$yr."'  GROUP BY variations.PROJECTID ) as vAmount
+FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4";
 
     $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
     ?>
@@ -1032,6 +1032,44 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 5"
       x.fail(function(){
        // swal("Server Error!", "Server could not process this request, please try again later!", "error");
      });
+
+
+
+        var xff = $.ajax({
+            type: "POST",
+            url: 'php/oth/reportScr6.php',
+            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+            data: "yr=" + encodeURIComponent(yr),
+            dataType: "text"
+        });
+
+        xff.done(function(serverResponse)
+        {
+            var servervalue=serverResponse.trim();
+            if(servervalue=='error')
+            {
+                //swal("Error!", "An error occured, please try again later ", "error");
+            }
+
+            else
+            {
+                $('#table7').html(serverResponse.trim());
+
+                var pf = kendo.toString(kendo.parseFloat($('#projfund').text().trim()), 'n2');
+                $('#projfund').text(pf);
+                //console.log(pf
+
+                $('.currency-format').each(function(index, element) {
+                    $(element).text(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
+                    console.log(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
+                });
+
+            }
+        });
+
+        xff.fail(function(){
+            // swal("Server Error!", "Server could not process this request, please try again later!", "error");
+        });
 
 //next table
 
