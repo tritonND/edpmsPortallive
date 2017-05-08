@@ -602,8 +602,8 @@ if(  mysqli_num_rows($results) >0)
     $yr = date('Y');
 //$query1 = "SELECT projectdetails.PROJECTID, projectdetails.CONTRACTSUM, (SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID GROUP BY certificates.PROJECTID) as cAmount, (SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID GROUP BY variations.PROJECTID ) as vAmount FROM projectdetails   JOIN variations ON projectdetails.PROJECTID = variations.PROJECTID OR variations.PROJECTID = \"aa111\" JOIN certificates ON projectdetails.PROJECTID = certificates.PROJECTID GROUP BY projectdetails.PROJECTID LIMIT 5";
     $query1 = " SELECT projectdetails.PROJECTID, projectdetails.CONTRACTSUM,
-(SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID AND YEAR(variations.DATEISSUED) = '".$yr."'  GROUP BY certificates.PROJECTID) as cAmount,
-(SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID AND YEAR(certificates.DATEISSUED) = '".$yr."'  GROUP BY variations.PROJECTID ) as vAmount
+(SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID AND YEAR(DATEISSUED) = '".$yr."'  GROUP BY certificates.PROJECTID) as cAmount,
+(SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID AND YEAR(DATEISSUED) = '".$yr."'  GROUP BY variations.PROJECTID ) as vAmount
 FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4";
 
     $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());

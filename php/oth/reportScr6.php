@@ -5,20 +5,20 @@ require_once ("../dbconnect.php");
 $yr =  mysqli_real_escape_string($con, $_POST['yr']);
 
 
-echo " <table id=\"table5\" class=\"table table-striped table-bordered table-hover\">";
+echo " <table id=\"table7\" class=\"table table-striped table-bordered table-hover\">";
 echo "<thead class=\"bg-blue-sky\">";
 echo "<tr>";
 echo "<th>ProjectID</th>";
 echo "<th>Total Project Sum</th>";
 echo "<th>Fund Disbursed</th>";
-echo "<th>Outstanding Payment</th>";
+// echo "<th>Outstanding Payment</th>";
 echo "</tr>";
 echo "</thead>";
 echo "<tbody>";
 
 $query1 = " SELECT projectdetails.PROJECTID, projectdetails.CONTRACTSUM,
-(SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID AND YEAR(certificates.DATEISSUED) = '".$yr."'  GROUP BY certificates.PROJECTID) as cAmount,
-(SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID AND YEAR(variations.DATEISSUED) = '".$yr."'  GROUP BY variations.PROJECTID ) as vAmount
+(SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID AND YEAR(DATEISSUED) = '".$yr."'  GROUP BY certificates.PROJECTID) as cAmount,
+(SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID AND YEAR(DATEISSUED) = '".$yr."'  GROUP BY variations.PROJECTID ) as vAmount
 FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4";
 
 
@@ -32,8 +32,9 @@ if(  mysqli_num_rows($result) >0)
     {
         echo "<tr>";
         echo "<td style=\"text-transform: uppercase\">".$user[0]."</td>";
-        echo "<td style=\"text-transform: uppercase\">".$user[1]."</td>";
-        echo "<td style=\"text-transform: uppercase\">".$user[2]."</td>";
+        echo "<td class=\"currency-format\" style=\"text-transform: uppercase\">".$user[1]."</td>";
+        echo "<td class=\"currency-format\" style=\"text-transform: uppercase\">".$user[2]."</td>";
+      //  echo "<td class=\"currency-format\" style=\"text-transform: uppercase\">".$user[4]."</td>";
         echo "</tr>";
     }
 

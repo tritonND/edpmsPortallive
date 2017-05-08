@@ -43,7 +43,7 @@ include './php/dbconnect.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>EDPMS | EDPMS</title>
+    <title>EDPMS | All Projects Financial Report</title>
 
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -58,9 +58,12 @@ include './php/dbconnect.php';
 
  <link href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet">
   <link href="/css/jquery.dataTables.min.css" rel="stylesheet">
-   
-    
-    <style>
+
+      <link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"  rel="stylesheet">
+      <link href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.dataTables.min.css"  rel="stylesheet">
+
+
+      <style>
     .card1 {
   border-radius: 6px;
   box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
@@ -196,7 +199,7 @@ include './php/dbconnect.php';
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>All Projects Report</h3>
+                <h3>All Projects Financial Report</h3>
               </div>
 
           <!--    <div class="title_right">
@@ -220,8 +223,8 @@ include './php/dbconnect.php';
             <div class="col-sm-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Projects By LGA</h4>
-                                <p class="category">All MDAs Projects Contract Sum categorized by LGA</p>
+                                <h4 class="title">Projects Financials</h4>
+                                <p class="category">All MDAs Projects Showing Financial Details </p>
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart">
@@ -442,6 +445,9 @@ include './php/dbconnect.php';
 
 
     <div id="view-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none; font-family: 'Ubuntu', sans-serif;">
+        <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+        <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+
         <div class="modal-dialog">
             <form name="modform" id="modform">
                 <div class="modal-content">
@@ -535,6 +541,11 @@ include './php/dbconnect.php';
 
                 </div>   </form>
         </div>
+
+
+        <!--   making pdf here  -->
+
+        <!--  endpdf here-->
     </div><!-- /.modal -->
 
 
@@ -553,9 +564,23 @@ include './php/dbconnect.php';
     <script src="vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="vendors/nprogress/nprogress.js"></script>
-    
+
+
     <script src="http://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
      <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/tabletools/2.2.2/swf/copy_csv_xls_pdf.swf"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.print.min.js"></script>
+
+
 
 
     <!-- Custom Theme Scripts -->
@@ -564,7 +589,12 @@ include './php/dbconnect.php';
     <script src="js/autofilter.js"></script>
 
 	<script src="js/kendo.core.min.js"></script>
-<script>
+
+
+
+
+
+    <script>
 	var pf = kendo.toString(kendo.parseFloat($('#projfund').text().trim()), 'n2');
 	$('#projfund').text(pf);
 	//console.log(pf
@@ -647,7 +677,19 @@ include './php/dbconnect.php';
 
     <script>
 $(document).ready(function(){
-    $('#myTable').DataTable();
+    $('#myTable').DataTable(
+        {
+            dom: 'Bfrtip',
+            buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+        }
+    );
+
+    $('#modal-dialog').DataTable(
+        {
+            dom: 'Bfrtip',
+            buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+        }
+    );
 
 });
 </script>

@@ -65,7 +65,9 @@ include './php/dbconnect.php';
  <link href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet">
   <link href="css/jquery.dataTables.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400" rel="stylesheet">
+      <link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"  rel="stylesheet">
+      <link href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.dataTables.min.css"  rel="stylesheet">
 
    
     
@@ -256,8 +258,8 @@ include './php/dbconnect.php';
             <div class="col-sm-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Projects By LGA</h4>
-                                <p class="category">All MDAs Projects categorized by LGA</p>
+                                <h4 class="title">Projects Summary </h4>
+                                <p class="category">All MDAs Projects </p>
                             </div>
 
 
@@ -568,12 +570,26 @@ include './php/dbconnect.php';
     <script src="vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="vendors/nprogress/nprogress.js"></script>
+
     
     <script src="http://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
      <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
 
+    <script type="text/javascript" src="https://cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/tabletools/2.2.2/swf/copy_csv_xls_pdf.swf"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.print.min.js"></script>
 
-<!-- Latest compiled and minified JavaScript -->
+
+
+
+    <!-- Latest compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 
 <!-- (Optional) Latest compiled and minified JavaScript translation files -->
@@ -739,7 +755,12 @@ $('.selectpicker').selectpicker({
 
 <script>
 $(document).ready(function(){
-    $('#myTable').DataTable();
+    $('#myTable').DataTable(
+        {
+              dom: 'Bfrtip',
+              buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+        }
+    );
     //"bInfo" : false
 });
 </script>
