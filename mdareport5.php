@@ -22,7 +22,7 @@ else{
 
 <!DOCTYPE html>
 <?php
-include './php/dbconnect.php';
+//include './php/dbconnect.php';
 //session_start();
 //if(isset($_SESSION['firstname']))
 //{
@@ -43,7 +43,7 @@ include './php/dbconnect.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>EDPMS | EDPMS</title>
+    <title>EDPMS | All Project Sum by LGA</title>
 
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -196,7 +196,7 @@ include './php/dbconnect.php';
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>All Projects Report</h3>
+                <h3>All Projects Sum by LGA</h3>
               </div>
 
           <!--    <div class="title_right">
@@ -220,7 +220,7 @@ include './php/dbconnect.php';
             <div class="col-sm-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Projects By LGA</h4>
+                                <h4 class="title">Project Sum By LGA</h4>
                                 <p class="category">All MDAs Projects Contract Sum categorized by LGA</p>
                             </div>
                             <div class="content">
@@ -460,6 +460,10 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
 });
 </script>
+
+    <?php
+    audit_traii("viewed Project Sum By LGA");
+    ?>
   
   </body>
 </html>

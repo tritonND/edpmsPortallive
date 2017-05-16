@@ -27,19 +27,7 @@ else{
 ?>
 
 <!DOCTYPE html>
-<?php
-include './php/dbconnect.php';
-//session_start();
-//if(isset($_SESSION['firstname']))
-//{
-//$username=$_SESSION['firstname'];
-//}
-//else{
-//    header("Location: index.php");
-//}
 
-
-?>
 <html lang="en">
 
   <head>
@@ -49,7 +37,7 @@ include './php/dbconnect.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>EDPMS | EDPMS</title>
+    <title>EDPMS | All Consultants and Contractors Directory</title>
 
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -468,6 +456,10 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
 });
 </script>
+
+    <?php
+    audit_traii("viewed All Consultants and Contractors Directory");
+    ?>
   
   </body>
 </html>

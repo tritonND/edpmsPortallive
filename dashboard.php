@@ -27,9 +27,7 @@ else{
 ?>
 
 <!DOCTYPE html>
-<?php
-include 'php/dbconnect.php';
-?>
+
 <html lang="en">
 
   <head>
@@ -1465,7 +1463,7 @@ $(document).ready(function(){
 </script>
 
         <?php
-        audit_traii("viewed all reports");
+        audit_traii("viewed Dashboard");
         ?>
   
   </body>

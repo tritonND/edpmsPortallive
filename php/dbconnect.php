@@ -14,9 +14,9 @@ function audit_traii($action)
         session_start();
     }
     $username=$_SESSION['username'];
-    $firstname=$_SESSION['firstname'];
+    $fname=$_SESSION['firstname'];
 
-    mysqli_query($con, "insert into audit_trail(FNAME,USER,ACTION,TIME_STAMP) values('$firstname', '$username','$action','$mytoday') ");
+    mysqli_query($con, "insert into audit_trail(FNAME,USER,ACTION,TIME_STAMP) values('$fname', '$username','$action','$mytoday') ");
 
 }
 

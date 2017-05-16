@@ -765,8 +765,11 @@ $('.selectpicker').selectpicker({
 $(document).ready(function(){
     $('#myTable').DataTable(
         {
-              dom: 'Bfrtip',
-              buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+            dom: 'Bfrtip',
+            lengthChange: true,
+            pageLength: 10,
+            lengthMenu: [ 10, 15, 20, 50, 100 ],
+            buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
         }
     );
     //"bInfo" : false
@@ -778,6 +781,12 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
 });
 </script>
-  
+
+    <?php
+    audit_traii("Viewed All Projects Report");
+    ?>
+
+
+
   </body>
 </html>

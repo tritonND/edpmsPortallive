@@ -21,19 +21,7 @@ else{
 ?>
 
 <!DOCTYPE html>
-<?php
-include './php/dbconnect.php';
-//session_start();
-//if(isset($_SESSION['firstname']))
-//{
-//$username=$_SESSION['firstname'];
-//}
-//else{
-//    header("Location: index.php");
-//}
 
-
-?>
 <html lang="en">
 
   <head>
@@ -702,6 +690,10 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
 });
 </script>
+
+    <?php
+    audit_traii("viewed All Projects financial Records");
+    ?>
   
   </body>
 </html>
