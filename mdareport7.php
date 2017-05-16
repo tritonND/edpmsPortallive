@@ -535,6 +535,9 @@ include './php/dbconnect.php';
 
                     </div>
                     <div class="modal-footer">
+                        <button type="button" id="excel" class="btn btn-primary">Export to Excel</button>
+                        <button type="button" id="pdf" class="btn btn-success">Export to PDF</button>
+                        <button type="button" id="prints" class="btn btn-info">Print</button>
                         <button type="button" class="btn btn-danger" id="ignore" data-dismiss="modal">Close</button>
                         <!-- <button type="button" class="btn btn-primary" id="treat" name="treat"   data-dismiss="modal">Treat</button>-->
                     </div>

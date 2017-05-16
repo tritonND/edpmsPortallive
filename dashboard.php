@@ -589,7 +589,7 @@ if(  mysqli_num_rows($results) >0)
                                 <div id="chartActivity" class="ct-chart">
                                     
                 <table id="table7" class="table table-striped table-bordered table-hover">
-    <thead class="bg-orange">
+    <thead class="bg-blue-sky">
         <tr>
             <th  style="text-transform: uppercase;">Project ID</th>
 			<th  style="text-transform: uppercase;">Total Project Sum</th>
@@ -1463,6 +1463,10 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
 });
 </script>
+
+        <?php
+        audit_traii("viewed all reports");
+        ?>
   
   </body>
 </html>
