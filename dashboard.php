@@ -354,7 +354,8 @@ if(  mysqli_num_rows($results) >0)
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart">
-    
+
+                                    <div id="years"><?php echo "Data retrieved for "; echo date('Y');   ?></div>
         <table id="table1" class="table table-striped table-bordered table-hover">
         <thead class="bg-primary">
             <tr>
@@ -585,7 +586,8 @@ if(  mysqli_num_rows($results) >0)
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart">
-                                    
+
+                                    <div id="years1"><?php echo "Data retrieved for "; echo date('Y');   ?></div>
                 <table id="table7" class="table table-striped table-bordered table-hover">
     <thead class="bg-blue-sky">
         <tr>
@@ -645,7 +647,6 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
                         </div>
                     </div>
 
-
   <!-- card 2 -->
           <div class="col-lg-6 col-sm-6">
                         <div style="background-color: #BEC4D1;" class="card ">
@@ -655,6 +656,8 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart">
+
+
    <table id="table8" class="table table-striped table-bordered table-hover">
         <thead class="bg-info">
             <tr >
@@ -699,8 +702,8 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
                             </div>
                         </div>
                     </div>
-            </div> 
-				
+            </div>
+
 				
 				
 				
@@ -721,7 +724,8 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart">
-                                    
+
+                                    <div id="years2"><?php echo "Data retrieved for "; echo date('Y');   ?></div>
                 <table id="table2" class="table table-striped table-bordered table-hover">
     <thead class="bg-orange">
         <tr>
@@ -773,6 +777,8 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart">
+
+                                    <div id="years3"><?php echo "Data retrieved for "; echo date('Y');   ?></div>
    <table id="table3" class="table table-striped table-bordered table-hover">
         <thead class="bg-info">
             <tr >
@@ -818,10 +824,10 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
                     </div>
             </div> 
                
-          <div class="clearfix"></div>                      
+          <div class="clearfix"></div>
             </div>
-            
-            
+
+
             <!--  Another Row here -->
             
                 <div class="col-sm-12 col-lg-12">
@@ -836,6 +842,8 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart">
+
+                                    <div id="years4"><?php echo "Data retrieved for "; echo date('Y');  ?></div>
     <table id="table4" class="table table-striped table-bordered table-hover">
     <thead class="bg-blue">
         <tr>
@@ -888,7 +896,9 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart">
-     
+
+
+                                    <div id="years5"><?php echo "Data retrieved for "; echo date('Y');  ?></div>
        <table id="table5" class="table table-striped table-bordered table-hover">
     <thead class="bg-blue-sky">
         <tr>
@@ -993,6 +1003,13 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
  $(document).on("change", "#yearoption", function(event)
     {
       var yr = $('#yearoption').val();
+
+        document.getElementById("years").innerHTML = "Data retrieved for " + yr;
+        document.getElementById("years1").innerHTML = "Data retrieved for " + yr;
+        document.getElementById("years2").innerHTML = "Data retrieved for " + yr;
+        document.getElementById("years3").innerHTML = "Data retrieved for " + yr;
+        document.getElementById("years4").innerHTML = "Data retrieved for " + yr;
+        document.getElementById("years5").innerHTML = "Data retrieved for " + yr;
       console.log(yr);
  var x = $.ajax({
   type: "POST",
@@ -1430,6 +1447,41 @@ var x01 = $.ajax({
      });
 
      x06.fail(function(){
+         // swal("Server Error!", "Server could not process this request, please try again later!", "error");
+     });
+
+
+     var x07 = $.ajax({
+         type: "POST",
+         url: 'php/oth/reportSrc07.php',
+         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+         data: "yr=" + encodeURIComponent(yr),
+         dataType: "text"
+     });
+
+     x07.done(function(serverResponse)
+     {
+         var servervalue=serverResponse.trim();
+         if(servervalue=='error')
+         {
+             //swal("Error!", "An error occured, please try again later ", "error");
+         }
+
+         else
+         {
+             $('#projfund4').html(serverResponse.trim());
+             var pf = kendo.toString(kendo.parseFloat($('#projfund').text().trim()), 'n2');
+             $('#projfund').text(pf);
+             //console.log(pf
+
+             $('.currency-format').each(function(index, element) {
+                 $(element).text(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
+                 console.log(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
+             });
+         }
+     });
+
+     x07.fail(function(){
          // swal("Server Error!", "Server could not process this request, please try again later!", "error");
      });
 

@@ -7,6 +7,13 @@ $projectid=mysqli_real_escape_string($con,trim($_POST['projectidtextinput']));
 $comment=mysqli_real_escape_string($con,trim($_POST['comments']));
 $amount=mysqli_real_escape_string($con,trim($_POST['amount']));
 $datee=mysqli_real_escape_string($con,trim($_POST['dateofcreation']));
+
+//pull mda and lga first
+$result2 = mysqli_query($con, "SELECT LGA, PROCURINGENTITY FROM projectdetails WHERE PROJECTID = '$projectid'");
+$row2 = mysqli_fetch_array($result2);
+$lga = $row2[0];
+$mda = $row2[1];
+
 //upload photos first
  $target_dir = "variations/";
     $target_file = $target_dir . basename($_FILES["cov"]["name"]);
@@ -37,7 +44,7 @@ $datee=mysqli_real_escape_string($con,trim($_POST['dateofcreation']));
     }
     
 //run insert query now
-mysqli_query($con, "insert into variations (PROJECTID,DATEISSUED,AMOUNT,COMMENTS,URL) values('$projectid','$datee','$amount','$comment','$prop_pic')");
+mysqli_query($con, "insert into variations (PROJECTID,DATEISSUED,AMOUNT,COMMENTS,URL, MDA, LGA) values('$projectid','$datee','$amount','$comment','$prop_pic', $mda, $lga)");
 if(mysqli_affected_rows($con)>0)
 {
 $result = mysqli_query($con,"SELECT * from variations where PROJECTID='$projectid'");

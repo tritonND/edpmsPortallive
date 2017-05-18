@@ -3,14 +3,14 @@ require_once ("../dbconnect.php");
 //$conn= new mysqli_connect("localhost", "root", "minowss", "edpms");
 
  $yr =  mysqli_real_escape_string($con, $_POST['yr']);
- 
+
 
    echo " <table id=\"table5\" class=\"table table-striped table-bordered table-hover\">";
    echo "<thead class=\"bg-blue-sky\">";
    echo "<tr>";
-   echo "<th>ProjectID</th>";
-   echo "<th>Project Name</th>";
-   echo "<th>Project Status</th>";
+   echo "<th>PROJECT ID</th>";
+   echo "<th>PROJECT NAME</th>";
+   echo "<th>PROJECT STATUS</th>";
    echo "</tr>";
    echo "</thead>";
    echo "<tbody>";

@@ -8,7 +8,7 @@ $yr =  mysqli_real_escape_string($con, $_POST['yr']);
 echo " <table id=\"table7\" class=\"table table-striped table-bordered table-hover\">";
 echo "<thead class=\"bg-blue-sky\">";
 echo "<tr>";
-echo "<th>Project ID</th>";
+echo "<th>PROJECT ID</th>";
 echo "<th>TOTAL PROJECT SUM</th>";
 echo "<th>FUNDS DISBURSED</th>";
 echo "<th>OUTSTANDING PAYMENTS</th>";

@@ -30,7 +30,8 @@ if(  mysqli_num_rows($result) >0)
 
         }
 
-       else echo "<div id=\"projfund4\" class=\"count green currency-format\">".((($user[2] / ($user[1] + $user[3])) * 100 ) + 0)."</div>";
+       else if ( !is_null($user[1]) && !is_null($user[2]) && !is_null($user[3]))
+       {echo "<div id=\"projfund4\" class=\"count green currency-format\">".((($user[2] / ($user[1] + $user[3])) * 100 ) + 0)."</div>";}
     }
 }
 

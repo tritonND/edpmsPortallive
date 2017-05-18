@@ -27,19 +27,7 @@ else{
 ?>
 
 <!DOCTYPE html>
-<?php
-include './php/dbconnect.php';
-//session_start();
-//if(isset($_SESSION['firstname']))
-//{
-//$username=$_SESSION['firstname'];
-//}
-//else{
-//    header("Location: index.php");
-//}
 
-
-?>
 <html lang="en">
 
   <head>
@@ -266,7 +254,7 @@ include './php/dbconnect.php';
     <div class="content table-responsive">
     <div id="chartActivity" class="ct-chart">
 
-
+        <div id="years"><?php echo "Data retrieved for "; echo date('Y');  ?></div>
     <table id="myTable" class="table table-condensed table-striped table-bordered table-hover">
         <thead class="bg-primary">
             <tr >
@@ -719,6 +707,7 @@ $(document).on("change", "#yearoption", function(event)
     {
 
       var yr = $('#yearoption').val();
+        document.getElementById("years").innerHTML = "Data retrieved for " + yr;
       console.log(yr);
  // $.post("reportScr5.php", {year: yr});
  var x = $.ajax({

@@ -678,6 +678,9 @@ $(document).ready(function(){
     $('#modal-dialog').DataTable(
         {
             dom: 'Bfrtip',
+            lengthChange: true,
+            pageLength: 10,
+            lengthMenu: [ 10, 15, 20, 50, 100 ],
             buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
         }
     );

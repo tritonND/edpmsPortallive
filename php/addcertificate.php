@@ -7,6 +7,11 @@ $amount=  mysqli_real_escape_string($con,$_POST['amount']);
 $dateissued=  mysqli_real_escape_string($con,$_POST['dateissued']);
 $status=  mysqli_real_escape_string($con,$_POST['status']);
 
+$result2 = mysqli_query($con, "SELECT LGA, PROCURINGENTITY FROM projectdetails WHERE PROJECTID = '$projectid'");
+$row2 = mysqli_fetch_array($result2);
+$lga = $row2[0];
+$mda = $row2[1];
+
 $result=mysqli_query($con, "select * from certificates where CERTNUMBER='$certno' ");
 if(mysqli_num_rows($result)>0)
 {
@@ -42,7 +47,7 @@ else
       
     }
     
-    $result=mysqli_query($con, "insert into certificates (PROJECTID,CERTNUMBER,DATEISSUED,AMOUNT,STATUS,URL) values('$projectid','$certno','$dateissued','$amount','$status','$prop_pic')");
+    $result=mysqli_query($con, "insert into certificates (PROJECTID,CERTNUMBER,DATEISSUED,AMOUNT,STATUS,URL, MDA, LGA) values('$projectid','$certno','$dateissued','$amount','$status','$prop_pic', $mda, $lga)");
        $rowcount=mysqli_affected_rows($con);
        if($rowcount>0)
        {

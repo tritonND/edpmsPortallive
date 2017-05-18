@@ -9,7 +9,7 @@ require_once ("../dbconnect.php");
    echo "<thead class=\"bg-orange\">";
    echo "<tr>";
    echo "<th>MDA</th>";
-   echo "<th>Project Sum</th>";
+   echo "<th>PROJECT SUM</th>";
    echo "</tr>";
    echo "</thead>";
    echo "<tbody>";
