@@ -76,6 +76,8 @@ else
     
 }
 
-    mysqli_close($con);
+audit_traii("Edited a Project");
+
+mysqli_close($con);
    
 ?>

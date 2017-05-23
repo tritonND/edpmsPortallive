@@ -68,4 +68,8 @@ $new_user_query="INSERT INTO users(FIRSTNAME,OTHERNAMES,USERNAME,PASSWORD,USERTY
                     
                 }
 
+
+audit_traii("Created a User");
+
+
 ?>

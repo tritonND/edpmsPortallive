@@ -25,7 +25,9 @@
 	{
 		echo "success";
 	}
-	
-	
+
+
+audit_traii("Changed Password");
+
 	
    

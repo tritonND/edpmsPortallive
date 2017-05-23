@@ -51,6 +51,9 @@ $result = mysqli_query($con,"SELECT * from supervisors where TYPE='Contractor'")
     </table>
     <?php
 
+    audit_traii("Viewed All Contractors");
+
+
     mysqli_close($con); 
 		
 ?>

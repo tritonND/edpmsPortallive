@@ -61,6 +61,9 @@ else{
 }
 
 }
+
+audit_traii("Approved a Certificate");
+
 mysqli_close($con)
     
 		

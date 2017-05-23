@@ -77,7 +77,13 @@ else{
     echo "error";
 }
         }
-                mysqli_close($con)
+
+
+
+    audit_traii("Added Variations");
+
+
+mysqli_close($con)
     
 		
 

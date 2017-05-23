@@ -50,8 +50,10 @@ require_once("dbconnect.php");
         {
             echo "error";
         }
-        
-        mysqli_close($con);
+
+audit_traii("Deleted a User");
+
+mysqli_close($con);
         
 	
 

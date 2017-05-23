@@ -23,6 +23,9 @@ $result=mysqli_query($con, "SELECT ACTIVE FROM supervisors where EMAIL='$email' 
       }
      
      mysqli_free_result($result);
-			mysqli_close($con);           
+
+audit_traii("Performed a Blacklist Operation");
+
+mysqli_close($con);
 
 ?>
