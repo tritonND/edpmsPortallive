@@ -10,6 +10,8 @@ require_once ("../dbconnect.php");
    echo "<tr>";
    echo "<th>LGA</th>";
    echo "<th>PROJECT SUM</th>";
+   echo "<th>CERTIFICATES PAID</th>";
+   echo "<th>OUTSTANDING PAYMENTS</th>";
    echo "</tr>";
    echo "</thead>";
    echo "<tbody>";

@@ -224,7 +224,9 @@ if(  mysqli_num_rows($results) >0)
 
              <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                <span class="count_top"><i class="fa fa-user"></i> Choose Year </span>
-              <div>
+                 <span>
+
+              <div class="col-sm-5" >
                <select  data-style="btn-primary" id="yearoption" onchange="myfunc()">
                         <option value="<?php echo date('Y')?>" selected> <?php echo date('Y')?></option>
                         <option value="2016">2016</option>
@@ -238,6 +240,23 @@ if(  mysqli_num_rows($results) >0)
                         <option value="2008">2008</option>
                     </select>
               </div>
+Range
+
+                 <div class="col-sm-5" >
+                     <select  data-style="btn-primary" id="yearoption" onchange="myfunc()">
+                         <option value="<?php echo date('Y')?>" selected> <?php echo date('Y')?></option>
+                         <option value="2016">2016</option>
+                         <option value="2015">2015</option>
+                         <option value="2014">2014</option>
+                         <option value="2013">2013</option>
+                         <option value="2012">2012</option>
+                         <option value="2011">2011</option>
+                         <option value="2010">2010</option>
+                         <option value="2009">2009</option>
+                         <option value="2008">2008</option>
+                     </select>
+                 </div>
+                 </span>
             </div>
 
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
@@ -730,24 +749,38 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
     <thead class="bg-orange">
         <tr>
             <th  style="text-transform: uppercase;">MDA</th>
-            <th style="text-transform: uppercase;">Project Sum</th>   
+            <th style="text-transform: uppercase;">Project Sum</th>
+            <th style="text-transform: uppercase;">Certificates Paid</th>
+            <th style="text-transform: uppercase;">Outstanding Payments</th>
         </tr>
     </thead>
     <?php
     //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
     $yr = date('Y');
-       $query1 = "SELECT procuringentity, sum(contractsum) FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' GROUP BY procuringentity LIMIT 5";
-            
-      $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
+     //  $query1 = "SELECT procuringentity, sum(contractsum) FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' GROUP BY procuringentity LIMIT 5";
+   $conn = mysqli_connect("localhost", "root", "minowss", "edpms");
+    //$query1 = "CALL myProc()";
+    $query1 = "CALL myProc3('".$yr."')";
+      $result = mysqli_query($conn, $query1) or die('Query fail: ' . mysqli_error());
     ?>
     <tbody>
       <?php while ($row = mysqli_fetch_array($result)) { ?>
           <tr>
-            <td  style="text-transform: uppercase;"><?php echo $row[0]; ?></td>
-            <td class="currency-format" style="text-transform: uppercase;"><?php echo $row[1]; ?></td>
-           
+              <td  style="text-transform: uppercase;"><?php echo $row[0]; ?></td>
+              <td  class="currency-format" style="text-transform: uppercase;"><?php
+                  if (is_null($row[3]))
+                      echo $row[1];
+                  else { echo ($row[1] + $row[3]);}
+                  ?></td>
+              <td  class="currency-format" style="text-transform: uppercase;"><?php echo $row[2]; ?></td>
+              <td  class="currency-format" style="text-transform: uppercase;"><?php
+                  if (is_null($row[3])){
+                      echo ($row[1] - $row[2]);
+                  }
+                  else{  echo (($row[1] + $row[3])  - $row[2]);  }
+                  ?></td>
           </tr>
-      <?php } ?>
+      <?php } $conn->close() ?>
     </tbody>
 </table>                               
        </div>
@@ -848,24 +881,38 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
     <thead class="bg-blue">
         <tr>
             <th  style="text-transform: uppercase;">LGA</th>
-            <th style="text-transform: uppercase;">Project Sum</th>   
+            <th style="text-transform: uppercase;">Project Sum</th>
+            <th style="text-transform: uppercase;">Certificates Paid</th>
+            <th style="text-transform: uppercase;">Outstanding Payments</th>
         </tr>
     </thead>
     <?php
     //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
     $yr = date('Y');
-       $query1 = "SELECT lga, sum(contractsum) FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' GROUP BY lga LIMIT 5";
-            
-      $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
+      // $query1 = "SELECT lga, sum(contractsum) FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' GROUP BY lga LIMIT 5";
+    $conn = mysqli_connect("localhost", "root", "minowss", "edpms");
+    $query1 = "CALL myProc2('".$yr."')";
+
+    $result = mysqli_query($conn, $query1) or die('Query fail: ' . mysqli_error());
     ?>
     <tbody>
       <?php while ($row = mysqli_fetch_array($result)) { ?>
           <tr>
             <td  style="text-transform: uppercase;"><?php echo $row[0]; ?></td>
-            <td  class="currency-format" style="text-transform: uppercase;"><?php echo $row[1]; ?></td>
-           
+            <td  class="currency-format" style="text-transform: uppercase;"><?php
+                if (is_null($row[3]))
+                echo $row[1];
+                else { echo ($row[1] + $row[3]);}
+                ?></td>
+              <td  class="currency-format" style="text-transform: uppercase;"><?php echo $row[2]; ?></td>
+              <td  class="currency-format" style="text-transform: uppercase;"><?php
+                  if (is_null($row[3])){
+                      echo ($row[1] - $row[2]);
+                  }
+                  else{  echo (($row[1] + $row[3])  - $row[2]);  }
+                  ?></td>
           </tr>
-      <?php } ?>
+      <?php } $conn->close(); ?>
     </tbody>
 </table>      
                                 </div>

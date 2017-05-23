@@ -23,7 +23,7 @@ else{
 <!DOCTYPE html>
 <?php
 
-include './php/dbconnect.php';
+//include './php/dbconnect.php';
 //session_start();
 //if(isset($_SESSION['firstname']))
 //{
@@ -44,7 +44,7 @@ include './php/dbconnect.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>EDPMS | EDPMS</title>
+    <title>EDPMS | All Project Sum by MDA</title>
 
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -229,9 +229,11 @@ include './php/dbconnect.php';
                                     
     <table id="myTable" class="table table-condensed table-striped table-bordered table-hover">
         <thead class="bg-primary">
-            <tr >      
-            <th>MDA</th>  
-            <th>Contract Sum</th>        
+            <tr >
+                <th  style="text-transform: uppercase;">MDA</th>
+                <th style="text-transform: uppercase;">Project Sum</th>
+                <th style="text-transform: uppercase;">Certificates Paid</th>
+                <th style="text-transform: uppercase;">Outstanding Payments</th>
         </tr>
       </thead>
     <?php
@@ -239,12 +241,16 @@ include './php/dbconnect.php';
   // require_once 'dbconfig.php';           		
       //      $query = "SELECT `PROJECTID`, `PROCURINGENTITY`, `TITLE`, `DESCRIPTION`, `STATUS`, `LOCATION`, `LGA`,  `CONTRACTSUM` FROM `projectdetails` ";
 
-       $query = "SELECT procuringentity, sum(contractsum) FROM projectdetails GROUP BY procuringentity";
-         $result = mysqli_query($con, $query) or die('Query fail: ' . mysqli_error($con));
+    //   $query = "SELECT procuringentity, sum(contractsum) FROM projectdetails GROUP BY procuringentity";
+    //     $result = mysqli_query($con, $query) or die('Query fail: ' . mysqli_error($con));
         
         // $stmt = $DBcon->prepare( $query );
          //   $stmt->execute();
-           
+
+    $conn = mysqli_connect("localhost", "root", "minowss", "edpms");
+    $query1 = "CALL myProc()";
+    // $query1 = "CALL myProc3('".$yr."')";
+    $result = mysqli_query($conn, $query1) or die('Query fail: ' . mysqli_error());
 
 
     //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
@@ -257,14 +263,21 @@ include './php/dbconnect.php';
        //while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
       ?>
           <tr>
-           
-            <td style="text-transform: uppercase"><?php echo $row[0]; ?></td>
-            <td class="currency-format" style="text-transform: capitalize"><?php echo $row[1]; ?></td>
-           
-  
-          
+              <td  style="text-transform: uppercase;"><?php echo $row[0]; ?></td>
+              <td  class="currency-format" style="text-transform: uppercase;"><?php
+                  if (is_null($row[3]))
+                      echo $row[1];
+                  else { echo ($row[1] + $row[3]);}
+                  ?></td>
+              <td  class="currency-format" style="text-transform: uppercase;"><?php echo $row[2]; ?></td>
+              <td  class="currency-format" style="text-transform: uppercase;"><?php
+                  if (is_null($row[3])){
+                      echo ($row[1] - $row[2]);
+                  }
+                  else{  echo (($row[1] + $row[3])  - $row[2]);  }
+                  ?></td>
           </tr>
-      <?php } ?>
+      <?php } $conn->close(); ?>
     </tbody>
 </table>                            
        </div>

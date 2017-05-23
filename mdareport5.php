@@ -229,26 +229,43 @@ else{
     <table id="myTable" class="table table-condensed table-striped table-bordered table-hover">
         <thead class="bg-primary">
             <tr >
-             <th>LGA</th>    
-            <th>Contract Sum</th>
-             
+                <th  style="text-transform: uppercase;">LGA</th>
+                <th style="text-transform: uppercase;">Project Sum</th>
+                <th style="text-transform: uppercase;">Certificates Paid</th>
+                <th style="text-transform: uppercase;">Outstanding Payments</th>
         </tr>
       </thead>
     <?php
     //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
    //    $query1 = "SELECT `PROJECTID`, `PROCURINGENTITY`, `TITLE`, `DESCRIPTION`, `STATUS`, `LOCATION`, `LGA`, `DATEOFAWARD`, `DURATIONOFCONTRACT`,  `CONTRACTSUM` FROM `projectdetails` ";
 
-       $query1 = "SELECT lga, sum(contractsum) FROM projectdetails GROUP BY lga";       
-      $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
+    $conn = mysqli_connect("localhost", "root", "minowss", "edpms");
+    $query1 = "CALL myProc1()";
+   // $query1 = "CALL myProc3('".$yr."')";
+    $result = mysqli_query($conn, $query1) or die('Query fail: ' . mysqli_error());
+
+
+      // $query1 = "SELECT lga, sum(contractsum) FROM projectdetails GROUP BY lga";
+      //$result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
     ?>
     <tbody>
       <?php while ($row = mysqli_fetch_array($result)) { ?>
           <tr>
-            <td style="text-transform: uppercase"><?php echo $row[0]; ?></td>
-            <td class="currency-format" style="text-transform: uppercase"><?php echo $row[1]; ?></td>
-                      
+              <td  style="text-transform: uppercase;"><?php echo $row[0]; ?></td>
+              <td  class="currency-format" style="text-transform: uppercase;"><?php
+                  if (is_null($row[3]))
+                      echo $row[1];
+                  else { echo ($row[1] + $row[3]);}
+                  ?></td>
+              <td  class="currency-format" style="text-transform: uppercase;"><?php echo $row[2]; ?></td>
+              <td  class="currency-format" style="text-transform: uppercase;"><?php
+                  if (is_null($row[3])){
+                      echo ($row[1] - $row[2]);
+                  }
+                  else{  echo (($row[1] + $row[3])  - $row[2]);  }
+                  ?></td>
           </tr>
-      <?php } ?>
+      <?php } $conn->close(); ?>
     </tbody>
 </table>                            
        </div>
