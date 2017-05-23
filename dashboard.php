@@ -27,7 +27,9 @@ else{
 ?>
 
 <!DOCTYPE html>
-
+<?php
+//include 'php/dbconnect.php';
+?>
 <html lang="en">
 
   <head>
@@ -223,9 +225,10 @@ if(  mysqli_num_rows($results) >0)
  <div class="row tile_count" style="font-family: 'Montserrat', sans-serif;">
 
              <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-               <span class="count_top"><i class="fa fa-user"></i> Choose Year </span>
-                 <span>
+               <span class="count_top"><i class="fa fa-user"></i> Choose Year Range </span>
 
+                 <span>
+                     <div >  </div>
               <div class="col-sm-5" >
                <select  data-style="btn-primary" id="yearoption" onchange="myfunc()">
                         <option value="<?php echo date('Y')?>" selected> <?php echo date('Y')?></option>
@@ -240,10 +243,10 @@ if(  mysqli_num_rows($results) >0)
                         <option value="2008">2008</option>
                     </select>
               </div>
-Range
 
+                     <div class="col-sm-2" >to </div>
                  <div class="col-sm-5" >
-                     <select  data-style="btn-primary" id="yearoption" onchange="myfunc()">
+                     <select  data-style="btn-primary" id="yearoption2" onchange="myfunc2()" disabled>
                          <option value="<?php echo date('Y')?>" selected> <?php echo date('Y')?></option>
                          <option value="2016">2016</option>
                          <option value="2015">2015</option>
@@ -257,6 +260,7 @@ Range
                      </select>
                  </div>
                  </span>
+
             </div>
 
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
@@ -320,7 +324,7 @@ Range
 
 
                 <div class="col-md-4 col-sm-6 col-xs-6 tile_stats_count">
-                    <span class="count_top"><i class="fa fa-user"></i>Percentage Payments(%) </span>
+                    <span class="count_top"><i class="fa fa-user"></i>Percentage Payment(%) </span>
                     <div id="projfund4" class="count green currency-format" style="font-size: xx-large">
                         <?php
                         echo  (($row1[3] / ($row1[2] + $row1[4])) * 100 );
@@ -373,8 +377,7 @@ Range
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart">
-
-                                    <div id="years"><?php echo "Data retrieved for "; echo date('Y');   ?></div>
+                     <div id="years"><?php echo "Data retrieved for "; echo date('Y');   ?></div>
         <table id="table1" class="table table-striped table-bordered table-hover">
         <thead class="bg-primary">
             <tr>
@@ -605,14 +608,13 @@ Range
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart">
-
-                                    <div id="years1"><?php echo "Data retrieved for "; echo date('Y');   ?></div>
+                     <div id="years1"><?php echo "Data retrieved for "; echo date('Y');   ?></div>
                 <table id="table7" class="table table-striped table-bordered table-hover">
     <thead class="bg-blue-sky">
         <tr>
             <th  style="text-transform: uppercase;">Project ID</th>
 			<th  style="text-transform: uppercase;">Total Project Sum</th>
-            <th style="text-transform: uppercase;">Fund Disbursed</th>
+            <th style="text-transform: uppercase;">Certificates Paid</th>
             <th style="text-transform: uppercase;">Outstanding Payment</th>
         </tr>
     </thead>
@@ -666,6 +668,7 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
                         </div>
                     </div>
 
+
   <!-- card 2 -->
           <div class="col-lg-6 col-sm-6">
                         <div style="background-color: #BEC4D1;" class="card ">
@@ -675,7 +678,6 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart">
-
 
    <table id="table8" class="table table-striped table-bordered table-hover">
         <thead class="bg-info">
@@ -721,8 +723,8 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
                             </div>
                         </div>
                     </div>
-            </div>
-
+            </div> 
+				
 				
 				
 				
@@ -743,7 +745,6 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart">
-
                                     <div id="years2"><?php echo "Data retrieved for "; echo date('Y');   ?></div>
                 <table id="table2" class="table table-striped table-bordered table-hover">
     <thead class="bg-orange">
@@ -756,31 +757,35 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
     </thead>
     <?php
     //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
+
     $yr = date('Y');
-     //  $query1 = "SELECT procuringentity, sum(contractsum) FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' GROUP BY procuringentity LIMIT 5";
-   $conn = mysqli_connect("localhost", "root", "minowss", "edpms");
+    //  $query1 = "SELECT procuringentity, sum(contractsum) FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' GROUP BY procuringentity LIMIT 5";
+    $conn = mysqli_connect("localhost", "root", "", "edpms");
     //$query1 = "CALL myProc()";
     $query1 = "CALL myProc3('".$yr."')";
-      $result = mysqli_query($conn, $query1) or die('Query fail: ' . mysqli_error());
+    $result = mysqli_query($conn, $query1) or die('Query fail: ' . mysqli_error());
+  //  $yr = date('Y');
+     //  $query1 = "SELECT procuringentity, sum(contractsum) FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' GROUP BY procuringentity LIMIT 5";
+    //  $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
     ?>
     <tbody>
-      <?php while ($row = mysqli_fetch_array($result)) { ?>
-          <tr>
-              <td  style="text-transform: uppercase;"><?php echo $row[0]; ?></td>
-              <td  class="currency-format" style="text-transform: uppercase;"><?php
-                  if (is_null($row[3]))
-                      echo $row[1];
-                  else { echo ($row[1] + $row[3]);}
-                  ?></td>
-              <td  class="currency-format" style="text-transform: uppercase;"><?php echo $row[2]; ?></td>
-              <td  class="currency-format" style="text-transform: uppercase;"><?php
-                  if (is_null($row[3])){
-                      echo ($row[1] - $row[2]);
-                  }
-                  else{  echo (($row[1] + $row[3])  - $row[2]);  }
-                  ?></td>
-          </tr>
-      <?php } $conn->close() ?>
+    <?php while ($row = mysqli_fetch_array($result)) { ?>
+        <tr>
+            <td  style="text-transform: uppercase;"><?php echo $row[0]; ?></td>
+            <td  class="currency-format" style="text-transform: uppercase;"><?php
+                if (is_null($row[3]))
+                    echo $row[1];
+                else { echo ($row[1] + $row[3]);}
+                ?></td>
+            <td  class="currency-format" style="text-transform: uppercase;"><?php echo $row[2]; ?></td>
+            <td  class="currency-format" style="text-transform: uppercase;"><?php
+                if (is_null($row[3])){
+                    echo ($row[1] - $row[2]);
+                }
+                else{  echo (($row[1] + $row[3])  - $row[2]);  }
+                ?></td>
+        </tr>
+    <?php } $conn->close() ?>
     </tbody>
 </table>                               
        </div>
@@ -810,7 +815,6 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart">
-
                                     <div id="years3"><?php echo "Data retrieved for "; echo date('Y');   ?></div>
    <table id="table3" class="table table-striped table-bordered table-hover">
         <thead class="bg-info">
@@ -857,10 +861,10 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
                     </div>
             </div> 
                
-          <div class="clearfix"></div>
+          <div class="clearfix"></div>                      
             </div>
-
-
+            
+            
             <!--  Another Row here -->
             
                 <div class="col-sm-12 col-lg-12">
@@ -875,8 +879,7 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart">
-
-                                    <div id="years4"><?php echo "Data retrieved for "; echo date('Y');  ?></div>
+                                    <div id="years4"><?php echo "Data retrieved for "; echo date('Y');   ?></div>
     <table id="table4" class="table table-striped table-bordered table-hover">
     <thead class="bg-blue">
         <tr>
@@ -889,21 +892,23 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
     <?php
     //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
     $yr = date('Y');
-      // $query1 = "SELECT lga, sum(contractsum) FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' GROUP BY lga LIMIT 5";
-    $conn = mysqli_connect("localhost", "root", "minowss", "edpms");
+
+    $conn = mysqli_connect("localhost", "root", "", "edpms");
     $query1 = "CALL myProc2('".$yr."')";
 
     $result = mysqli_query($conn, $query1) or die('Query fail: ' . mysqli_error());
+     //  $query1 = "SELECT lga, sum(contractsum) FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' GROUP BY lga LIMIT 5";
+     // $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
     ?>
     <tbody>
       <?php while ($row = mysqli_fetch_array($result)) { ?>
           <tr>
-            <td  style="text-transform: uppercase;"><?php echo $row[0]; ?></td>
-            <td  class="currency-format" style="text-transform: uppercase;"><?php
-                if (is_null($row[3]))
-                echo $row[1];
-                else { echo ($row[1] + $row[3]);}
-                ?></td>
+              <td  style="text-transform: uppercase;"><?php echo $row[0]; ?></td>
+              <td  class="currency-format" style="text-transform: uppercase;"><?php
+                  if (is_null($row[3]))
+                      echo $row[1];
+                  else { echo ($row[1] + $row[3]);}
+                  ?></td>
               <td  class="currency-format" style="text-transform: uppercase;"><?php echo $row[2]; ?></td>
               <td  class="currency-format" style="text-transform: uppercase;"><?php
                   if (is_null($row[3])){
@@ -943,9 +948,7 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart">
-
-
-                                    <div id="years5"><?php echo "Data retrieved for "; echo date('Y');  ?></div>
+                                    <div id="years5"><?php echo "Data retrieved for "; echo date('Y');   ?></div>
        <table id="table5" class="table table-striped table-bordered table-hover">
     <thead class="bg-blue-sky">
         <tr>
@@ -1050,7 +1053,6 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
  $(document).on("change", "#yearoption", function(event)
     {
       var yr = $('#yearoption').val();
-
         document.getElementById("years").innerHTML = "Data retrieved for " + yr;
         document.getElementById("years1").innerHTML = "Data retrieved for " + yr;
         document.getElementById("years2").innerHTML = "Data retrieved for " + yr;
@@ -1498,41 +1500,6 @@ var x01 = $.ajax({
      });
 
 
-     var x07 = $.ajax({
-         type: "POST",
-         url: 'php/oth/reportSrc07.php',
-         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-         data: "yr=" + encodeURIComponent(yr),
-         dataType: "text"
-     });
-
-     x07.done(function(serverResponse)
-     {
-         var servervalue=serverResponse.trim();
-         if(servervalue=='error')
-         {
-             //swal("Error!", "An error occured, please try again later ", "error");
-         }
-
-         else
-         {
-             $('#projfund4').html(serverResponse.trim());
-             var pf = kendo.toString(kendo.parseFloat($('#projfund').text().trim()), 'n2');
-             $('#projfund').text(pf);
-             //console.log(pf
-
-             $('.currency-format').each(function(index, element) {
-                 $(element).text(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
-                 console.log(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
-             });
-         }
-     });
-
-     x07.fail(function(){
-         // swal("Server Error!", "Server could not process this request, please try again later!", "error");
-     });
-
-
 
  });
 
@@ -1562,7 +1529,8 @@ $(document).ready(function(){
 </script>
 
         <?php
-        audit_traii("viewed Dashboard");
+
+    audit_traii("Viewed Dashboard.");
         ?>
   
   </body>

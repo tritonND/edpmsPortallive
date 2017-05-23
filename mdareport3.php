@@ -23,7 +23,7 @@ else{
 <!DOCTYPE html>
 <?php
 
-include './php/dbconnect.php';
+//include './php/dbconnect.php';
 // "edpms") or die ("Error in Connection");
 ?>
 <html lang="en">

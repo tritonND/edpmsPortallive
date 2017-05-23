@@ -44,7 +44,7 @@ $mda = $row2[1];
     }
     
 //run insert query now
-mysqli_query($con, "insert into variations (PROJECTID,DATEISSUED,AMOUNT,COMMENTS,URL, MDA, LGA) values('$projectid','$datee','$amount','$comment','$prop_pic', $mda, $lga)");
+mysqli_query($con, "insert into variations (PROJECTID,DATEISSUED,AMOUNT,COMMENTS,URL, MDA, LGA) values('$projectid','$datee','$amount','$comment','$prop_pic', '$mda', '$lga')");
 if(mysqli_affected_rows($con)>0)
 {
 $result = mysqli_query($con,"SELECT * from variations where PROJECTID='$projectid'");

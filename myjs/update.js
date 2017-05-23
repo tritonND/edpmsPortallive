@@ -189,7 +189,8 @@ $(document).ready(function()
         {
             $('#certificateprojectid').html(dataid);
             $('#certtable').html(serverResponse.trim());
-            var buttonlink='http://localhost:82/edpms/certificates.php?id='+dataid;
+            var buttonlink='/edpms/certificates.php?id='+dataid;
+           // var buttonlink='http://localhost:82/edpms/certificates.php?id='+dataid;
             $('#addcertbutton').attr("href",buttonlink);
             $('#certificatesmodal').modal('show');
 

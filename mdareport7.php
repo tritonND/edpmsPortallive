@@ -220,10 +220,10 @@ else{
     <table id="myTable" class="table table-condensed table-striped table-bordered table-hover">
         <thead class="bg-primary">
          <tr>
-            <th>ProjectID</th>
-            <th>Contract Sum</th>
-            <th>Total Certificate</th>
-            <th>Total Variation</th>
+            <th>PROJECTID</th>
+            <th>PROJECT SUM</th>
+            <th>TOTAL CERTIFICATES PAID</th>
+            <th>TOTAL VARIATIONS</th>
              <th>Action</th>
         </tr>
       </thead>

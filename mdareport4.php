@@ -44,7 +44,7 @@ else{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>EDPMS | All Project Sum by MDA</title>
+    <title>EDPMS | Project Financials By MDA</title>
 
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -242,15 +242,17 @@ else{
       //      $query = "SELECT `PROJECTID`, `PROCURINGENTITY`, `TITLE`, `DESCRIPTION`, `STATUS`, `LOCATION`, `LGA`,  `CONTRACTSUM` FROM `projectdetails` ";
 
     //   $query = "SELECT procuringentity, sum(contractsum) FROM projectdetails GROUP BY procuringentity";
-    //     $result = mysqli_query($con, $query) or die('Query fail: ' . mysqli_error($con));
+      //   $result = mysqli_query($con, $query) or die('Query fail: ' . mysqli_error($con));
         
         // $stmt = $DBcon->prepare( $query );
          //   $stmt->execute();
 
-    $conn = mysqli_connect("localhost", "root", "minowss", "edpms");
+
+    $conn = mysqli_connect("localhost", "root", "", "edpms");
     $query1 = "CALL myProc()";
     // $query1 = "CALL myProc3('".$yr."')";
     $result = mysqli_query($conn, $query1) or die('Query fail: ' . mysqli_error());
+
 
 
     //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');

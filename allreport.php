@@ -55,10 +55,10 @@ else
  echo " <table id=\"myTable\" class=\"table table-striped table-bordered table-hover\">";
    echo "<thead class=\"bg-primary\">";
    echo "<tr>";
-   echo "<th>PROJECT ID</th>";
+   echo "<th>Project ID</th>";
    echo "<th>MDA</th>";
-   echo "<th>PROJECT TITLE</th>";
-   echo "<th>DESCRIPTION</th>";
+   echo "<th>Project Title</th>";
+   echo "<th>Description</th>";
    echo "<th>LGA</th>";
    echo "<th>Action</th>";
    echo "</tr>";

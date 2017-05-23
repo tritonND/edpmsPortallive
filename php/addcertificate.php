@@ -12,6 +12,9 @@ $row2 = mysqli_fetch_array($result2);
 $lga = $row2[0];
 $mda = $row2[1];
 
+//echo $lga;
+//echo $mda;
+
 $result=mysqli_query($con, "select * from certificates where CERTNUMBER='$certno' ");
 if(mysqli_num_rows($result)>0)
 {
@@ -47,7 +50,7 @@ else
       
     }
     
-    $result=mysqli_query($con, "insert into certificates (PROJECTID,CERTNUMBER,DATEISSUED,AMOUNT,STATUS,URL, MDA, LGA) values('$projectid','$certno','$dateissued','$amount','$status','$prop_pic', $mda, $lga)");
+    $result=mysqli_query($con, "insert into certificates (PROJECTID,CERTNUMBER,DATEISSUED,AMOUNT,STATUS,URL, MDA, LGA) values('$projectid','$certno','$dateissued','$amount','$status','$prop_pic', '$mda', '$lga')");
        $rowcount=mysqli_affected_rows($con);
        if($rowcount>0)
        {

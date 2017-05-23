@@ -30,7 +30,7 @@ else{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>EDPMS | EDPMS</title>
+    <title>EDPMS | All Contractors Directory</title>
 
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -177,8 +177,18 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
 });
 </script>
+
+
+    <?php
+    audit_traii("Viewed All Contractors Directory");
+    ?>
+
+
+
   <script src="js/spin.min.js"></script>
     <script src="js/sweetalert.min.js"></script>
     <script src="myjs/contractor.js"></script>
+
+
   </body>
 </html>
