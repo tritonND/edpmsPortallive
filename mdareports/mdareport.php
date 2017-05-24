@@ -1,5 +1,11 @@
 <?php
-include './php/dbconnect.php';
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+header("Pragma: no-cache"); // HTTP 1.0.
+header("Expires: 0"); 
+?>
+
+<?php
+include 'php/dbconnect.php';
 
 session_start();
 if(isset($_SESSION['privileges']))
@@ -19,8 +25,21 @@ else{
     header("Location: index.php");
 }
 ?>
-<!DOCTYPE html>
 
+<!DOCTYPE html>
+<?php
+//include './php/dbconnect.php';
+//session_start();
+//if(isset($_SESSION['firstname']))
+//{
+//$username=$_SESSION['firstname'];
+//}
+//else{
+//    header("Location: index.php");
+//}
+
+
+?>
 <html lang="en">
 
   <head>
@@ -30,7 +49,7 @@ else{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>EDPMS | All Project Reports by LGA </title>
+    <title>EDPMS | Report Summary</title>
 
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -41,12 +60,15 @@ else{
     
     <!-- Custom styling plus plugins -->
  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
- <link href="https://fonts.googleapis.com/css?family=Montserrat:400" rel="stylesheet"> 
-
     <link href="build/css/custom.min.css" rel="stylesheet">
 
  <link href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet">
   <link href="css/jquery.dataTables.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400" rel="stylesheet">
+      <link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"  rel="stylesheet">
+      <link href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.dataTables.min.css"  rel="stylesheet">
+
    
     
     <style>
@@ -58,7 +80,8 @@ else{
   margin-bottom: 20px;
   position: relative;
   z-index: 1;
-  font-family: 'Ubuntu', sans-serif;
+  /*font-family: 'Ubuntu', sans-serif; */ 
+  font-family: 'Montserrat', sans-serif;
   height : 100%;
 }
         
@@ -167,6 +190,15 @@ else{
   padding-right: 15px;
 }
     </style>
+	
+	 <!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="js/kendo.core.min.js"></script>
+	
+	
+	
   </head>
 
   <body style="font-family: 'Montserrat', sans-serif;"  class="nav-md">
@@ -185,7 +217,7 @@ else{
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>All Projects Reports By LGA </h3>
+                <h3>All Projects Reports </h3>
               </div>
 
        <!--       <div class="title_right">
@@ -204,57 +236,76 @@ else{
 
             <div style="" class="col-sm-12">
            
-               
+                <div class="title_left">
+                <span> <h4>Choose Project Year to View Report</h4>
+               <select class="selectpicker" data-width = "fit" data-style="btn-info" id="yearoption" >
+                        <option value="0">All</option>
+                        <option selected value="<?php echo date('Y')?>"> <?php echo date('Y')?></option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                        <option value="2011">2011</option>
+                        <option value="2010">2010</option>
+                        <option value="2009">2009</option>
+                        <option value="2008">2008</option>
+                    </select>
+                 </span> 
+              </div>
+
                 <div class="row">
             <div class="col-sm-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Projects Grouped By LGA</h4>
+                                <h4 class="title">Projects Summary </h4>
                                 <p class="category">All MDAs Projects </p>
                             </div>
+
+
     <div class="content table-responsive">
     <div id="chartActivity" class="ct-chart">
-                                    
+
+
     <table id="myTable" class="table table-condensed table-striped table-bordered table-hover">
         <thead class="bg-primary">
-            <tr >      
-            <th>LGA</th>  
-            <th>Number of Projects</th>        
+            <tr >
+            <th>Project ID</th>
+            <th>MDA</th>  
+            <th>Project Title</th>
+            <th>Description</th>
+            <th>LGA</th>
+            <th>Action</th>
         </tr>
       </thead>
     <?php
 
-  // require_once 'dbconfig.php';           		
-      //      $query = "SELECT `PROJECTID`, `PROCURINGENTITY`, `TITLE`, `DESCRIPTION`, `STATUS`, `LOCATION`, `LGA`,  `CONTRACTSUM` FROM `projectdetails` ";
+       $yr = date('Y');
+            require_once 'dbconfig.php';
+            $query = "SELECT `PROJECTID`, `PROCURINGENTITY`, `TITLE`, `DESCRIPTION`, `LGA` FROM `projectdetails` WHERE YEAR(DATEOFAWARD)='".$yr."' ";
 
-       $query = "SELECT lga, count(*) FROM projectdetails GROUP BY LGA";
-         $result = mysqli_query($con, $query) or die('Query fail: ' . mysqli_error());
-        
-        // $stmt = $DBcon->prepare( $query );
-         //   $stmt->execute();
-           
+            $stmt = $DBcon->prepare( $query );
+            $stmt->execute();
 
-
-    //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
-      // $query1 = "SELECT `PROJECTID`, `PROCURINGENTITY`, `TITLE`, `DESCRIPTION`, `STATUS`, `LOCATION`, `LGA`,  `CONTRACTSUM` FROM `projectdetails` ";
-            
-    //  $result = mysqli_query($conn, $query1) or die('Query fail: ' . mysqli_error());
     ?>
     <tbody>
-      <?php while ($row = mysqli_fetch_array($result)) { 
-       //while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
+      <?php //while ($row = mysqli_fetch_array($result)) {
+       while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
       ?>
           <tr>
-           
-            <td style="text-transform: uppercase"><?php echo $row[0]; ?></td>
-            <td style="text-transform: capitalize"><?php echo $row[1]; ?></td>
-           
-  
+            <td style="text-transform: uppercase"><?php echo $row['PROJECTID']; ?></td>
+            <td style="text-transform: uppercase"><?php echo $row['PROCURINGENTITY']; ?></td>
+            <td style="text-transform: uppercase"><?php echo $row['TITLE']; ?></td>
+            <td style="text-transform: uppercase"><?php echo $row['DESCRIPTION']; ?></td>
+            <td style="text-transform: uppercase"> <?php echo $row['LGA']; ?></td>
+           <td>
+     <button data-toggle="modal" data-target="#view-modal" data-id="<?php echo $row['PROJECTID']; ?>" id="getUser" class="btn btn-sm btn-info"> View</button>
+     </td>
           
           </tr>
       <?php } ?>
     </tbody>
-</table>                            
+</table>
        </div>
                         <div class="footer">
                             <div class="chart-legend">
@@ -283,9 +334,116 @@ else{
             
             <!--  Another Row here -->
             
+ <div class="col-sm-12">
+           
+               
+                <div class="row">
+            <div class="col-sm-6">
+                        <div style="background-color: #DDEEAA;" class="card ">
+                            <div class="header">
+                                <h4 class="title">Projects By LGA</h4>
+                                <p class="category">LGA Projects Summary</p>
+                            </div>
+                            <div class="content">
+                                <div id="chartActivity" class="ct-chart">
+                                <table class="table table-striped table-bordered table-hover">
+    <thead class="bg-warning">
+        <tr>
+            <th>Title</th>
+            <th>LGA</th>  
+            <th>Award Date</th>  
+        </tr>
+    </thead>
+    <?php
+    //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
+       $query1 = "SELECT title, lga, dateofaward FROM projectdetails ORDER BY DATEOFAWARD DESC LIMIT 5";
+            
+      $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
+    ?>
+    <tbody>
+      <?php while ($row = mysqli_fetch_array($result)) { ?>
+          <tr>
+            <td style="text-transform: capitalize"><?php echo $row[0]; ?></td>
+            <td style="text-transform: uppercase"><?php echo $row[1]; ?></td>
+            <td><?php echo $row[2]; ?></td>
+           
+          </tr>
+      <?php } ?>
+    </tbody>
+   </table>
+                                </div>
+
+                                <div class="footer">
+                                    <div class="chart-legend">
+                                        <!--
+                                        <i class="fa fa-circle text-info"></i> Tesla Model S
+                                        <i class="fa fa-circle text-warning"></i> BMW 5 Series  
+                                          <input type="button" class="btn btn-warning" value="View All" > 
+                                           -->
+                                    </div>
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="ti-check"></i> Data information certified
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
-              <!-- end Col sm 12 -->
+  <!-- card 2 -->
+          <div class="col-sm-6">
+                        <div style="background-color: #DDEEDC;" class="card ">
+                            <div class="header">
+                                <h4 class="title">Projects By MDA</h4>
+                                <p class="category">All MDAs Projects</p>
+                            </div>
+                            <div class="content">
+                                <div id="chartActivity" class="ct-chart">
+                                    
+                                    
+    <table class="table table-striped table-bordered table-hover">
+    <thead class="bg-success">
+        <tr>
+            <th>Title</th>
+            <th>MDA</th>  
+            <th>Contract Sum</th>  
+        </tr>
+    </thead>
+    <?php
+    //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
+       $query1 = "SELECT title, procuringentity, contractsum FROM projectdetails ORDER BY DATEOFAWARD DESC LIMIT 5";
+      $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
+    ?>
+    <tbody>
+      <?php while ($row = mysqli_fetch_array($result)) { ?>
+          <tr>
+            <td style="text-transform: capitalize"><?php echo $row[0]; ?></td>
+            <td style="text-transform: uppercase"><?php echo $row[1]; ?></td>
+            <td class="currency-format"><?php echo $row[2]; ?></td>
+          </tr>
+      <?php } ?>
+    </tbody>
+</table>
+
+        </div>
+
+                                <div class="footer">
+                                    <div class="chart-legend">
+
+                                    </div>
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="ti-check"></i> Data information certified
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>                
+           
+                </div>  <!-- end Col sm 12 -->
+
              <div class="clearfix"></div>
             
      </div>
@@ -309,7 +467,7 @@ else{
 
 
   
-    <div id="view-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div id="view-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none; font-family: 'Ubuntu', sans-serif;">
              <div class="modal-dialog"> 
                  <form name="modform" id="modform">
                   <div class="modal-content"> 
@@ -341,6 +499,12 @@ else{
                                 <th>LGA</th>
                                 <td style="text-transform: uppercase" id="txt_lga"></td>
                                 </tr>
+
+
+                                 	<tr>
+                            	<th>LOCATION</th>
+                            	<td style="text-transform: uppercase" id="txt_location"></td>
+                              </tr>
 
                              	<tr>
                             	<th>MDA</th>
@@ -388,36 +552,59 @@ else{
                           </div> 
                              
                         </div> 
-              <div class="modal-footer"> 
+              <div class="modal-footer">
+                  <button type="button" id="excel" class="btn btn-primary">Export to Excel</button>
+                  <button type="button" id="pdf" class="btn btn-success">Export to PDF</button>
+                  <button type="button" id="prints" class="btn btn-info">Print</button>
                 <button type="button" class="btn btn-danger" id="ignore" data-dismiss="modal">Close</button>
       <!-- <button type="button" class="btn btn-primary" id="treat" name="treat"   data-dismiss="modal">Treat</button>-->
-              </div> 
+              </div>
+
                         
                  </div>   </form>
+
+
+
+
               </div>
        </div><!-- /.modal -->    
 
 
-    <!-- jQuery -->
-    <script src="vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+   
     <!-- FastClick -->
     <script src="vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="vendors/nprogress/nprogress.js"></script>
+
     
     <script src="http://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
      <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
 
-	  
+    <script type="text/javascript" src="https://cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/tabletools/2.2.2/swf/copy_csv_xls_pdf.swf"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.print.min.js"></script>
 
+
+
+
+    <!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
     <script src="js/searchtable.js"></script>
     <script src="js/autofilter.js"></script>
 
-	<script src="js/kendo.core.min.js"></script>
+	
     
 <script>
 	var pf = kendo.toString(kendo.parseFloat($('#projfund').text().trim()), 'n2');
@@ -430,6 +617,7 @@ else{
 	});
 	
 	</script>
+
 
 
 <script>
@@ -465,8 +653,10 @@ console.log("hiii");
 			$('#txt_lga').html(data.LGA);
       $('#txt_csum').html(data.CONTRACTSUM);
       $('#txt_awarded').html(data.DATEOFAWARD);
-	  
-	  $('.currency-format').each(function(index, element) {
+       $('#txt_location').html(data.LOCATION);
+	   
+	   
+	   $('.currency-format').each(function(index, element) {
 		  $(element).text(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
 		console.log(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
 	});
@@ -480,6 +670,8 @@ console.log("hiii");
                         formdata = data;                      
                         console.log("hii");
                         console.log(formdata);
+						
+						
                         
    $.ajax({
 			url: 'uduser.php',
@@ -498,7 +690,7 @@ console.log("hiii");
  // imageUrl: "images/thumb.png"
 },
 function(){
-  location.href="tickets.php" ;
+ // location.href="tickets.php" ;
 });
       
 
@@ -509,22 +701,75 @@ function(){
 		});
        
 	});
-        
-       
-	
+
+
+
 });
 
 </script>
 
 
 
+<script>
+
+$(document).on("change", "#yearoption", function(event)
+    {
+
+      var yr = $('#yearoption').val();
+      console.log(yr);
+ // $.post("reportScr5.php", {year: yr});
+ var x = $.ajax({
+  type: "POST",
+  url: 'allreport.php',
+  contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+  data: "yr=" + encodeURIComponent(yr),
+  dataType: "text"
+});
+
+  x.done(function(serverResponse)
+     {
+           var servervalue=serverResponse.trim();
+               if(servervalue=='error')
+               {
+                  //swal("Error!", "An error occured, please try again later ", "error");
+               }
+
+               else
+               {
+                  $('#myTable').html(serverResponse.trim());
+
+               }
+     });
+
+      x.fail(function(){
+       // swal("Server Error!", "Server could not process this request, please try again later!", "error");
+     });
+    });
+
+</script>
+
 
 
 
 <script>
-$(document).ready(function(){
-    $('#myTable').DataTable();
+$('.selectpicker').selectpicker({
+  style: 'btn-primary',
+  size: 5,
+});
+</script>
 
+<script>
+$(document).ready(function(){
+    $('#myTable').DataTable(
+        {
+            dom: 'Bfrtip',
+            lengthChange: true,
+            pageLength: 10,
+            lengthMenu: [ 10, 15, 20, 50, 100 ],
+            buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+        }
+    );
+    //"bInfo" : false
 });
 </script>
 
@@ -535,8 +780,10 @@ $(document).ready(function(){
 </script>
 
     <?php
-    audit_traii("viewed Project Details By LGA");
+    audit_traii("Viewed All Projects Report");
     ?>
-  
+
+
+
   </body>
 </html>

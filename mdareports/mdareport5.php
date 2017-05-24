@@ -297,8 +297,123 @@ else{
             
             
             <!--  Another Row here -->
+            
+                <div class="col-sm-12">
+           
+               
+                <div class="row">
+            <div class="col-sm-6">
+                        <div style="background-color: #DDEEAA;" class="card ">
+                            <div class="header">
+                                <h4 class="title">Projects By LGA</h4>
+                                <p class="category">LGA Projects Summary</p>
+                            </div>
+                            <div class="content">
+                                <div id="chartActivity" class="ct-chart">
+                                <table class="table table-striped table-bordered table-hover">
+    <thead class="bg-warning">
+        <tr>
+            <th>Title</th>
+            <th>LGA</th>  
+            <th>Award Date</th>  
+        </tr>
+    </thead>
+    <?php
+    //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
+       $query1 = "SELECT title, lga, dateofaward FROM projectdetails ORDER BY DATEOFAWARD DESC LIMIT 5";
+            
+      $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
+    ?>
+    <tbody>
+      <?php while ($row = mysqli_fetch_array($result)) { ?>
+          <tr>
+            <td><?php echo $row[0]; ?></td>
+            <td><?php echo $row[1]; ?></td>
+            <td><?php echo $row[2]; ?></td>
+           
+          </tr>
+      <?php } ?>
+    </tbody>
+</table>      
+                                </div>
 
-              <!-- end Col sm 12 -->
+                                <div class="footer">
+                                    <div class="chart-legend">
+                                        <!--
+                                        <i class="fa fa-circle text-info"></i> Tesla Model S
+                                        <i class="fa fa-circle text-warning"></i> BMW 5 Series  -->
+                                          <input type="button" class="btn btn-warning" value="View All" > 
+                                    </div>
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="ti-check"></i> Data information certified
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+  <!-- card 2 -->
+          <div class="col-sm-6">
+                        <div style="background-color: #DDEEDC;" class="card ">
+                            <div class="header">
+                                <h4 class="title">Projects By MDA</h4>
+                                <p class="category">All MDAs Projects</p>
+                            </div>
+                            <div class="content">
+                                <div id="chartActivity" class="ct-chart">
+                                    
+                                    
+                                     <table class="table table-striped table-bordered table-hover">
+    <thead class="bg-success">
+        <tr>
+            <th>Title</th>
+            <th>MDA</th>  
+            <th>Contract Sum</th>  
+        </tr>
+    </thead>
+    <?php
+    //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
+       $query1 = "SELECT title, procuringentity, contractsum FROM projectdetails ORDER BY DATEOFAWARD DESC LIMIT 5";
+            
+      $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
+    ?>
+    <tbody>
+      <?php while ($row = mysqli_fetch_array($result)) { ?>
+          <tr>
+            <td><?php echo $row[0]; ?></td>
+            <td><?php echo $row[1]; ?></td>
+            <td class="currency-format"><?php echo $row[2]; ?></td>
+           
+          </tr>
+      <?php } ?>
+    </tbody>
+</table>      
+                                    
+                                    
+                                    
+                                </div>
+
+                                <div class="footer">
+                                    <div class="chart-legend">
+                                        <!--
+                                        <i class="fa fa-circle text-info"></i> Tesla Model S
+                                        <i class="fa fa-circle text-warning"></i> BMW 5 Series
+                                        -->
+                                          <input type="button" class="btn btn-success" value="View All" > 
+                                    </div>
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="ti-check"></i> Data information certified
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>                
+           
+                </div>  <!-- end Col sm 12 -->
              <div class="clearfix"></div>
             
      </div>

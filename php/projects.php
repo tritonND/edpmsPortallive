@@ -35,7 +35,7 @@ $result = mysqli_query($con,"SELECT PROJECTID,TITLE,DESCRIPTION,LGA FROM project
 	echo "<td style=\"padding-right: 0.3em;\" ><a href=\"#\" data-id=\"".$user['PROJECTID']."\" class=\"cert\">".$user['TITLE']."</a></td>";
 	echo "<td style=\"padding-right: 0.3em;\" >".$user['DESCRIPTION']."</td>";
         echo "<td style=\"padding-right: 0.3em;\" >".$user['LGA']."</td>";
-        echo "<td style=\"padding-right: 0.3em;\" ><select id=\"sel1\" style=\"width:100px;height:30px;\"><option>Choose</option><option class=\"delete\" data-id=\"".$user['PROJECTID']."\">Delete</option><option class=\"edit\" data-id=\"".$user['PROJECTID']."\">Edit</option></select></td>";
+        echo "<td style=\"padding-right: 0.3em;\" ><select id=\"sel1\" class=\"chooseaction\" style=\"width:100px;height:30px;\"><option>Choose</option><option class=\"delete\" data-id=\"".$user['PROJECTID']."\">Delete</option><option class=\"edit\" data-id=\"".$user['PROJECTID']."\">Edit</option></select></td>";
         echo "<td style=\"padding-right: 0.3em;\" ><a class=\"btn btn-default cert\" data-id=\"".$user['PROJECTID']."\">Certificates</a></td>";
         echo "<td style=\"padding-right: 0.3em;\" ><a class=\"btn btn-warning variations\" data-id=\"".$user['PROJECTID']."\">Variations</a></td>";
       
@@ -47,7 +47,7 @@ $result = mysqli_query($con,"SELECT PROJECTID,TITLE,DESCRIPTION,LGA FROM project
 	echo "<td style=\"padding-right: 0.3em;\" ><a href=\"#\" data-id=\"".$user['PROJECTID']."\" class=\"cert\">".$user['TITLE']."</a></td>";
 	echo "<td style=\"padding-right: 0.3em;\" >".$user['DESCRIPTION']."</td>";
         echo "<td style=\"padding-right: 0.3em;\" >".$user['LGA']."</td>";
-          echo "<td style=\"padding-right: 0.3em;\" ><select id=\"sel1\" style=\"width:100px;height:30px;\"><option>Choose</option><option class=\"delete\" data-id=\"".$user['PROJECTID']."\">Delete</option><option class=\"edit\" data-id=\"".$user['PROJECTID']."\">Edit</option></select></td>";
+          echo "<td style=\"padding-right: 0.3em;\" ><select id=\"sel1\" class=\"chooseaction\" style=\"width:100px;height:30px;\"><option>Choose</option><option class=\"delete\" data-id=\"".$user['PROJECTID']."\">Delete</option><option class=\"edit\" data-id=\"".$user['PROJECTID']."\">Edit</option></select></td>";
         echo "<td style=\"padding-right: 0.3em;\" ><a class=\"btn btn-default cert\" data-id=\"".$user['PROJECTID']."\">Certificates</a></td>";
         echo "<td style=\"padding-right: 0.3em;\" ><a class=\"btn btn-warning variations\" data-id=\"".$user['PROJECTID']."\">Variations</a></td>";
       

@@ -22,7 +22,9 @@ else{
 
 <!DOCTYPE html>
 <?php
+
 //include './php/dbconnect.php';
+//include 'dbconnect.php';
 //session_start();
 //if(isset($_SESSION['firstname']))
 //{
@@ -32,7 +34,7 @@ else{
 //    header("Location: index.php");
 //}
 
-
+//s") or die ("Error in Connection");
 ?>
 <html lang="en">
 
@@ -43,7 +45,7 @@ else{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>EDPMS | All Project Sum by LGA</title>
+    <title>EDPMS | EDPMS</title>
 
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -57,7 +59,7 @@ else{
     <link href="build/css/custom.min.css" rel="stylesheet">
 
  <link href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet">
-  <link href="/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link href="css/jquery.dataTables.min.css" rel="stylesheet">
    
     
     <style>
@@ -196,7 +198,7 @@ else{
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>All Projects Sum by LGA</h3>
+                <h3>All Projects Report</h3>
               </div>
 
           <!--    <div class="title_right">
@@ -220,8 +222,8 @@ else{
             <div class="col-sm-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Project Sum By LGA</h4>
-                                <p class="category">All MDAs Projects Contract Sum categorized by LGA</p>
+                                <h4 class="title">Projects Status Report</h4>
+                                <p class="category">All MDAs Projects Status</p>
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart">
@@ -229,45 +231,32 @@ else{
     <table id="myTable" class="table table-condensed table-striped table-bordered table-hover">
         <thead class="bg-primary">
             <tr >
-                <th  style="text-transform: uppercase;">LGA</th>
-                <th style="text-transform: uppercase;">Project Sum</th>
-                <th style="text-transform: uppercase;">Certificates Paid</th>
-                <th style="text-transform: uppercase;">Outstanding Payments</th>
+           
+            <th>Project ID</th>
+            <th>MDA</th>  
+            <th>Project Title</th>         
+            <th>Status</th>  
+           
+          
+             
         </tr>
       </thead>
     <?php
     //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
-   //    $query1 = "SELECT `PROJECTID`, `PROCURINGENTITY`, `TITLE`, `DESCRIPTION`, `STATUS`, `LOCATION`, `LGA`, `DATEOFAWARD`, `DURATIONOFCONTRACT`,  `CONTRACTSUM` FROM `projectdetails` ";
-
-    //   $query1 = "SELECT lga, sum(contractsum) FROM projectdetails GROUP BY lga";
-    //  $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
-
-    $conn = mysqli_connect("localhost", "root", "", "edpms");
-    $query1 = "CALL myProc1()";
-    // $query1 = "CALL myProc3('".$yr."')";
-    $result = mysqli_query($conn, $query1) or die('Query fail: ' . mysqli_error());
-
-
-
+       $query1 = "SELECT `PROJECTID`, `PROCURINGENTITY`, `TITLE`, `STATUS` FROM `projectdetails` ";
+            
+      $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error($con));
     ?>
     <tbody>
-    <?php while ($row = mysqli_fetch_array($result)) { ?>
-        <tr>
-            <td  style="text-transform: uppercase;"><?php echo $row[0]; ?></td>
-            <td  class="currency-format" style="text-transform: uppercase;"><?php
-                if (is_null($row[3]))
-                    echo $row[1];
-                else { echo ($row[1] + $row[3]);}
-                ?></td>
-            <td  class="currency-format" style="text-transform: uppercase;"><?php echo $row[2]; ?></td>
-            <td  class="currency-format" style="text-transform: uppercase;"><?php
-                if (is_null($row[3])){
-                    echo ($row[1] - $row[2]);
-                }
-                else{  echo (($row[1] + $row[3])  - $row[2]);  }
-                ?></td>
-        </tr>
-    <?php } $conn->close(); ?>
+      <?php while ($row = mysqli_fetch_array($result)) { ?>
+          <tr>
+            <td><?php echo $row[0]; ?></td>
+            <td><?php echo $row[1]; ?></td>
+            <td><?php echo $row[2]; ?></td>
+            <td><?php echo $row[3]; ?></td>
+          
+          </tr>
+      <?php } ?>
     </tbody>
 </table>                            
        </div>
@@ -297,8 +286,123 @@ else{
             
             
             <!--  Another Row here -->
+            
+                <div class="col-sm-12">
+           
+               
+                <div class="row">
+            <div class="col-sm-6">
+                        <div style="background-color: #DDEEAA;" class="card ">
+                            <div class="header">
+                              <h4 class="title">Projects By LGA</h4>
+                                <p class="category">LGA Projects Summary</p>
+                            </div>
+                            <div class="content">
+                                <div id="chartActivity" class="ct-chart">
+                                <table class="table table-striped table-bordered table-hover">
+    <thead class="bg-warning">
+        <tr>
+            <th>Title</th>
+            <th>LGA</th>  
+            <th>Award Date</th>  
+        </tr>
+    </thead>
+    <?php
+    //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
+       $query1 = "SELECT title, lga, dateofaward FROM projectdetails ORDER BY DATEOFAWARD DESC LIMIT 5";
+            
+      $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error($con));
+    ?>
+    <tbody>
+      <?php while ($row = mysqli_fetch_array($result)) { ?>
+          <tr>
+            <td><?php echo $row[0]; ?></td>
+            <td><?php echo $row[1]; ?></td>
+            <td><?php echo $row[2]; ?></td>
+           
+          </tr>
+      <?php } ?>
+    </tbody>
+</table>      
+                                </div>
 
-              <!-- end Col sm 12 -->
+                                <div class="footer">
+                                    <div class="chart-legend">
+                                        <!--
+                                        <i class="fa fa-circle text-info"></i> Tesla Model S
+                                        <i class="fa fa-circle text-warning"></i> BMW 5 Series  -->
+                                          <input type="button" class="btn btn-warning" value="View All" > 
+                                    </div>
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="ti-check"></i> Data information certified
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+  <!-- card 2 -->
+          <div class="col-sm-6">
+                        <div style="background-color: #DDEEDC;" class="card ">
+                            <div class="header">
+                                <h4 class="title">Projects By MDA</h4>
+                                <p class="category">All MDAs Projects</p>
+                            </div>
+                            <div class="content">
+                                <div id="chartActivity" class="ct-chart">
+                                    
+                                    
+                                     <table class="table table-striped table-bordered table-hover">
+    <thead class="bg-success">
+        <tr>
+            <th>Title</th>
+            <th>MDA</th>  
+            <th>Contract Sum</th>  
+        </tr>
+    </thead>
+    <?php
+    //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
+       $query1 = "SELECT title, procuringentity, contractsum FROM projectdetails ORDER BY DATEOFAWARD DESC LIMIT 5";
+            
+      $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error($con));
+    ?>
+    <tbody>
+      <?php while ($row = mysqli_fetch_array($result)) { ?>
+          <tr>
+            <td><?php echo $row[0]; ?></td>
+            <td><?php echo $row[1]; ?></td>
+            <td><?php echo $row[2]; ?></td>
+           
+          </tr>
+      <?php } ?>
+    </tbody>
+</table>      
+                                    
+                                    
+                                    
+                                </div>
+
+                                <div class="footer">
+                                    <div class="chart-legend">
+                                        <!--
+                                        <i class="fa fa-circle text-info"></i> Tesla Model S
+                                        <i class="fa fa-circle text-warning"></i> BMW 5 Series
+                                        -->
+                                          <input type="button" class="btn btn-success" value="View All" > 
+                                    </div>
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="ti-check"></i> Data information certified
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>                
+           
+                </div>  <!-- end Col sm 12 -->
              <div class="clearfix"></div>
             
      </div>
@@ -336,21 +440,6 @@ else{
     <script src="js/searchtable.js"></script>
     <script src="js/autofilter.js"></script>
 
-	<script src="js/kendo.core.min.js"></script>
-<script>
-	var pf = kendo.toString(kendo.parseFloat($('#projfund').text().trim()), 'n2');
-	$('#projfund').text(pf);
-	//console.log(pf
-	
-	$('.currency-format').each(function(index, element) {
-		  $(element).text(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
-		console.log(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
-	});
-	
-	</script>
-
-	
-	
 
 <script>
 $(document).ready(function(){
@@ -364,10 +453,6 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
 });
 </script>
-
-    <?php
-    audit_traii("viewed Project Sum By LGA");
-    ?>
   
   </body>
 </html>

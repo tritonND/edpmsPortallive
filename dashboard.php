@@ -760,7 +760,7 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
 
     $yr = date('Y');
     //  $query1 = "SELECT procuringentity, sum(contractsum) FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' GROUP BY procuringentity LIMIT 5";
-    $conn = mysqli_connect("localhost", "root", "", "edpms");
+    $conn = mysqli_connect("localhost", "root", "minowss", "edpms");
     //$query1 = "CALL myProc()";
     $query1 = "CALL myProc3('".$yr."')";
     $result = mysqli_query($conn, $query1) or die('Query fail: ' . mysqli_error());
@@ -893,7 +893,7 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
     //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
     $yr = date('Y');
 
-    $conn = mysqli_connect("localhost", "root", "", "edpms");
+    $conn = mysqli_connect("localhost", "root", "minowss", "edpms");
     $query1 = "CALL myProc2('".$yr."')";
 
     $result = mysqli_query($conn, $query1) or die('Query fail: ' . mysqli_error());

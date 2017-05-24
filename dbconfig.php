@@ -2,7 +2,7 @@
 	
 	$DBhost = "localhost";
 	$DBuser = "root";
-	$DBpass = "";
+	$DBpass = "minowss";
 	$DBname = "edpms";
 	//$con=@mysqli_connect("localhost","lands","Password1234","edpms") or die("Cannot connect to server now, please try again. ");
 	try {

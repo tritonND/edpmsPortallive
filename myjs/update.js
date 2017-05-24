@@ -654,16 +654,21 @@ $(document).ready(function()
     $(document).on("change", ".chooseaction", function(e)
     {
 
+        console.log("clicked change");
         var mytag = $(this);
-        var id=mytag.attr("data-id");
+        //var id=mytag.attr("data-id");
+        var id= $("option:selected", mytag).attr("data-id");
+        console.log(id);
+
         var action=(mytag).val();
+        console.log(action);
 //alert('id is'+id+' while action is'+action);
 
-        if(action=='edit')
+        if(action=='Edit')
         {
             location.href="/edpms/edit-project.php?projectid="+id;
         }
-        else if(action=='delete')
+        else if(action=='Delete')
         {
 
         }
