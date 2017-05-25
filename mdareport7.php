@@ -232,7 +232,7 @@ else{
    //    $query1 = "SELECT `PROJECTID`, `PROCURINGENTITY`, `TITLE`, `DESCRIPTION`, `STATUS`, `LOCATION`, `LGA`, `DATEOFAWARD`, `DURATIONOFCONTRACT`,  `CONTRACTSUM` FROM `projectdetails` ";
 
 
-    $query1 = "SELECT projectdetails.PROJECTID, projectdetails.CONTRACTSUM, (SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID GROUP BY certificates.PROJECTID) as cAmount, (SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID GROUP BY variations.PROJECTID ) as vAmount FROM projectdetails JOIN variations ON projectdetails.PROJECTID = variations.PROJECTID OR variations.PROJECTID = \"aa111\" JOIN certificates ON projectdetails.PROJECTID = certificates.PROJECTID GROUP BY projectdetails.PROJECTID ";
+   // $query1 = "SELECT projectdetails.PROJECTID, projectdetails.CONTRACTSUM, (SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID GROUP BY certificates.PROJECTID) as cAmount, (SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID GROUP BY variations.PROJECTID ) as vAmount FROM projectdetails JOIN variations ON projectdetails.PROJECTID = variations.PROJECTID OR variations.PROJECTID = \"aa111\" JOIN certificates ON projectdetails.PROJECTID = certificates.PROJECTID GROUP BY projectdetails.PROJECTID ";
 
     $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
     ?>
@@ -370,7 +370,18 @@ else{
                                                 <td style="text-transform: uppercase" id="txt_title"></td>
                                             </tr>
 
+
+
                                             <!--
+
+
+                                             <tr>
+                                                <th>PROJECT DURATION</th>
+                                                <td style="text-transform: uppercase" id="txt_dur"></td>
+                                            </tr>
+
+
+
                                             <tr>
                                                 <th>PROJECT DESCRIPTION</th>
                                                 <td style="text-transform: uppercase" id="txt_descr"></td>
@@ -395,6 +406,12 @@ else{
                                             <tr>
                                                 <th>TOTAL VARIATIONS</th>
                                                 <td class="currency-format" style="text-transform: uppercase" id="txt_status"></td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <th>OUTSTANDING PAYMENT</th>
+                                                <td class="currency-format" style="text-transform: uppercase" id="txt_bal"></td>
                                             </tr>
 
 
@@ -514,11 +531,31 @@ else{
                     .done(function(data){
                        // console.log(data);
                         console.log("here");
+
+                        console.log(data.r1['CONTRACTSUM']);
+                        console.log(data.r3['vAmount']);
+                        console.log(data.r2['cAmount']);
+                        console.log("here");
+
+                        var val1 = data.r1['CONTRACTSUM'];
+                        var val2 = data.r2['cAmount'];
+                        var val3 = data.r3['vAmount'];
+
+                       // var res11 = parseInt(val1) + parseInt(val3) - parseInt(val2);
+
+                        var res11 = Number(val1) + Number(val3) - Number(val2);
+                        //console.log(val1 + val3);
+                        console.log(res11);
+
+                        console.log("here");
+
+
+
                         $('#dynamic-content').hide(); // hide dynamic div
                         $('#dynamic-content').show(); // show dynamic div
                         $('#txt_mda').html(data.r1['PROCURINGENTITY']);
                         $('#txt_title').html(data.r1['TITLE']);
-                     //   $('#txt_descr').html(data.DESCRIPTION);
+                        $('#txt_bal').html(res11);
                         $('#txt_id').html(data.r1['PROJECTID']);
                         $('#txt_status').html(data.r3['vAmount']);
                         $('#txt_lga').html(data.r2['cAmount']);
@@ -526,6 +563,7 @@ else{
                      //   $('#txt_awarded').html(data.DATEOFAWARD);
                         $('#txt_location').html(data.r1['LOCATION']);
 
+                      //  document.getElementById()
 
                         $('.currency-format').each(function(index, element) {
                             $(element).text(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));

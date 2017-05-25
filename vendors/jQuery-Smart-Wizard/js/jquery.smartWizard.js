@@ -48,7 +48,7 @@ function SmartWizard(target, options) {
                 $this.setError({ stepnum: n, iserror:true });
             });
         }
-
+//Specify the positions of the various buttons ie Previous, Next, Finish
         $this.elmStepContainer.append(allDivs);
         elmActionBar.append($this.loader);
         $this.target.append($this.elmStepContainer);

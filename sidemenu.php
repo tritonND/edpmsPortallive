@@ -64,15 +64,16 @@
                     <ul class="nav child_menu">
                         <li><a href="mdareport.php">All Projects</a></li>
                         <li><a href="mdareport1.php">Reports per LGA</a></li>
-                        <li><a href="mdareport4.php">Projects Sum Per MDA</a></li>
                         <li><a href="mdareport2.php">Projects per MDA</a></li>
-                        <li><a href="mdareport5.php">Projects Sum Per LGA</a></li>
                         <li><a href="mdareport6.php"> Projects Status</a></li>
                         <li><a href="mdareport3.php"> Projects By Maps</a></li>
                         <li><a href="mdareport8.php"> All Contractors</a></li>
+                       <br> <h3>Financial Reports</h3>
                         <li><a href="mdareport7.php"> Project Financials</a></li>
-                        
-                      
+                        <li><a href="mdareport4.php">Projects Sum Per MDA</a></li>
+                        <li><a href="mdareport5.php">Projects Sum Per LGA</a></li>
+
+
                     </ul>
                   </li>
                   <li><a><i class="fa fa-money"></i>Budget <span class="fa fa-chevron-down"></span></a>
@@ -91,10 +92,9 @@
                     <ul class="nav child_menu">
                       <li ><a href="users.php">Create Users</a></li>
                         <li ><a href="users.php">Edit User Privileges</a></li>
-                      
                     </ul>
                   </li>
-                 
+
                 </ul>
               </div>
 

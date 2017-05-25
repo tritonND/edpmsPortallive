@@ -429,6 +429,11 @@ else{
                                 <th>STATUS</th>
                                 <td style="text-transform: uppercase" id="txt_status"></td>
                                 </tr>
+
+                                    <tr>
+                                        <th>CONTRACTOR</th>
+                                        <td style="text-transform: uppercase" id="txt_contr"></td>
+                                    </tr>
                                        		
                                 <tr>
                                 <th>PROJECT ID</th>
@@ -548,6 +553,8 @@ console.log("hiii");
       $('#txt_status').html(data.STATUS);
 			$('#txt_lga').html(data.LGA);
       $('#txt_csum').html(data.CONTRACTSUM);
+
+            $('#txt_contr').html(data.CONTRACTOR);
       $('#txt_awarded').html(data.DATEOFAWARD);
        $('#txt_location').html(data.LOCATION);
 	   

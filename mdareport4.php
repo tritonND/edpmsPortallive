@@ -255,10 +255,6 @@ else{
 
 
 
-    //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
-      // $query1 = "SELECT `PROJECTID`, `PROCURINGENTITY`, `TITLE`, `DESCRIPTION`, `STATUS`, `LOCATION`, `LGA`,  `CONTRACTSUM` FROM `projectdetails` ";
-            
-    //  $result = mysqli_query($conn, $query1) or die('Query fail: ' . mysqli_error());
     ?>
     <tbody>
       <?php while ($row = mysqli_fetch_array($result)) { 
