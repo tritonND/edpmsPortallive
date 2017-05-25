@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7134703d-734b-42f7-a70f-d1193c7de7ae" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/a5f85944-27b9-4be6-80e3-fa2a6320d195/_staging_/schema/edpms/routine/myProc3.(varchar(4)).sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/a5f85944-27b9-4be6-80e3-fa2a6320d195/_staging_/schema/edpms/routine/myProc5.(varchar(255)).sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/getinfoc.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/getinfoc1.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/getinfocc.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ginf.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mdareport9.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mdareport99.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mdrep.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mdareport.php" afterPath="$PROJECT_DIR$/mdareport.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mdareport4.php" afterPath="$PROJECT_DIR$/mdareport4.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mdareport7.php" afterPath="$PROJECT_DIR$/mdareport7.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sidemenu.php" afterPath="$PROJECT_DIR$/sidemenu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js" afterPath="$PROJECT_DIR$/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -87,7 +72,7 @@
         <entry file="file://$PROJECT_DIR$/mdareport99.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="127">
-              <caret line="452" column="19" lean-forward="false" selection-start-line="452" selection-start-column="19" selection-end-line="452" selection-end-column="19" />
+              <caret line="452" column="0" lean-forward="false" selection-start-line="452" selection-start-column="0" selection-end-line="452" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -528,7 +513,7 @@
       <workItem from="1495445328783" duration="20343000" />
       <workItem from="1495543154234" duration="9002000" />
       <workItem from="1495618434822" duration="14705000" />
-      <workItem from="1495689078155" duration="35743000" />
+      <workItem from="1495689078155" duration="35975000" />
     </task>
     <task id="LOCAL-00001" summary="Arranging for my Localhost">
       <created>1493901998226</created>
@@ -656,11 +641,18 @@
       <option name="project" value="LOCAL" />
       <updated>1495619054806</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary=" More on Dashboard">
+      <created>1495753782329</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1495753782329</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168389000" />
+    <option name="totallyTimeSpent" value="168621000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -673,16 +665,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="3" width="1370" height="772" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.265745" sideWeight="0.4969743" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52425665" sideWeight="0.50610685" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18622848" sideWeight="0.49092284" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22535211" sideWeight="0.48789713" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22535211" sideWeight="0.48789713" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32707354" sideWeight="0.48487142" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14732824" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40532082" sideWeight="0.49389312" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40532082" sideWeight="0.49389312" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19312978" sideWeight="0.49199083" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13969466" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -881,6 +872,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="62" column="25" lean-forward="true" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1269,7 +1263,7 @@
     <entry file="file://$PROJECT_DIR$/mdareport99.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
-          <caret line="452" column="19" lean-forward="false" selection-start-line="452" selection-start-column="19" selection-end-line="452" selection-end-column="19" />
+          <caret line="452" column="0" lean-forward="false" selection-start-line="452" selection-start-column="0" selection-end-line="452" selection-end-column="0" />
           <folding />
         </state>
       </provider>
