@@ -67,11 +67,12 @@
                         <li><a href="mdareport2.php">Projects per MDA</a></li>
                         <li><a href="mdareport6.php"> Projects Status</a></li>
                         <li><a href="mdareport3.php"> Projects By Maps</a></li>
-                        <li><a href="mdareport8.php"> All Contractors</a></li>
+                        <li><a href="mdareport8.php"> All Registered Contractors</a></li>
                        <br> <h3>Financial Reports</h3>
                         <li><a href="mdareport7.php"> Project Financials</a></li>
                         <li><a href="mdareport4.php">Projects Sum Per MDA</a></li>
                         <li><a href="mdareport5.php">Projects Sum Per LGA</a></li>
+                        <li><a href="mdareport99.php">Projects Sum Per Contractor</a></li>
 
 
                     </ul>

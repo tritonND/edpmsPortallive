@@ -234,21 +234,12 @@ else{
                 <th style="text-transform: uppercase;">Project Sum</th>
                 <th style="text-transform: uppercase;">Certificates Paid</th>
                 <th style="text-transform: uppercase;">Outstanding Payments</th>
+                <th style="text-transform: uppercase;">View</th>
         </tr>
       </thead>
     <?php
 
-  // require_once 'dbconfig.php';           		
-      //      $query = "SELECT `PROJECTID`, `PROCURINGENTITY`, `TITLE`, `DESCRIPTION`, `STATUS`, `LOCATION`, `LGA`,  `CONTRACTSUM` FROM `projectdetails` ";
-
-    //   $query = "SELECT procuringentity, sum(contractsum) FROM projectdetails GROUP BY procuringentity";
-      //   $result = mysqli_query($con, $query) or die('Query fail: ' . mysqli_error($con));
-        
-        // $stmt = $DBcon->prepare( $query );
-         //   $stmt->execute();
-
-
-    $conn = mysqli_connect("localhost", "root", "", "edpms");
+     $conn = mysqli_connect("localhost", "root", "minowss", "edpms");
     $query1 = "CALL myProc()";
     // $query1 = "CALL myProc3('".$yr."')";
     $result = mysqli_query($conn, $query1) or die('Query fail: ' . mysqli_error());
@@ -274,6 +265,9 @@ else{
                   }
                   else{  echo (($row[1] + $row[3])  - $row[2]);  }
                   ?></td>
+              <td>
+                  <button data-toggle="modal" data-target="#view-modal" data-id="<?php echo $row[0]; ?>" id="getUser" class="btn btn-sm btn-info"> View</button>
+              </td>
           </tr>
       <?php } $conn->close(); ?>
     </tbody>
@@ -345,69 +339,35 @@ else{
                        <div class="modal-body"> 
                        <!-- <div id="forImg"> 	<img id="imagefile" style="height: 200px; width: 200px">  </div> -->
 
-                       	   <div id="modal-loader" style="display: none; text-align: center;">
-                       	 
-                       	   </div>
+                           <h2 id="cname"></h2>
+                           <table>
+                               <tr> <td> Total Contract Sum:   </td> <td>&nbsp;&nbsp; </td> <td class="currency-format" id="tcs">  </td>   </tr>
+                               <tr> <td>Total Certificates:    </td> <td>&nbsp;&nbsp; </td> <td class="currency-format" id="tc">  </td>   </tr>
+                               <tr> <td>Total Variations:  </td> <td> </td>&nbsp;&nbsp; <td class="currency-format" id="tv">  </td>   </tr>
+                               <tr> <td>Outstanding:  </td> <td>&nbsp;&nbsp; </td> <td class="currency-format" id="outs">  </td>   </tr>
+                           </table>
+
+                           <hr/>
+
+
+                           <table style="font-size: 90%" class="table table-responsive table-condensed table-striped table-bordered table-hover">
+                               <thead class="bg-primary">
+                               <tr >
+                                   <!-- <th style="text-transform: uppercase;">ProjectID</th> -->
+                                   <th style="text-transform: uppercase;">TITLE</th>
+                                   <th style="text-transform: uppercase;">Project Sum</th>
+                                   <th style="text-transform: uppercase;">Variations</th>
+                                   <th style="text-transform: uppercase;">Certificates Paid</th>
+                                   <th style="text-transform: uppercase;">Outstanding Payments</th>
+
+                               </tr>
+                               </thead>
+                               <tbody  id="myMod1">
+
+                               </tbody>
+                           </table>
                        
-                       	   <div id="dynamic-content">
-                                        
-                           <div class="row"> 
-                                <div class="col-md-12"> 
-                            	
-                            	<div class="table-responsive">
-                                 
-                                    
-                                <table class="table table-striped table-bordered">
-                           	
-                               <tr>
-                                <th>LGA</th>
-                                <td style="text-transform: uppercase" id="txt_lga"></td>
-                                </tr>
 
-                             	<tr>
-                            	<th>MDA</th>
-                            	<td style="text-transform: uppercase" id="txt_mda"></td>
-                              </tr>
-                                                              
-                                
-                              <tr>
-                            	<th>PROJECT TITLE</th>
-                            	<td style="text-transform: uppercase" id="txt_title"></td>
-                              </tr>
-                                       		
-                                <tr>
-                                <th>PROJECT DESCRIPTION</th>
-                                <td style="text-transform: uppercase" id="txt_descr"></td>
-                                </tr>
-
-                                 <tr>
-                                <th>PROJECT AWARDED ON</th>
-                                <td style="text-transform: uppercase" id="txt_awarded"></td>
-                                </tr>
-
-                                 <tr>
-                                <th>CONTRACT SUM</th>
-                                <td style="text-transform: uppercase" id="txt_csum"></td>
-                                </tr>
-                                       		
-                                <tr>
-                                <th>STATUS</th>
-                                <td style="text-transform: uppercase" id="txt_status"></td>
-                                </tr>
-                                       		
-                                <tr>
-                                <th>PROJECT ID</th>
-                                <td style="text-transform: uppercase" id="txt_id"></td>
-                                </tr>
-                                       		
-                                </table>
-                     
-                                </div>
-                                       
-                                </div> 
-                          </div>
-                          
-                          </div> 
                              
                         </div> 
               <div class="modal-footer"> 
@@ -454,84 +414,95 @@ else{
 	</script>
 
 
-<script>
-$(document).ready(function(){
-	var formdata = "" ;
-	$(document).on('click', '#getUser', function(e){
-		
-		e.preventDefault();
-		
-		var uid = $(this).data('id'); // get id of clicked row
-		
-		$('#dynamic-content').hide(); // hide dive for loader
-		$('#modal-loader').show();  // load ajax loader
-		
-console.log(uid);
-console.log("hiii");
+    <script>
+        $(document).ready(function(){
+            var formdata = "" ;
+            $(document).on('click', '#getUser', function(e){
 
-		$.ajax({
-			url: 'getinfo.php',
-			type: 'POST',
-			data: 'id='+uid,
-			dataType: 'json'
-		})
-		.done(function(data){
-			console.log(data);
-			$('#dynamic-content').hide(); // hide dynamic div
-			$('#dynamic-content').show(); // show dynamic div
-			$('#txt_mda').html(data.PROCURINGENTITY);
-			$('#txt_title').html(data.TITLE);
-			$('#txt_descr').html(data.DESCRIPTION);
-			$('#txt_id').html(data.PROJECTID);
-      $('#txt_status').html(data.STATUS);
-			$('#txt_lga').html(data.LGA);
-      $('#txt_csum').html(data.CONTRACTSUM);
-      $('#txt_awarded').html(data.DATEOFAWARD);
-			$('#modal-loader').hide();    // hide ajax loader
-    //  $('#imagefile').attr("src","../php/"+data.FilePath);
-                    
-                        console.log("Completed");
-                        $(document).on('click', '#treat', function(e){
-                        console.log("here") ; console.log(data) ;                      
-                        formdata = data;                      
-                        console.log("hii");
-                        console.log(formdata);
-                        
-   $.ajax({
-			url: 'uduser.php',
-			type: 'POST',
-			data: formdata,
-			dataType: 'json'
-		})
-       console.log("hi22i");  
-          swal({
-  title: "Successful !",
-  text: "Successfully Treated the ticket",
-  showCancelButton: false,
-  closeOnConfirm: false,
-  showLoaderOnConfirm: true,
-  html: true
- // imageUrl: "images/thumb.png"
-},
-function(){
-  location.href="tickets.php" ;
-});
-      
+                e.preventDefault();
 
-               });
+                var uid = $(this).data('id'); // get id of clicked row
+
+                $('#dynamic-content').hide(); // hide dive for loader
+                $('#modal-loader').show();  // load ajax loader
+
+                console.log(uid);
+                console.log("hiiiss");
+
+                $.ajax({
+                    url: 'getinfoc2.php',
+                    type: 'POST',
+                    data: 'id='+uid,
+                    dataType: 'json'
                 })
-	.fail(function(){
-			$('.modal-body').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
-		});
-       
-	});
-        
-       
-	
-});
+                    .done(function(data){
 
-</script>
+                        console.log("noow3");
+                        console.log(data.length);
+                        //  var tbl=$("<table/>").attr("id","mytable");
+                        //$("#div1").append(tbl);
 
+                        $('#myMod1').html("");
+                        $('#cname').html("");
+                        $('#tcs').html("");
+                        $('#tc').html("");
+                        $('#tv').html("");
+                        $('#outs').html("");
+
+                        $('#cname').append(uid);
+
+                        var totals1 = 0;
+                        var totals2 = 0;
+                        var totals3 = 0;
+                        for(var i=0;i<data.length;i++)
+                        {
+
+                            var tr="<tr>";
+                            // var td1="<td>"+data[i]["PROJECTID"]+"</td>";
+                            //  var td2="<td>"+data[i]["CONTRACTOR"]+"</td>";
+                            var td3="<td>"+data[i]["TITLE"]+"</td>";
+                            var td4="<td class='currency-format'>"+Number(data[i]["CONTRACTSUM"])+"</td>";
+                            var td5="<td class='currency-format'>"+Number(data[i]["vAmount"])+"</td>";
+                            var td6="<td class='currency-format'>"+Number(data[i]["cAmount"])+"</td>";
+
+                            var outstandin = Number(data[i]["CONTRACTSUM"]) + Number(data[i]["vAmount"]) - Number(data[i]["cAmount"]);
+                            var td7="<td class='currency-format'>"+outstandin+"</td></tr>";
+
+                            //   console.log(Number(data[i]["CONTRACTSUM"]));
+
+                            $('#myMod1').append(tr+td3+td4+td5+td6+td7);
+
+                            totals1 = totals1 +  Number(data[i]["CONTRACTSUM"]);
+                            totals2 = totals2 +  Number(data[i]["vAmount"]);
+                            totals3 = totals3 +  Number(data[i]["cAmount"]);
+
+                        }
+
+                        var outstan = totals1 + totals2 - totals3;
+                        $('#tcs').append(totals1);
+                        $('#tc').append(totals3);
+                        $('#tv').append(totals2);
+                        $('#outs').append(outstan);
+
+
+                        $('.currency-format').each(function(index, element) {
+                            $(element).text(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
+                            console.log(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
+                        });
+
+
+                        console.log("Completed");
+
+                    })
+                    .fail(function(){
+                        $('.modal-body').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
+                    });
+
+            });
+
+        });
+
+    </script>
 
 
 

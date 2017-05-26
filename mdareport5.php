@@ -199,16 +199,6 @@ else{
                 <h3>All Projects Sum by LGA</h3>
               </div>
 
-          <!--    <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Search</button>
-                    </span>
-                  </div>
-                </div>
-              </div> -->
             </div>
 
             <div class="clearfix"></div>
@@ -233,21 +223,15 @@ else{
                 <th style="text-transform: uppercase;">Project Sum</th>
                 <th style="text-transform: uppercase;">Certificates Paid</th>
                 <th style="text-transform: uppercase;">Outstanding Payments</th>
+                <th style="text-transform: uppercase;">View</th>
         </tr>
       </thead>
     <?php
-    //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
-   //    $query1 = "SELECT `PROJECTID`, `PROCURINGENTITY`, `TITLE`, `DESCRIPTION`, `STATUS`, `LOCATION`, `LGA`, `DATEOFAWARD`, `DURATIONOFCONTRACT`,  `CONTRACTSUM` FROM `projectdetails` ";
 
-    //   $query1 = "SELECT lga, sum(contractsum) FROM projectdetails GROUP BY lga";
-    //  $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
-
-    $conn = mysqli_connect("localhost", "root", "", "edpms");
+    $conn = mysqli_connect("localhost", "root", "minowss", "edpms");
     $query1 = "CALL myProc1()";
     // $query1 = "CALL myProc3('".$yr."')";
     $result = mysqli_query($conn, $query1) or die('Query fail: ' . mysqli_error());
-
-
 
     ?>
     <tbody>
@@ -266,6 +250,9 @@ else{
                 }
                 else{  echo (($row[1] + $row[3])  - $row[2]);  }
                 ?></td>
+            <td>
+                <button data-toggle="modal" data-target="#view-modal" data-id="<?php echo $row[0]; ?>" id="getUser" class="btn btn-sm btn-info"> View</button>
+            </td>
         </tr>
     <?php } $conn->close(); ?>
     </tbody>
@@ -318,6 +305,64 @@ else{
       </div>
     </div>
 
+
+
+    <div id="view-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <form name="modform" id="modform">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">
+                            PROJECT DETAILS
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <!-- <div id="forImg"> 	<img id="imagefile" style="height: 200px; width: 200px">  </div> -->
+
+                        <h2 id="cname"></h2>
+                        <table>
+                            <tr> <td> Total Contract Sum:   </td> <td>&nbsp;&nbsp; </td> <td class="currency-format" id="tcs">  </td>   </tr>
+                            <tr> <td>Total Certificates:    </td> <td>&nbsp;&nbsp; </td> <td class="currency-format" id="tc">  </td>   </tr>
+                            <tr> <td>Total Variations:  </td> <td> </td>&nbsp;&nbsp; <td class="currency-format" id="tv">  </td>   </tr>
+                            <tr> <td>Outstanding:  </td> <td>&nbsp;&nbsp; </td> <td class="currency-format" id="outs">  </td>   </tr>
+                        </table>
+
+                        <hr/>
+
+
+                        <table style="font-size: 90%" class="table table-responsive table-condensed table-striped table-bordered table-hover">
+                            <thead class="bg-primary">
+                            <tr >
+                                <!-- <th style="text-transform: uppercase;">ProjectID</th> -->
+                                <th style="text-transform: uppercase;">TITLE</th>
+                                <th style="text-transform: uppercase;">Project Sum</th>
+                                <th style="text-transform: uppercase;">Variations</th>
+                                <th style="text-transform: uppercase;">Certificates Paid</th>
+                                <th style="text-transform: uppercase;">Outstanding Payments</th>
+
+                            </tr>
+                            </thead>
+                            <tbody  id="myMod1">
+
+                            </tbody>
+                        </table>
+
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" id="ignore" data-dismiss="modal">Close</button>
+                        <!-- <button type="button" class="btn btn-primary" id="treat" name="treat"   data-dismiss="modal">Treat</button>-->
+                    </div>
+
+                </div>   </form>
+        </div>
+    </div><!-- /.modal -->
+
+
+
     <!-- jQuery -->
     <script src="vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -349,10 +394,104 @@ else{
 	
 	</script>
 
-	
-	
 
-<script>
+
+    <script>
+        $(document).ready(function(){
+            var formdata = "" ;
+            $(document).on('click', '#getUser', function(e){
+
+                e.preventDefault();
+
+                var uid = $(this).data('id'); // get id of clicked row
+
+                $('#dynamic-content').hide(); // hide dive for loader
+                $('#modal-loader').show();  // load ajax loader
+
+                console.log(uid);
+                console.log("hiiiss");
+
+                $.ajax({
+                    url: 'getinfoc3.php',
+                    type: 'POST',
+                    data: 'id='+uid,
+                    dataType: 'json'
+                })
+                    .done(function(data){
+
+                        console.log("noow3");
+                        console.log(data.length);
+                        //  var tbl=$("<table/>").attr("id","mytable");
+                        //$("#div1").append(tbl);
+
+                        $('#myMod1').html("");
+                        $('#cname').html("");
+                        $('#tcs').html("");
+                        $('#tc').html("");
+                        $('#tv').html("");
+                        $('#outs').html("");
+
+                        $('#cname').append(uid);
+
+                        var totals1 = 0;
+                        var totals2 = 0;
+                        var totals3 = 0;
+                        for(var i=0;i<data.length;i++)
+                        {
+
+                            var tr="<tr>";
+                            // var td1="<td>"+data[i]["PROJECTID"]+"</td>";
+                            //  var td2="<td>"+data[i]["CONTRACTOR"]+"</td>";
+                            var td3="<td>"+data[i]["TITLE"]+"</td>";
+                            var td4="<td class='currency-format'>"+Number(data[i]["CONTRACTSUM"])+"</td>";
+                            var td5="<td class='currency-format'>"+Number(data[i]["vAmount"])+"</td>";
+                            var td6="<td class='currency-format'>"+Number(data[i]["cAmount"])+"</td>";
+
+                            var outstandin = Number(data[i]["CONTRACTSUM"]) + Number(data[i]["vAmount"]) - Number(data[i]["cAmount"]);
+                            var td7="<td class='currency-format'>"+outstandin+"</td></tr>";
+
+                            //   console.log(Number(data[i]["CONTRACTSUM"]));
+
+                            $('#myMod1').append(tr+td3+td4+td5+td6+td7);
+
+                            totals1 = totals1 +  Number(data[i]["CONTRACTSUM"]);
+                            totals2 = totals2 +  Number(data[i]["vAmount"]);
+                            totals3 = totals3 +  Number(data[i]["cAmount"]);
+
+                        }
+
+                        var outstan = totals1 + totals2 - totals3;
+                        $('#tcs').append(totals1);
+                        $('#tc').append(totals3);
+                        $('#tv').append(totals2);
+                        $('#outs').append(outstan);
+
+
+                        $('.currency-format').each(function(index, element) {
+                            $(element).text(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
+                            console.log(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
+                        });
+
+
+                        console.log("Completed");
+
+                    })
+                    .fail(function(){
+                        $('.modal-body').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
+                    });
+
+            });
+
+        });
+
+    </script>
+
+
+
+
+
+
+    <script>
 $(document).ready(function(){
     $('#myTable').DataTable();
 

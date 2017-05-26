@@ -221,8 +221,8 @@ else{
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Projects Sum By MDA</h4>
-                                    <p class="category">All MDAs Projects Sum</p>
+                                    <h4 class="title">Projects Sum By Contractors</h4>
+                                    <p class="category">All Contractors Projects Sum</p>
                                 </div>
                                 <div class="content table-responsive">
                                     <div id="chartActivity" class="ct-chart">
@@ -336,52 +336,44 @@ else{
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title">
-                        PROJECT DETAILS
+                       CONTRACTOR PROJECT DETAILS
                     </h4>
                 </div>
                 <div class="modal-body">
                     <!-- <div id="forImg"> 	<img id="imagefile" style="height: 200px; width: 200px">  </div> -->
 
-                    <div id="modal-loader" style="display: none; text-align: center;">
+               <h2 id="cname"></h2>
+                    <table>
+                    <tr> <td> Total Contract Sum:   </td> <td>&nbsp;&nbsp; </td> <td class="currency-format" id="tcs">  </td>   </tr>
+                    <tr> <td>Total Certificates:    </td> <td>&nbsp;&nbsp; </td> <td class="currency-format" id="tc">  </td>   </tr>
+                    <tr> <td>Total Variations:  </td> <td> </td>&nbsp;&nbsp; <td class="currency-format" id="tv">  </td>   </tr>
+                    <tr> <td>Outstanding:  </td> <td>&nbsp;&nbsp; </td> <td class="currency-format" id="outs">  </td>   </tr>
+                    </table>
 
-                    </div>
-
-                    <div id="dynamic-content">
-
-                        <div class="row">
-                            <div class="col-md-12">
-
-                                <div class="table-responsive">
-
-
-                                    <table class="table table-striped table-bordered">
+                    <hr/>
 
 
+                    <table style="font-size: 90%" class="table table-responsive table-condensed table-striped table-bordered table-hover">
+                        <thead class="bg-primary">
+                        <tr >
+                            <!-- <th style="text-transform: uppercase;">ProjectID</th> -->
+                            <th style="text-transform: uppercase;">TITLE</th>
+                            <th style="text-transform: uppercase;">Project Sum</th>
+                            <th style="text-transform: uppercase;">Variations</th>
+                            <th style="text-transform: uppercase;">Certificates Paid</th>
+                            <th style="text-transform: uppercase;">Outstanding Payments</th>
 
-                                       <div id="myMod1">
+                        </tr>
+                        </thead>
+                        <tbody  id="myMod1">
 
-                                       </div>
-
-                                        <tr>
-                                            <th>STATUS</th>
-                                            <td style="text-transform: uppercase" id="txt_status"></td>
-                                        </tr>
-
-                                        <tr>
-                                            <th>PROJECT ID</th>
-                                            <td style="text-transform: uppercase" id="txt_id"></td>
-                                        </tr>
-
-                                    </table>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
+                        </tbody>
+                    </table>
 
                 </div>
+
+
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" id="ignore" data-dismiss="modal">Close</button>
                     <!-- <button type="button" class="btn btn-primary" id="treat" name="treat"   data-dismiss="modal">Treat</button>-->
@@ -442,24 +434,66 @@ else{
             console.log("hiiiss");
 
             $.ajax({
-                url: 'getinfoc1.php',
+                url: 'getinfoc.php',
                 type: 'POST',
                 data: 'id='+uid,
                 dataType: 'json'
             })
                 .done(function(data){
+
                     console.log("noow3");
+                    console.log(data.length);
+                  //  var tbl=$("<table/>").attr("id","mytable");
+                    //$("#div1").append(tbl);
+
+                    $('#myMod1').html("");
+                    $('#cname').html("");
+                    $('#tcs').html("");
+                    $('#tc').html("");
+                    $('#tv').html("");
+                    $('#outs').html("");
+
+                    $('#cname').append(uid);
+
+                    var totals1 = 0;
+                    var totals2 = 0;
+                    var totals3 = 0;
+                    for(var i=0;i<data.length;i++)
+                    {
+
+                        var tr="<tr>";
+                       // var td1="<td>"+data[i]["PROJECTID"]+"</td>";
+                      //  var td2="<td>"+data[i]["CONTRACTOR"]+"</td>";
+                        var td3="<td>"+data[i]["TITLE"]+"</td>";
+                        var td4="<td class='currency-format'>"+Number(data[i]["CONTRACTSUM"])+"</td>";
+                        var td5="<td class='currency-format'>"+Number(data[i]["vAmount"])+"</td>";
+                        var td6="<td class='currency-format'>"+Number(data[i]["cAmount"])+"</td>";
+
+                        var outstandin = Number(data[i]["CONTRACTSUM"]) + Number(data[i]["vAmount"]) - Number(data[i]["cAmount"]);
+                        var td7="<td class='currency-format'>"+outstandin+"</td></tr>";
+
+                     //   console.log(Number(data[i]["CONTRACTSUM"]));
+
+                        $('#myMod1').append(tr+td3+td4+td5+td6+td7);
+
+                        totals1 = totals1 +  Number(data[i]["CONTRACTSUM"]);
+                        totals2 = totals2 +  Number(data[i]["vAmount"]);
+                        totals3 = totals3 +  Number(data[i]["cAmount"]);
+
+                    }
+
+                    var outstan = totals1 + totals2 - totals3;
+                    $('#tcs').append(totals1);
+                    $('#tc').append(totals3);
+                    $('#tv').append(totals2);
+                    $('#outs').append(outstan);
 
 
-                    $('#dynamic-content').hide(); // hide dynamic div
-                    $('#dynamic-content').show(); // show dynamic div
+                    $('.currency-format').each(function(index, element) {
+                        $(element).text(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
+                        console.log(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
+                    });
 
-                   // document.getElementById("myMod1").innerHTML = serverResponse.trim();
-
-
-
-                        $('#modal-loader').hide();    // hide ajax loader
-                    //  $('#imagefile').attr("src","../php/"+data.FilePath);
 
                     console.log("Completed");
 

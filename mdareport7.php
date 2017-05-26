@@ -232,7 +232,7 @@ else{
    //    $query1 = "SELECT `PROJECTID`, `PROCURINGENTITY`, `TITLE`, `DESCRIPTION`, `STATUS`, `LOCATION`, `LGA`, `DATEOFAWARD`, `DURATIONOFCONTRACT`,  `CONTRACTSUM` FROM `projectdetails` ";
 
 
-   // $query1 = "SELECT projectdetails.PROJECTID, projectdetails.CONTRACTSUM, (SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID GROUP BY certificates.PROJECTID) as cAmount, (SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID GROUP BY variations.PROJECTID ) as vAmount FROM projectdetails JOIN variations ON projectdetails.PROJECTID = variations.PROJECTID OR variations.PROJECTID = \"aa111\" JOIN certificates ON projectdetails.PROJECTID = certificates.PROJECTID GROUP BY projectdetails.PROJECTID ";
+    $query1 = "SELECT projectdetails.PROJECTID, projectdetails.CONTRACTSUM, (SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID GROUP BY certificates.PROJECTID) as cAmount, (SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID GROUP BY variations.PROJECTID ) as vAmount FROM projectdetails JOIN variations ON projectdetails.PROJECTID = variations.PROJECTID OR variations.PROJECTID = \"aa111\" JOIN certificates ON projectdetails.PROJECTID = certificates.PROJECTID GROUP BY projectdetails.PROJECTID ";
 
     $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
     ?>
@@ -370,6 +370,11 @@ else{
                                                 <td style="text-transform: uppercase" id="txt_title"></td>
                                             </tr>
 
+
+                                            <tr>
+                                                <th>PROJECT CONTRACTOR</th>
+                                                <td style="text-transform: uppercase" id="txt_contr"></td>
+                                            </tr>
 
 
                                             <!--
@@ -560,7 +565,7 @@ else{
                         $('#txt_status').html(data.r3['vAmount']);
                         $('#txt_lga').html(data.r2['cAmount']);
                         $('#txt_csum').html(data.r1['CONTRACTSUM']);
-                     //   $('#txt_awarded').html(data.DATEOFAWARD);
+                        $('#txt_contr').html(data.r1['CONTRACTOR']);
                         $('#txt_location').html(data.r1['LOCATION']);
 
                       //  document.getElementById()

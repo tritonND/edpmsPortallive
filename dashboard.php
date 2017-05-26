@@ -190,13 +190,21 @@ else{
 $yr = date('Y');
 // $query1 = "SELECT count(PROJECTID), count(STATUS), sum(CONTRACTSUM)  FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' ";
 $query = "SELECT COUNT(ID) FROM supervisors";
+ $myq = "CALL mp()";
 $query1 = " SELECT COUNT(projectdetails.PROJECTID), count(STATUS), SUM(projectdetails.CONTRACTSUM),
 (SELECT SUM(AMOUNT) from certificates where YEAR(DATEISSUED) ='".$yr."') as cAmount,
 (SELECT SUM(AMOUNT) from variations where YEAR(DATEISSUED) ='".$yr."' ) as vAmount
 FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' ";
 
+$conn1 = mysqli_connect("localhost", "root", "minowss", "edpms");
+$rest1 = mysqli_query($conn1, $myq);
+$row11 = mysqli_fetch_array($rest1);
+$cc = $row11[0];
+//$mda = $row2[1];
+
 $results = mysqli_query($con, $query);
 $result = mysqli_query($con, $query1);
+$rest1 = mysqli_query($conn1, $myq);
 
        if(  mysqli_num_rows($result) >0)
          {
@@ -208,6 +216,8 @@ $result = mysqli_query($con, $query1);
 
        }
     }
+
+
 
 
 if(  mysqli_num_rows($results) >0)
@@ -283,8 +293,8 @@ if(  mysqli_num_rows($results) >0)
 
 
      <div class="col-md-4 col-sm-6 col-xs-6 tile_stats_count">
-         <span class="count_top"><i class="fa fa-user"></i> Consultants and Contractors </span>
-         <div  class="count green" style="font-size: xx-large"> <?php echo  $rows[0]; ?> </div>
+         <span class="count_top"><i class="fa fa-user"></i> Projects Contractors </span>
+         <div  class="count green" style="font-size: xx-large"> <?php echo  $row11[0]; ?> </div>
      </div>
 			
             
