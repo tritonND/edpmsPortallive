@@ -380,22 +380,6 @@ else{
                                             <!--
 
 
-                                             <tr>
-                                                <th>PROJECT DURATION</th>
-                                                <td style="text-transform: uppercase" id="txt_dur"></td>
-                                            </tr>
-
-
-
-                                            <tr>
-                                                <th>PROJECT DESCRIPTION</th>
-                                                <td style="text-transform: uppercase" id="txt_descr"></td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>PROJECT AWARDED ON</th>
-                                                <td style="text-transform: uppercase" id="txt_awarded"></td>
-                                            </tr>
                                             -->
 
                                             <tr>

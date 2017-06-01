@@ -723,7 +723,7 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
                                         <i class="fa fa-circle text-info"></i> Tesla Model S
                                         <i class="fa fa-circle text-warning"></i> BMW 5 Series
                                         -->
-                                <a href="mdareport8.php"> <input type="button" class="btn btn-info" value="View All" > </a>
+                                <a href="mdareport99.php"> <input type="button" class="btn btn-info" value="View All" > </a>
                                     </div>
                                     <hr>
                                     <div class="stats">

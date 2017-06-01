@@ -21,20 +21,7 @@ else{
 ?>
 
 <!DOCTYPE html>
-<?php
 
-//include './php/dbconnect.php';
-//session_start();
-//if(isset($_SESSION['firstname']))
-//{
-//$username=$_SESSION['firstname'];
-//}
-//else{
-//    header("Location: index.php");
-//}
-
-// "edpms") or die ("Error in Connection");
-?>
 <html lang="en">
 
 <head>
@@ -44,7 +31,7 @@ else{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>EDPMS | Project Financials By MDA</title>
+    <title>EDPMS | All Projects Financial Report</title>
 
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -58,7 +45,10 @@ else{
     <link href="build/css/custom.min.css" rel="stylesheet">
 
     <link href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link href="css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"  rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.dataTables.min.css"  rel="stylesheet">
 
 
     <style>
@@ -197,19 +187,19 @@ else{
             <div class="">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>All Projects Reports </h3>
+                        <h3>All Projects Financial Report</h3>
                     </div>
 
-                    <!--       <div class="title_right">
-                             <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                               <div class="input-group">
-                                 <input type="text" class="form-control" placeholder="Search for...">
-                                 <span class="input-group-btn">
-                                     <button class="btn btn-default" type="button">Search</button>
-                                 </span>
-                               </div>
-                             </div>
-                           </div>  -->
+                    <!--    <div class="title_right">
+                          <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                            <div class="input-group">
+                              <input type="text" class="form-control" placeholder="Search for...">
+                              <span class="input-group-btn">
+                                  <button class="btn btn-default" type="button">Search</button>
+                              </span>
+                            </div>
+                          </div>
+                        </div> -->
                 </div>
 
                 <div class="clearfix"></div>
@@ -221,65 +211,53 @@ else{
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Projects Sum By MDA</h4>
-                                    <p class="category">All MDAs Projects Sum</p>
+                                    <h4 class="title">Projects Financials</h4>
+                                    <p class="category">All MDAs Projects Showing Financial Details </p>
                                 </div>
-                                <div class="content table-responsive">
+                                <div class="content">
                                     <div id="chartActivity" class="ct-chart">
 
                                         <table id="myTable" class="table table-condensed table-striped table-bordered table-hover">
                                             <thead class="bg-primary">
-                                            <tr >
-                                                <th  style="text-transform: uppercase;">MDA</th>
-                                                <th style="text-transform: uppercase;">Project Sum</th>
-                                                <th style="text-transform: uppercase;">Certificates Paid</th>
-                                                <th style="text-transform: uppercase;">Outstanding Payments</th>
+                                            <tr>
+                                                <th>PROJECTID</th>
+                                                <th>PROJECT SUM</th>
+                                                <th>TOTAL CERTIFICATES PAID</th>
+                                                <th>TOTAL VARIATIONS</th>
+                                                <th>Action</th>
                                             </tr>
                                             </thead>
                                             <?php
-
-                                            // require_once 'dbconfig.php';
-                                            //      $query = "SELECT `PROJECTID`, `PROCURINGENTITY`, `TITLE`, `DESCRIPTION`, `STATUS`, `LOCATION`, `LGA`,  `CONTRACTSUM` FROM `projectdetails` ";
-
-                                            //   $query = "SELECT procuringentity, sum(contractsum) FROM projectdetails GROUP BY procuringentity";
-                                            //   $result = mysqli_query($con, $query) or die('Query fail: ' . mysqli_error($con));
-
-                                            // $stmt = $DBcon->prepare( $query );
-                                            //   $stmt->execute();
-
-
-                                            $conn = mysqli_connect("localhost", "root", "", "edpms");
-                                            $query1 = "CALL myProc()";
-                                            // $query1 = "CALL myProc3('".$yr."')";
-                                            $result = mysqli_query($conn, $query1) or die('Query fail: ' . mysqli_error());
-
-
-
                                             //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
-                                            // $query1 = "SELECT `PROJECTID`, `PROCURINGENTITY`, `TITLE`, `DESCRIPTION`, `STATUS`, `LOCATION`, `LGA`,  `CONTRACTSUM` FROM `projectdetails` ";
+                                            //    $query1 = "SELECT `PROJECTID`, `PROCURINGENTITY`, `TITLE`, `DESCRIPTION`, `STATUS`, `LOCATION`, `LGA`, `DATEOFAWARD`, `DURATIONOFCONTRACT`,  `CONTRACTSUM` FROM `projectdetails` ";
 
-                                            //  $result = mysqli_query($conn, $query1) or die('Query fail: ' . mysqli_error());
+
+                                            $query1 = "SELECT projectdetails.PROJECTID, projectdetails.CONTRACTSUM, (SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID GROUP BY certificates.PROJECTID) as cAmount, (SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID GROUP BY variations.PROJECTID ) as vAmount FROM projectdetails JOIN variations ON projectdetails.PROJECTID = variations.PROJECTID OR variations.PROJECTID = \"aa111\" JOIN certificates ON projectdetails.PROJECTID = certificates.PROJECTID GROUP BY projectdetails.PROJECTID ";
+
+                                            $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
                                             ?>
                                             <tbody>
-                                            <?php while ($row = mysqli_fetch_array($result)) {
-                                                //while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
-                                                ?>
+                                            <?php while ($row = mysqli_fetch_array($result)) { ?>
                                                 <tr>
-                                                    <td  style="text-transform: uppercase;"><?php echo $row[0]; ?></td>
-                                                    <td  class="currency-format" style="text-transform: uppercase;"><?php
-                                                        if (is_null($row[3]))
-                                                            echo $row[1];
-                                                        else { echo ($row[1] + $row[3]);}
-                                                        ?></td>
-                                                    <td  class="currency-format" style="text-transform: uppercase;"><?php echo $row[2]; ?></td>
-                                                    <td  class="currency-format" style="text-transform: uppercase;"><?php
-                                                        if (is_null($row[3])){
-                                                            echo ($row[1] - $row[2]);
+                                                    <td style="text-transform: uppercase"><?php echo $row[0]; ?></td>
+                                                    <td class="currency-format" style="text-transform: uppercase"><?php echo $row[1]; ?></td>
+                                                    <td class="currency-format" style="text-transform: uppercase"><?php echo $row[2]; ?></td>
+                                                    <td class="currency-format" style="text-transform: uppercase"><?php
+                                                        if(  is_null($row[3]) )
+                                                        {
+                                                            $row[3] = 0.00;
+                                                            echo $row[3];
                                                         }
-                                                        else{  echo (($row[1] + $row[3])  - $row[2]);  }
+                                                        else {
+                                                            echo $row[3];
+                                                        }
+
                                                         ?></td>
+                                                    <td>
+                                                        <button data-toggle="modal" data-target="#view-modal" data-id="<?php echo $row[0]; ?>" id="getUser" class="btn btn-sm btn-info"> View</button>
+                                                    </td>
                                                 </tr>
-                                            <?php } $conn->close(); ?>
+                                            <?php } ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -312,6 +290,7 @@ else{
 
 
                 <!-- end Col sm 12 -->
+
                 <div class="clearfix"></div>
 
             </div>
@@ -335,7 +314,15 @@ else{
 
 
 
-<div id="view-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+
+
+
+
+
+<div id="view-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none; font-family: 'Ubuntu', sans-serif;">
+    <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+
     <div class="modal-dialog">
         <form name="modform" id="modform">
             <div class="modal-content">
@@ -343,7 +330,7 @@ else{
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title">
-                        PROJECT DETAILS
+                        PROJECT FINANCIAL DETAILS
                     </h4>
                 </div>
                 <div class="modal-body">
@@ -362,10 +349,14 @@ else{
 
 
                                     <table class="table table-striped table-bordered">
+                                        <tr>
+                                            <th>PROJECT ID</th>
+                                            <td style="text-transform: uppercase" id="txt_id"></td>
+                                        </tr>
 
                                         <tr>
-                                            <th>LGA</th>
-                                            <td style="text-transform: uppercase" id="txt_lga"></td>
+                                            <th>LOCATION</th>
+                                            <td style="text-transform: uppercase" id="txt_location"></td>
                                         </tr>
 
                                         <tr>
@@ -379,6 +370,18 @@ else{
                                             <td style="text-transform: uppercase" id="txt_title"></td>
                                         </tr>
 
+
+
+                                        <!--
+
+
+                                         <tr>
+                                            <th>PROJECT DURATION</th>
+                                            <td style="text-transform: uppercase" id="txt_dur"></td>
+                                        </tr>
+
+
+
                                         <tr>
                                             <th>PROJECT DESCRIPTION</th>
                                             <td style="text-transform: uppercase" id="txt_descr"></td>
@@ -388,21 +391,30 @@ else{
                                             <th>PROJECT AWARDED ON</th>
                                             <td style="text-transform: uppercase" id="txt_awarded"></td>
                                         </tr>
+                                        -->
 
                                         <tr>
                                             <th>CONTRACT SUM</th>
-                                            <td style="text-transform: uppercase" id="txt_csum"></td>
+                                            <td class="currency-format" style="text-transform: uppercase" id="txt_csum"></td>
                                         </tr>
 
                                         <tr>
-                                            <th>STATUS</th>
-                                            <td style="text-transform: uppercase" id="txt_status"></td>
+                                            <th>TOTAL CERTIFICATES PAID</th>
+                                            <td class="currency-format" style="text-transform: uppercase" id="txt_lga"></td>
                                         </tr>
 
                                         <tr>
-                                            <th>PROJECT ID</th>
-                                            <td style="text-transform: uppercase" id="txt_id"></td>
+                                            <th>TOTAL VARIATIONS</th>
+                                            <td class="currency-format" style="text-transform: uppercase" id="txt_status"></td>
                                         </tr>
+
+
+                                        <tr>
+                                            <th>OUTSTANDING PAYMENT</th>
+                                            <td class="currency-format" style="text-transform: uppercase" id="txt_bal"></td>
+                                        </tr>
+
+
 
                                     </table>
 
@@ -415,13 +427,30 @@ else{
 
                 </div>
                 <div class="modal-footer">
+                    <!--
+                     <button type="button" id="excel" class="btn btn-primary">Export to Excel</button>
+                     <button type="button" id="pdf" class="btn btn-success">Export to PDF</button>
+                     <button type="button" id="prints" class="btn btn-info">Print</button>
+                     -->
                     <button type="button" class="btn btn-danger" id="ignore" data-dismiss="modal">Close</button>
                     <!-- <button type="button" class="btn btn-primary" id="treat" name="treat"   data-dismiss="modal">Treat</button>-->
                 </div>
 
             </div>   </form>
     </div>
+
+
+    <!--   making pdf here  -->
+
+    <!--  endpdf here-->
 </div><!-- /.modal -->
+
+
+
+
+
+
+
 
 
 <!-- jQuery -->
@@ -433,8 +462,22 @@ else{
 <!-- NProgress -->
 <script src="vendors/nprogress/nprogress.js"></script>
 
+
 <script src="http://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/tabletools/2.2.2/swf/copy_csv_xls_pdf.swf"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.flash.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.print.min.js"></script>
+
+
 
 
 <!-- Custom Theme Scripts -->
@@ -442,9 +485,12 @@ else{
 <script src="js/searchtable.js"></script>
 <script src="js/autofilter.js"></script>
 
-
-
 <script src="js/kendo.core.min.js"></script>
+
+
+
+
+
 <script>
     var pf = kendo.toString(kendo.parseFloat($('#projfund').text().trim()), 'n2');
     $('#projfund').text(pf);
@@ -456,6 +502,9 @@ else{
     });
 
 </script>
+
+
+
 
 
 <script>
@@ -474,55 +523,58 @@ else{
             console.log("hiii");
 
             $.ajax({
-                url: 'getinfo.php',
+                url: 'getinf.php',
                 type: 'POST',
                 data: 'id='+uid,
                 dataType: 'json'
             })
                 .done(function(data){
-                    console.log(data);
+                    // console.log(data);
+                    console.log("here");
+
+                    console.log(data.r1['CONTRACTSUM']);
+                    console.log(data.r3['vAmount']);
+                    console.log(data.r2['cAmount']);
+                    console.log("here");
+
+                    var val1 = data.r1['CONTRACTSUM'];
+                    var val2 = data.r2['cAmount'];
+                    var val3 = data.r3['vAmount'];
+
+                    // var res11 = parseInt(val1) + parseInt(val3) - parseInt(val2);
+
+                    var res11 = Number(val1) + Number(val3) - Number(val2);
+                    //console.log(val1 + val3);
+                    console.log(res11);
+
+                    console.log("here");
+
+
+
                     $('#dynamic-content').hide(); // hide dynamic div
                     $('#dynamic-content').show(); // show dynamic div
-                    $('#txt_mda').html(data.PROCURINGENTITY);
-                    $('#txt_title').html(data.TITLE);
-                    $('#txt_descr').html(data.DESCRIPTION);
-                    $('#txt_id').html(data.PROJECTID);
-                    $('#txt_status').html(data.STATUS);
-                    $('#txt_lga').html(data.LGA);
-                    $('#txt_csum').html(data.CONTRACTSUM);
-                    $('#txt_awarded').html(data.DATEOFAWARD);
+                    $('#txt_mda').html(data.r1['PROCURINGENTITY']);
+                    $('#txt_title').html(data.r1['TITLE']);
+                    $('#txt_bal').html(res11);
+                    $('#txt_id').html(data.r1['PROJECTID']);
+                    $('#txt_status').html(data.r3['vAmount']);
+                    $('#txt_lga').html(data.r2['cAmount']);
+                    $('#txt_csum').html(data.r1['CONTRACTSUM']);
+                    //   $('#txt_awarded').html(data.DATEOFAWARD);
+                    $('#txt_location').html(data.r1['LOCATION']);
+
+                    //  document.getElementById()
+
+                    $('.currency-format').each(function(index, element) {
+                        $(element).text(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
+                        console.log(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
+                    });
+
                     $('#modal-loader').hide();    // hide ajax loader
                     //  $('#imagefile').attr("src","../php/"+data.FilePath);
 
                     console.log("Completed");
-                    $(document).on('click', '#treat', function(e){
-                        console.log("here") ; console.log(data) ;
-                        formdata = data;
-                        console.log("hii");
-                        console.log(formdata);
 
-                        $.ajax({
-                            url: 'uduser.php',
-                            type: 'POST',
-                            data: formdata,
-                            dataType: 'json'
-                        })
-                        console.log("hi22i");
-                        swal({
-                                title: "Successful !",
-                                text: "Successfully Treated the ticket",
-                                showCancelButton: false,
-                                closeOnConfirm: false,
-                                showLoaderOnConfirm: true,
-                                html: true
-                                // imageUrl: "images/thumb.png"
-                            },
-                            function(){
-                                location.href="tickets.php" ;
-                            });
-
-
-                    });
                 })
                 .fail(function(){
                     $('.modal-body').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
@@ -543,7 +595,22 @@ else{
 
 <script>
     $(document).ready(function(){
-        $('#myTable').DataTable();
+        $('#myTable').DataTable(
+            {
+                dom: 'Bfrtip',
+                buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+            }
+        );
+
+        $('#modal-dialog').DataTable(
+            {
+                dom: 'Bfrtip',
+                lengthChange: true,
+                pageLength: 10,
+                lengthMenu: [ 10, 15, 20, 50, 100 ],
+                buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+            }
+        );
 
     });
 </script>
@@ -553,6 +620,10 @@ else{
         $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
+
+<?php
+audit_traii("viewed All Projects financial Records");
+?>
 
 </body>
 </html>

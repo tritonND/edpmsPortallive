@@ -227,6 +227,16 @@ else{
                                 <div class="content table-responsive">
                                     <div id="chartActivity" class="ct-chart">
 
+                                        <div class="row">
+                                            <div class="col-sm-5"> </div>
+                                            <div class=" col-md-5 col-md-offset-5">
+                                                <a href="mdareport8.php" type="button" class="btn  btn-primary">View Registered Contractors </a>
+
+                                                <!--<button class="btn  btn-primary">View Contractors Financials</button> -->
+                                            </div>
+
+                                        </div>
+
                                         <table id="myTable" class="table table-condensed table-striped table-bordered table-hover">
                                             <thead class="bg-primary">
                                             <tr >

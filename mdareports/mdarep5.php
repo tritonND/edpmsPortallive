@@ -22,7 +22,6 @@ else{
 
 <!DOCTYPE html>
 <?php
-
 //include './php/dbconnect.php';
 //session_start();
 //if(isset($_SESSION['firstname']))
@@ -33,7 +32,7 @@ else{
 //    header("Location: index.php");
 //}
 
-// "edpms") or die ("Error in Connection");
+
 ?>
 <html lang="en">
 
@@ -44,7 +43,7 @@ else{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>EDPMS | Project Financials By MDA</title>
+    <title>EDPMS | All Project Sum by LGA</title>
 
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -58,7 +57,7 @@ else{
     <link href="build/css/custom.min.css" rel="stylesheet">
 
     <link href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link href="css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="/css/jquery.dataTables.min.css" rel="stylesheet">
 
 
     <style>
@@ -197,19 +196,19 @@ else{
             <div class="">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>All Projects Reports </h3>
+                        <h3>All Projects Sum by LGA</h3>
                     </div>
 
-                    <!--       <div class="title_right">
-                             <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                               <div class="input-group">
-                                 <input type="text" class="form-control" placeholder="Search for...">
-                                 <span class="input-group-btn">
-                                     <button class="btn btn-default" type="button">Search</button>
-                                 </span>
-                               </div>
-                             </div>
-                           </div>  -->
+                    <!--    <div class="title_right">
+                          <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                            <div class="input-group">
+                              <input type="text" class="form-control" placeholder="Search for...">
+                              <span class="input-group-btn">
+                                  <button class="btn btn-default" type="button">Search</button>
+                              </span>
+                            </div>
+                          </div>
+                        </div> -->
                 </div>
 
                 <div class="clearfix"></div>
@@ -221,49 +220,38 @@ else{
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Projects Sum By MDA</h4>
-                                    <p class="category">All MDAs Projects Sum</p>
+                                    <h4 class="title">Project Sum By LGA</h4>
+                                    <p class="category">All MDAs Projects Contract Sum categorized by LGA</p>
                                 </div>
-                                <div class="content table-responsive">
+                                <div class="content">
                                     <div id="chartActivity" class="ct-chart">
 
                                         <table id="myTable" class="table table-condensed table-striped table-bordered table-hover">
                                             <thead class="bg-primary">
                                             <tr >
-                                                <th  style="text-transform: uppercase;">MDA</th>
+                                                <th  style="text-transform: uppercase;">LGA</th>
                                                 <th style="text-transform: uppercase;">Project Sum</th>
                                                 <th style="text-transform: uppercase;">Certificates Paid</th>
                                                 <th style="text-transform: uppercase;">Outstanding Payments</th>
                                             </tr>
                                             </thead>
                                             <?php
+                                            //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
+                                            //    $query1 = "SELECT `PROJECTID`, `PROCURINGENTITY`, `TITLE`, `DESCRIPTION`, `STATUS`, `LOCATION`, `LGA`, `DATEOFAWARD`, `DURATIONOFCONTRACT`,  `CONTRACTSUM` FROM `projectdetails` ";
 
-                                            // require_once 'dbconfig.php';
-                                            //      $query = "SELECT `PROJECTID`, `PROCURINGENTITY`, `TITLE`, `DESCRIPTION`, `STATUS`, `LOCATION`, `LGA`,  `CONTRACTSUM` FROM `projectdetails` ";
-
-                                            //   $query = "SELECT procuringentity, sum(contractsum) FROM projectdetails GROUP BY procuringentity";
-                                            //   $result = mysqli_query($con, $query) or die('Query fail: ' . mysqli_error($con));
-
-                                            // $stmt = $DBcon->prepare( $query );
-                                            //   $stmt->execute();
-
+                                            //   $query1 = "SELECT lga, sum(contractsum) FROM projectdetails GROUP BY lga";
+                                            //  $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
 
                                             $conn = mysqli_connect("localhost", "root", "", "edpms");
-                                            $query1 = "CALL myProc()";
+                                            $query1 = "CALL myProc1()";
                                             // $query1 = "CALL myProc3('".$yr."')";
                                             $result = mysqli_query($conn, $query1) or die('Query fail: ' . mysqli_error());
 
 
 
-                                            //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
-                                            // $query1 = "SELECT `PROJECTID`, `PROCURINGENTITY`, `TITLE`, `DESCRIPTION`, `STATUS`, `LOCATION`, `LGA`,  `CONTRACTSUM` FROM `projectdetails` ";
-
-                                            //  $result = mysqli_query($conn, $query1) or die('Query fail: ' . mysqli_error());
                                             ?>
                                             <tbody>
-                                            <?php while ($row = mysqli_fetch_array($result)) {
-                                                //while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
-                                                ?>
+                                            <?php while ($row = mysqli_fetch_array($result)) { ?>
                                                 <tr>
                                                     <td  style="text-transform: uppercase;"><?php echo $row[0]; ?></td>
                                                     <td  class="currency-format" style="text-transform: uppercase;"><?php
@@ -310,7 +298,6 @@ else{
 
                 <!--  Another Row here -->
 
-
                 <!-- end Col sm 12 -->
                 <div class="clearfix"></div>
 
@@ -331,99 +318,6 @@ else{
     </div>
 </div>
 
-
-
-
-
-<div id="view-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog">
-        <form name="modform" id="modform">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title">
-                        PROJECT DETAILS
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <!-- <div id="forImg"> 	<img id="imagefile" style="height: 200px; width: 200px">  </div> -->
-
-                    <div id="modal-loader" style="display: none; text-align: center;">
-
-                    </div>
-
-                    <div id="dynamic-content">
-
-                        <div class="row">
-                            <div class="col-md-12">
-
-                                <div class="table-responsive">
-
-
-                                    <table class="table table-striped table-bordered">
-
-                                        <tr>
-                                            <th>LGA</th>
-                                            <td style="text-transform: uppercase" id="txt_lga"></td>
-                                        </tr>
-
-                                        <tr>
-                                            <th>MDA</th>
-                                            <td style="text-transform: uppercase" id="txt_mda"></td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <th>PROJECT TITLE</th>
-                                            <td style="text-transform: uppercase" id="txt_title"></td>
-                                        </tr>
-
-                                        <tr>
-                                            <th>PROJECT DESCRIPTION</th>
-                                            <td style="text-transform: uppercase" id="txt_descr"></td>
-                                        </tr>
-
-                                        <tr>
-                                            <th>PROJECT AWARDED ON</th>
-                                            <td style="text-transform: uppercase" id="txt_awarded"></td>
-                                        </tr>
-
-                                        <tr>
-                                            <th>CONTRACT SUM</th>
-                                            <td style="text-transform: uppercase" id="txt_csum"></td>
-                                        </tr>
-
-                                        <tr>
-                                            <th>STATUS</th>
-                                            <td style="text-transform: uppercase" id="txt_status"></td>
-                                        </tr>
-
-                                        <tr>
-                                            <th>PROJECT ID</th>
-                                            <td style="text-transform: uppercase" id="txt_id"></td>
-                                        </tr>
-
-                                    </table>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" id="ignore" data-dismiss="modal">Close</button>
-                    <!-- <button type="button" class="btn btn-primary" id="treat" name="treat"   data-dismiss="modal">Treat</button>-->
-                </div>
-
-            </div>   </form>
-    </div>
-</div><!-- /.modal -->
-
-
 <!-- jQuery -->
 <script src="vendors/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap -->
@@ -442,8 +336,6 @@ else{
 <script src="js/searchtable.js"></script>
 <script src="js/autofilter.js"></script>
 
-
-
 <script src="js/kendo.core.min.js"></script>
 <script>
     var pf = kendo.toString(kendo.parseFloat($('#projfund').text().trim()), 'n2');
@@ -456,87 +348,6 @@ else{
     });
 
 </script>
-
-
-<script>
-    $(document).ready(function(){
-        var formdata = "" ;
-        $(document).on('click', '#getUser', function(e){
-
-            e.preventDefault();
-
-            var uid = $(this).data('id'); // get id of clicked row
-
-            $('#dynamic-content').hide(); // hide dive for loader
-            $('#modal-loader').show();  // load ajax loader
-
-            console.log(uid);
-            console.log("hiii");
-
-            $.ajax({
-                url: 'getinfo.php',
-                type: 'POST',
-                data: 'id='+uid,
-                dataType: 'json'
-            })
-                .done(function(data){
-                    console.log(data);
-                    $('#dynamic-content').hide(); // hide dynamic div
-                    $('#dynamic-content').show(); // show dynamic div
-                    $('#txt_mda').html(data.PROCURINGENTITY);
-                    $('#txt_title').html(data.TITLE);
-                    $('#txt_descr').html(data.DESCRIPTION);
-                    $('#txt_id').html(data.PROJECTID);
-                    $('#txt_status').html(data.STATUS);
-                    $('#txt_lga').html(data.LGA);
-                    $('#txt_csum').html(data.CONTRACTSUM);
-                    $('#txt_awarded').html(data.DATEOFAWARD);
-                    $('#modal-loader').hide();    // hide ajax loader
-                    //  $('#imagefile').attr("src","../php/"+data.FilePath);
-
-                    console.log("Completed");
-                    $(document).on('click', '#treat', function(e){
-                        console.log("here") ; console.log(data) ;
-                        formdata = data;
-                        console.log("hii");
-                        console.log(formdata);
-
-                        $.ajax({
-                            url: 'uduser.php',
-                            type: 'POST',
-                            data: formdata,
-                            dataType: 'json'
-                        })
-                        console.log("hi22i");
-                        swal({
-                                title: "Successful !",
-                                text: "Successfully Treated the ticket",
-                                showCancelButton: false,
-                                closeOnConfirm: false,
-                                showLoaderOnConfirm: true,
-                                html: true
-                                // imageUrl: "images/thumb.png"
-                            },
-                            function(){
-                                location.href="tickets.php" ;
-                            });
-
-
-                    });
-                })
-                .fail(function(){
-                    $('.modal-body').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
-                });
-
-        });
-
-
-
-    });
-
-</script>
-
-
 
 
 
@@ -553,6 +364,10 @@ else{
         $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
+
+<?php
+audit_traii("viewed Project Sum By LGA");
+?>
 
 </body>
 </html>
