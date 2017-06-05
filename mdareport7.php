@@ -44,12 +44,14 @@ else{
  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
     <link href="build/css/custom.min.css" rel="stylesheet">
 
+      <link href="dt/datatables.min.css" rel="stylesheet">
+      <!--
  <link href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet">
   <link href="/css/jquery.dataTables.min.css" rel="stylesheet">
 
       <link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"  rel="stylesheet">
       <link href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.dataTables.min.css"  rel="stylesheet">
-
+-->
 
       <style>
     .card1 {
@@ -320,8 +322,6 @@ else{
 
 
     <div id="view-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none; font-family: 'Ubuntu', sans-serif;">
-        <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
-        <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
 
         <div class="modal-dialog">
             <form name="modform" id="modform">
@@ -451,6 +451,8 @@ else{
     <!-- NProgress -->
     <script src="vendors/nprogress/nprogress.js"></script>
 
+    <script src="dt/datatables.min.js"></script>
+    <!--
 
     <script src="http://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
      <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -466,7 +468,7 @@ else{
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.html5.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.print.min.js"></script>
 
-
+-->
 
 
     <!-- Custom Theme Scripts -->

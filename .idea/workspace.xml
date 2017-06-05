@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7134703d-734b-42f7-a70f-d1193c7de7ae" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mdareports/datatables.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mdareports/datatables.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mdareports/tests.php" />
+    <list default="true" id="7134703d-734b-42f7-a70f-d1193c7de7ae" name="Default" comment="completing the app">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/datatables.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dt/datatables.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dt/datatables.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/datatables.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mdareports/buttons.dataTables.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mdareports/buttons.flash.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mdareports/dataTables.buttons.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mdreprest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mdareport7.php" afterPath="$PROJECT_DIR$/mdareport7.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mdareports/tests.php" afterPath="$PROJECT_DIR$/mdareports/tests.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -93,60 +100,120 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dashboard.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard.php">
+      <file leaf-file-name="mdareport9.php" pinned="true" current-in-tab="false">
+        <entry file="remoteDeploymentFS://&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/mdareport9.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3264">
-              <caret line="192" column="20" lean-forward="false" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="20" />
+            <state relative-caret-position="237">
+              <caret line="443" column="13" lean-forward="false" selection-start-line="443" selection-start-column="13" selection-end-line="443" selection-end-column="13" />
               <folding>
-                <marker date="1496157045881" expanded="true" signature="4394:4427" ph="SELECT COUNT... supervisors" />
-                <marker date="1496157045881" expanded="true" signature="4463:4790" ph="SELECT COUNT... projectdetails" />
-                <marker date="1496157045881" expanded="true" signature="12918:13013" ph="SELECT lga, projectdetails" />
-                <marker date="1496157045881" expanded="true" signature="15269:15292" ph="select * fro... polylines" />
-                <marker date="1496157045881" expanded="true" signature="15533:15561" ph="select lat, geodata" />
-                <marker date="1496157045881" expanded="true" signature="21906:22386" ph="SELECT proje... " />
-                <marker date="1496157045881" expanded="true" signature="25388:25441" ph="SELECT COMPA... supervisors" />
-                <marker date="1496157045881" expanded="true" signature="31845:31965" ph="SELECT procu... projectdetails" />
-                <marker date="1496157045881" expanded="true" signature="38225:38331" ph="SELECT proje... projectdetails" />
+                <marker date="0" expanded="true" signature="7520:7602" ph="SELECT CONTR... projectdetails" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mdareport99.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mdareport99.php">
+      <file leaf-file-name="mdareport8.php" pinned="true" current-in-tab="false">
+        <entry file="remoteDeploymentFS://&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/mdareport8.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5134">
-              <caret line="310" column="22" lean-forward="false" selection-start-line="310" selection-start-column="22" selection-end-line="310" selection-end-column="22" />
+            <state relative-caret-position="130">
+              <caret line="51" column="55" lean-forward="false" selection-start-line="51" selection-start-column="55" selection-end-line="51" selection-end-column="55" />
+              <folding>
+                <marker date="0" expanded="true" signature="6223:6284" ph="SELECT COMPA... supervisors" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mdareport7.php" pinned="true" current-in-tab="false">
+        <entry file="remoteDeploymentFS://&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/mdareport7.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-484">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="0" expanded="true" signature="6272:6832" ph="SELECT proje... projectdetails" />
+                <marker date="0" expanded="true" signature="6334:6458" ph="SELECT SUM(A... certificates" />
+                <marker date="0" expanded="true" signature="6473:6591" ph="SELECT SUM(A... variations" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mdareport6.php" pinned="true" current-in-tab="false">
+        <entry file="remoteDeploymentFS://&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/mdareport6.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="71" column="17" lean-forward="false" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
+              <folding>
+                <marker date="0" expanded="true" signature="6090:6168" ph="SELECT `PROJ... projectdetails" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mdareport5.php" pinned="true" current-in-tab="false">
+        <entry file="remoteDeploymentFS://&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/mdareport5.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="245">
+              <caret line="504" column="9" lean-forward="false" selection-start-line="504" selection-start-column="9" selection-end-line="504" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mdareport7.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mdareport7.php">
+      <file leaf-file-name="mdareport4.php" pinned="true" current-in-tab="false">
+        <entry file="remoteDeploymentFS://&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/mdareport4.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="409" column="42" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="617" selection-end-column="7" />
+            <state relative-caret-position="432">
+              <caret line="521" column="9" lean-forward="false" selection-start-line="521" selection-start-column="9" selection-end-line="521" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mdareport3.php" pinned="true" current-in-tab="false">
+        <entry file="remoteDeploymentFS://&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/mdareport3.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1496323857204" expanded="true" signature="6198:6758" ph="SELECT proje... projectdetails" />
-                <marker date="1496323857204" expanded="true" signature="6260:6384" ph="SELECT SUM(A... certificates" />
-                <marker date="1496323857204" expanded="true" signature="6399:6517" ph="SELECT SUM(A... variations" />
+                <marker date="0" expanded="true" signature="5226:5249" ph="select * fro... polylines" />
+                <marker date="0" expanded="true" signature="5490:5518" ph="select lat, geodata" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tests.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mdareports/tests.php">
+      <file leaf-file-name="mdareport2.php" pinned="true" current-in-tab="false">
+        <entry file="remoteDeploymentFS://&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/mdareport2.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="563">
-              <caret line="446" column="0" lean-forward="true" selection-start-line="446" selection-start-column="0" selection-end-line="446" selection-end-column="0" />
+            <state relative-caret-position="301">
+              <caret line="425" column="37" lean-forward="false" selection-start-line="425" selection-start-column="37" selection-end-line="425" selection-end-column="37" />
+              <folding>
+                <marker date="0" expanded="true" signature="5889:5981" ph="SELECT PROCU... projectdetails" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mdareport1.php" pinned="true" current-in-tab="true">
+        <entry file="remoteDeploymentFS://&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/mdareport1.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="410" column="39" lean-forward="false" selection-start-line="410" selection-start-column="39" selection-end-line="410" selection-end-column="39" />
+              <folding>
+                <marker date="0" expanded="true" signature="5927:5980" ph="SELECT lga, projectdetails" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mdreprest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mdreprest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214">
+              <caret line="537" column="13" lean-forward="false" selection-start-line="534" selection-start-column="11" selection-end-line="537" selection-end-column="13" />
               <folding>
                 <element signature="e#6#90#0#PHP" expanded="true" />
-                <marker date="1496652267086" expanded="true" signature="7073:7633" ph="SELECT proje... projectdetails" />
-                <marker date="1496652267086" expanded="true" signature="7135:7259" ph="SELECT SUM(A... certificates" />
-                <marker date="1496652267086" expanded="true" signature="7274:7392" ph="SELECT SUM(A... variations" />
               </folding>
             </state>
           </provider>
@@ -186,16 +253,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/php/addcertificate.php" />
-        <option value="$PROJECT_DIR$/php/addvariations.php" />
-        <option value="$PROJECT_DIR$/php/allconsultants.php" />
-        <option value="$PROJECT_DIR$/php/allcontractors.php" />
-        <option value="$PROJECT_DIR$/php/approvecertificate.php" />
-        <option value="$PROJECT_DIR$/php/blacklist.php" />
-        <option value="$PROJECT_DIR$/php/changePwd.php" />
-        <option value="$PROJECT_DIR$/php/createusers.php" />
-        <option value="$PROJECT_DIR$/php/deleteusers.php" />
-        <option value="$PROJECT_DIR$/php/edit_project.php" />
         <option value="$PROJECT_DIR$/php/restoreblacklist.php" />
         <option value="$PROJECT_DIR$/php/dbconnect.php" />
         <option value="$PROJECT_DIR$/dbconfig.php" />
@@ -235,8 +292,18 @@
         <option value="&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/dashboard.php" />
         <option value="&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/php/certifications.php" />
         <option value="&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/update-project.php" />
-        <option value="$PROJECT_DIR$/mdareport7.php" />
         <option value="$PROJECT_DIR$/mdareports/tests.php" />
+        <option value="$PROJECT_DIR$/mdreprest.php" />
+        <option value="$PROJECT_DIR$/mdareport7.php" />
+        <option value="&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/mdareport7.php" />
+        <option value="&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/mdareport99.php" />
+        <option value="&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/mdareport9.php" />
+        <option value="&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/mdareport8.php" />
+        <option value="&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/mdareport6.php" />
+        <option value="&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/mdareport5.php" />
+        <option value="&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/mdareport4.php" />
+        <option value="&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/mdareport2.php" />
+        <option value="&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/mdareport1.php" />
       </list>
     </option>
   </component>
@@ -250,8 +317,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1378" />
-    <option name="height" value="780" />
+    <option name="width" value="1370" />
+    <option name="height" value="772" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -269,6 +336,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -292,13 +360,12 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mdareports" />
+              <option name="myItemId" value="dt" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -321,6 +388,8 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\edpms\mdareports" />
+      <recent name="C:\xampp\htdocs\edpms\css" />
+      <recent name="C:\xampp\htdocs\edpms\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -440,7 +509,9 @@
       <workItem from="1496322782937" duration="1869000" />
       <workItem from="1496331589186" duration="689000" />
       <workItem from="1496393681106" duration="1636000" />
-      <workItem from="1496417478527" duration="1462000" />
+      <workItem from="1496417478527" duration="5303000" />
+      <workItem from="1496660688261" duration="2764000" />
+      <workItem from="1496674929853" duration="2179000" />
     </task>
     <task id="LOCAL-00001" summary="Arranging for my Localhost">
       <created>1493901998226</created>
@@ -596,11 +667,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496323897786</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="completing the app">
+      <created>1496652681818</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1496652681818</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225530000" />
+    <option name="totallyTimeSpent" value="234314000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -612,11 +690,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1378" height="780" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1370" height="772" extended-state="0" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13808802" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22610015" sideWeight="0.49199083" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18473282" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17328244" sideWeight="0.49199083" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.265745" sideWeight="0.4969743" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52425665" sideWeight="0.50610685" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13969466" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -631,7 +708,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18586789" sideWeight="0.49092284" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18466353" sideWeight="0.49092284" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40532082" sideWeight="0.49389312" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -699,36 +776,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="dbSrc:///284b4f1f/a5f85944-27b9-4be6-80e3-fa2a6320d195/schema/edpms/routine/myProc3.(varchar(4)).sql" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a5f85944-27b9-4be6-80e3-fa2a6320d195/console_2.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/oth/reportSrc07.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbSrc:///284b4f1f/a5f85944-27b9-4be6-80e3-fa2a6320d195/schema/edpms/routine/myProc5.(varchar(255)).sql" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a5f85944-27b9-4be6-80e3-fa2a6320d195/console_1.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="53" column="23" lean-forward="false" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/getinfo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/getinfo1.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-76">
@@ -1000,25 +1047,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3264">
           <caret line="192" column="20" lean-forward="false" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="20" />
-          <folding>
-            <marker date="1496157045881" expanded="true" signature="4394:4427" ph="SELECT COUNT... supervisors" />
-            <marker date="1496157045881" expanded="true" signature="4463:4790" ph="SELECT COUNT... projectdetails" />
-            <marker date="1496157045881" expanded="true" signature="12918:13013" ph="SELECT lga, projectdetails" />
-            <marker date="1496157045881" expanded="true" signature="15269:15292" ph="select * fro... polylines" />
-            <marker date="1496157045881" expanded="true" signature="15533:15561" ph="select lat, geodata" />
-            <marker date="1496157045881" expanded="true" signature="21906:22386" ph="SELECT proje... " />
-            <marker date="1496157045881" expanded="true" signature="25388:25441" ph="SELECT COMPA... supervisors" />
-            <marker date="1496157045881" expanded="true" signature="31845:31965" ph="SELECT procu... projectdetails" />
-            <marker date="1496157045881" expanded="true" signature="38225:38331" ph="SELECT proje... projectdetails" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mdareport99.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5134">
-          <caret line="310" column="22" lean-forward="false" selection-start-line="310" selection-start-column="22" selection-end-line="310" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1026,30 +1054,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
           <caret line="35" column="43" lean-forward="true" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
-          <folding>
-            <marker date="1493116538000" expanded="true" signature="243:294" ph="SELECT * fro... projectdetails" />
-            <marker date="1493116538000" expanded="true" signature="312:381" ph="SELECT SUM(A... certificates" />
-            <marker date="1493116538000" expanded="true" signature="399:487" ph="SELECT SUM(A... variations" />
-            <marker date="1493116538000" expanded="true" signature="505:1216" ph="SELECT proje... projectdetails" />
-            <marker date="1493116538000" expanded="true" signature="670:764" ph="SELECT SUM(A... certificates" />
-            <marker date="1493116538000" expanded="true" signature="798:910" ph="SELECT SUM(A... variations" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mdareport7.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="409" column="42" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="617" selection-end-column="7" />
-          <folding>
-            <marker date="1496323857204" expanded="true" signature="6198:6758" ph="SELECT proje... projectdetails" />
-            <marker date="1496323857204" expanded="true" signature="6260:6384" ph="SELECT SUM(A... certificates" />
-            <marker date="1496323857204" expanded="true" signature="6399:6517" ph="SELECT SUM(A... variations" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mdareports/datatables.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/datatables.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/datatables.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="59" column="6042" lean-forward="false" selection-start-line="59" selection-start-column="6042" selection-end-line="59" selection-end-column="6042" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mdareports/buttons.flash.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mdareports/dataTables.buttons.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mdareports/buttons.dataTables.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1059,13 +1105,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mdareports/tests.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="446" column="0" lean-forward="true" selection-start-line="446" selection-start-column="0" selection-end-line="446" selection-end-column="0" />
+        <state relative-caret-position="816">
+          <caret line="53" column="42" lean-forward="false" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+          <folding>
+            <element signature="e#6#90#0#PHP" expanded="false" />
+            <marker date="1496655129683" expanded="true" signature="7043:7603" ph="SELECT proje... projectdetails" />
+            <marker date="1496655129683" expanded="true" signature="7105:7229" ph="SELECT SUM(A... certificates" />
+            <marker date="1496655129683" expanded="true" signature="7244:7362" ph="SELECT SUM(A... variations" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mdareport99.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="335" column="0" lean-forward="false" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mdareport7.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="46" column="39" lean-forward="false" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
+          <folding>
+            <marker date="1496661845874" expanded="true" signature="6271:6831" ph="SELECT proje... projectdetails" />
+            <marker date="1496661845874" expanded="true" signature="6333:6457" ph="SELECT SUM(A... certificates" />
+            <marker date="1496661845874" expanded="true" signature="6472:6590" ph="SELECT SUM(A... variations" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mdreprest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="537" column="13" lean-forward="false" selection-start-line="534" selection-start-column="11" selection-end-line="537" selection-end-column="13" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
-            <marker date="1496652267086" expanded="true" signature="7073:7633" ph="SELECT proje... projectdetails" />
-            <marker date="1496652267086" expanded="true" signature="7135:7259" ph="SELECT SUM(A... certificates" />
-            <marker date="1496652267086" expanded="true" signature="7274:7392" ph="SELECT SUM(A... variations" />
           </folding>
         </state>
       </provider>

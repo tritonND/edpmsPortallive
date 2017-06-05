@@ -3,10 +3,10 @@
  * Created by PhpStorm.
  * User: tritonND
  * Date: 6/5/2017
- * Time: 8:35 AM
+ * Time: 9:33 AM
  */
 
-include '../php/dbconnect.php';
+include './php/dbconnect.php';
 
 session_start();
 if(isset($_SESSION['privileges']))
@@ -14,6 +14,7 @@ if(isset($_SESSION['privileges']))
     $priv=$_SESSION['privileges'];
     if((strpos($priv,"reporting")!==FALSE)||(strpos($priv,"sysadmin")!==FALSE))//check if he has dashboard privilege
     {
+
         //header("Location: create-project.php");
     }
 
@@ -27,7 +28,20 @@ else{
 ?>
 
 <!DOCTYPE html>
+<?php
 
+//include './php/dbconnect.php';
+//session_start();
+//if(isset($_SESSION['firstname']))
+//{
+//$username=$_SESSION['firstname'];
+//}
+//else{
+//    header("Location: index.php");
+//}
+
+// "edpms") or die ("Error in Connection");
+?>
 <html lang="en">
 
 <head>
@@ -37,23 +51,20 @@ else{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>EDPMS | All Projects Financial Report</title>
+    <title>EDPMS | Project Financials By MDA</title>
 
     <!-- Bootstrap -->
-    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
 
     <!-- Custom styling plus plugins -->
-    <link href="../build/css/custom.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link href="build/css/custom.min.css" rel="stylesheet">
 
-    <link href="datatables.min.css" rel="stylesheet">
-
-    <link href="buttons.dataTables.min.css" rel="stylesheet">
-
-
+    <link href="css/datatables.min.css" rel="stylesheet">
 
 
     <style>
@@ -181,21 +192,30 @@ else{
     <div class="main_container">
         <div class="col-md-3 left_col">
             <!--          left side menu from top to bottom-->
-            <?php include '../sidemenu.php'; ?>
+            <?php include './sidemenu.php'; ?>
         </div>
 
         <!-- top navigation -->
-        <?php include '../topnavigation.php'; ?>
+        <?php include './topnavigation.php'; ?>
         <!-- /top navigation -->
         <!-- page content -->
         <div class="right_col" role="main">
             <div class="">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>All Projects Financial Report</h3>
+                        <h3>All Projects Reports </h3>
                     </div>
 
-
+                    <!--       <div class="title_right">
+                             <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                               <div class="input-group">
+                                 <input type="text" class="form-control" placeholder="Search for...">
+                                 <span class="input-group-btn">
+                                     <button class="btn btn-default" type="button">Search</button>
+                                 </span>
+                               </div>
+                             </div>
+                           </div>  -->
                 </div>
 
                 <div class="clearfix"></div>
@@ -207,53 +227,68 @@ else{
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Projects Financials</h4>
-                                    <p class="category">All MDAs Projects Showing Financial Details </p>
+                                    <h4 class="title">Projects Sum By Contractors</h4>
+                                    <p class="category">All Contractors Projects Sum</p>
                                 </div>
-                                <div class="content">
+                                <div class="content table-responsive">
                                     <div id="chartActivity" class="ct-chart">
+
+                                        <div class="row">
+                                            <div class="col-sm-5"> </div>
+                                            <div class=" col-md-5 col-md-offset-5">
+                                                <a href="mdareport8.php" type="button" class="btn  btn-primary">View Registered Contractors </a>
+
+                                                <!--<button class="btn  btn-primary">View Contractors Financials</button> -->
+                                            </div>
+
+                                        </div>
 
                                         <table id="myTable" class="table table-condensed table-striped table-bordered table-hover">
                                             <thead class="bg-primary">
-                                            <tr>
-                                                <th>PROJECTID</th>
-                                                <th>PROJECT SUM</th>
-                                                <th>TOTAL CERTIFICATES PAID</th>
-                                                <th>TOTAL VARIATIONS</th>
-                                                <th>Action</th>
+                                            <tr >
+                                                <th  style="text-transform: uppercase;">Contractor</th>
+                                                <th style="text-transform: uppercase;">Project Sum</th>
+                                                <th style="text-transform: uppercase;">Certificates Paid</th>
+                                                <th style="text-transform: uppercase;">Outstanding Payments</th>
+                                                <th style="text-transform: uppercase;">View</th>
                                             </tr>
                                             </thead>
                                             <?php
-                                            //  $conn = mysqli_connect('localhost', 'user', 'password', 'db', 'port');
-                                            //    $query1 = "SELECT `PROJECTID`, `PROCURINGENTITY`, `TITLE`, `DESCRIPTION`, `STATUS`, `LOCATION`, `LGA`, `DATEOFAWARD`, `DURATIONOFCONTRACT`,  `CONTRACTSUM` FROM `projectdetails` ";
 
 
-                                            $query1 = "SELECT projectdetails.PROJECTID, projectdetails.CONTRACTSUM, (SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID GROUP BY certificates.PROJECTID) as cAmount, (SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID GROUP BY variations.PROJECTID ) as vAmount FROM projectdetails JOIN variations ON projectdetails.PROJECTID = variations.PROJECTID OR variations.PROJECTID = \"aa111\" JOIN certificates ON projectdetails.PROJECTID = certificates.PROJECTID GROUP BY projectdetails.PROJECTID ";
+                                            $conn = mysqli_connect("localhost", "root", "minowss", "edpms");
+                                            $query1 = "CALL myProc4()";
+                                            // $query1 = "CALL myProc3('".$yr."')";
+                                            $result = mysqli_query($conn, $query1) or die('Query fail: ' . mysqli_error());
 
-                                            $result = mysqli_query($con, $query1) or die('Query fail: ' . mysqli_error());
+
+
                                             ?>
                                             <tbody>
-                                            <?php while ($row = mysqli_fetch_array($result)) { ?>
-                                                <tr>
-                                                    <td style="text-transform: uppercase"><?php echo $row[0]; ?></td>
-                                                    <td class="currency-format" style="text-transform: uppercase"><?php echo $row[1]; ?></td>
-                                                    <td class="currency-format" style="text-transform: uppercase"><?php echo $row[2]; ?></td>
-                                                    <td class="currency-format" style="text-transform: uppercase"><?php
-                                                        if(  is_null($row[3]) )
-                                                        {
-                                                            $row[3] = 0.00;
-                                                            echo $row[3];
-                                                        }
-                                                        else {
-                                                            echo $row[3];
-                                                        }
+                                            <?php while ($row = mysqli_fetch_array($result)) {
 
+                                                ?>
+                                                <tr>
+                                                    <td  style="text-transform: uppercase;"><?php echo $row[0]; ?></td>
+                                                    <td  class="currency-format" style="text-transform: uppercase;"><?php
+                                                        if (is_null($row[3]))
+                                                            echo $row[1];
+                                                        else { echo ($row[1] + $row[3]);}
                                                         ?></td>
+                                                    <td  class="currency-format" style="text-transform: uppercase;"><?php echo $row[2]; ?></td>
+                                                    <td  class="currency-format" style="text-transform: uppercase;"><?php
+                                                        if (is_null($row[3])){
+                                                            echo ($row[1] - $row[2]);
+                                                        }
+                                                        else{  echo (($row[1] + $row[3])  - $row[2]);  }
+                                                        ?></td>
+
                                                     <td>
                                                         <button data-toggle="modal" data-target="#view-modal" data-id="<?php echo $row[0]; ?>" id="getUser" class="btn btn-sm btn-info"> View</button>
                                                     </td>
+
                                                 </tr>
-                                            <?php } ?>
+                                            <?php } $conn->close(); ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -286,7 +321,6 @@ else{
 
 
                 <!-- end Col sm 12 -->
-
                 <div class="clearfix"></div>
 
             </div>
@@ -310,13 +344,7 @@ else{
 
 
 
-
-
-
-
-
-<div id="view-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none; font-family: 'Ubuntu', sans-serif;">
-
+<div id="view-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <form name="modform" id="modform">
             <div class="modal-content">
@@ -324,130 +352,62 @@ else{
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title">
-                        PROJECT FINANCIAL DETAILS
+                        CONTRACTOR PROJECT DETAILS
                     </h4>
                 </div>
                 <div class="modal-body">
                     <!-- <div id="forImg"> 	<img id="imagefile" style="height: 200px; width: 200px">  </div> -->
 
-                    <div id="modal-loader" style="display: none; text-align: center;">
+                    <h2 id="cname"></h2>
+                    <table>
+                        <tr> <td> Total Contract Sum:   </td> <td>&nbsp;&nbsp; </td> <td class="currency-format" id="tcs">  </td>   </tr>
+                        <tr> <td>Total Certificates:    </td> <td>&nbsp;&nbsp; </td> <td class="currency-format" id="tc">  </td>   </tr>
+                        <tr> <td>Total Variations:  </td> <td> </td>&nbsp;&nbsp; <td class="currency-format" id="tv">  </td>   </tr>
+                        <tr> <td>Outstanding:  </td> <td>&nbsp;&nbsp; </td> <td class="currency-format" id="outs">  </td>   </tr>
+                    </table>
 
-                    </div>
-
-                    <div id="dynamic-content">
-
-                        <div class="row">
-                            <div class="col-md-12">
-
-                                <div class="table-responsive">
-
-
-                                    <table class="table table-striped table-bordered">
-                                        <tr>
-                                            <th>PROJECT ID</th>
-                                            <td style="text-transform: uppercase" id="txt_id"></td>
-                                        </tr>
-
-                                        <tr>
-                                            <th>LOCATION</th>
-                                            <td style="text-transform: uppercase" id="txt_location"></td>
-                                        </tr>
-
-                                        <tr>
-                                            <th>MDA</th>
-                                            <td style="text-transform: uppercase" id="txt_mda"></td>
-                                        </tr>
+                    <hr/>
 
 
-                                        <tr>
-                                            <th>PROJECT TITLE</th>
-                                            <td style="text-transform: uppercase" id="txt_title"></td>
-                                        </tr>
+                    <table style="font-size: 90%" class="table table-responsive table-condensed table-striped table-bordered table-hover">
+                        <thead class="bg-primary">
+                        <tr >
+                            <!-- <th style="text-transform: uppercase;">ProjectID</th> -->
+                            <th style="text-transform: uppercase;">TITLE</th>
+                            <th style="text-transform: uppercase;">Project Sum</th>
+                            <th style="text-transform: uppercase;">Variations</th>
+                            <th style="text-transform: uppercase;">Certificates Paid</th>
+                            <th style="text-transform: uppercase;">Outstanding Payments</th>
 
+                        </tr>
+                        </thead>
+                        <tbody  id="myMod1">
 
-                                        <tr>
-                                            <th>PROJECT CONTRACTOR</th>
-                                            <td style="text-transform: uppercase" id="txt_contr"></td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <th>CONTRACT SUM</th>
-                                            <td class="currency-format" style="text-transform: uppercase" id="txt_csum"></td>
-                                        </tr>
-
-                                        <tr>
-                                            <th>TOTAL CERTIFICATES PAID</th>
-                                            <td class="currency-format" style="text-transform: uppercase" id="txt_lga"></td>
-                                        </tr>
-
-                                        <tr>
-                                            <th>TOTAL VARIATIONS</th>
-                                            <td class="currency-format" style="text-transform: uppercase" id="txt_status"></td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <th>OUTSTANDING PAYMENT</th>
-                                            <td class="currency-format" style="text-transform: uppercase" id="txt_bal"></td>
-                                        </tr>
-
-
-
-                                    </table>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
+                        </tbody>
+                    </table>
 
                 </div>
+
+
+
                 <div class="modal-footer">
-                    <!--
-                     <button type="button" id="excel" class="btn btn-primary">Export to Excel</button>
-                     <button type="button" id="pdf" class="btn btn-success">Export to PDF</button>
-                     <button type="button" id="prints" class="btn btn-info">Print</button>
-                     -->
                     <button type="button" class="btn btn-danger" id="ignore" data-dismiss="modal">Close</button>
                     <!-- <button type="button" class="btn btn-primary" id="treat" name="treat"   data-dismiss="modal">Treat</button>-->
                 </div>
 
             </div>   </form>
     </div>
-
-
-    <!--   making pdf here  -->
-
-    <!--  endpdf here-->
 </div><!-- /.modal -->
 
 
-
-
-
-
-
-
-
 <!-- jQuery -->
-<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<script src="vendors/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap -->
-<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->
-<script src="../vendors/fastclick/lib/fastclick.js"></script>
+<script src="vendors/fastclick/lib/fastclick.js"></script>
 <!-- NProgress -->
-<script src="../vendors/nprogress/nprogress.js"></script>
-
-<script src="datatables.min.js"></script>
-
-
-<script src="dataTables.buttons.min.js"></script>
-
-
-
-
+<script src="vendors/nprogress/nprogress.js"></script>
 
 
 <!-- Custom Theme Scripts -->
@@ -455,12 +415,10 @@ else{
 <script src="js/searchtable.js"></script>
 <script src="js/autofilter.js"></script>
 
+<script src="js/datatables.min.js"></script>
+
+
 <script src="js/kendo.core.min.js"></script>
-
-
-
-
-
 <script>
     var pf = kendo.toString(kendo.parseFloat($('#projfund').text().trim()), 'n2');
     $('#projfund').text(pf);
@@ -472,9 +430,6 @@ else{
     });
 
 </script>
-
-
-
 
 
 <script>
@@ -490,58 +445,69 @@ else{
             $('#modal-loader').show();  // load ajax loader
 
             console.log(uid);
-            console.log("hiii");
+            console.log("hiiiss");
 
             $.ajax({
-                url: 'getinf.php',
+                url: 'getinfoc.php',
                 type: 'POST',
                 data: 'id='+uid,
                 dataType: 'json'
             })
                 .done(function(data){
-                    // console.log(data);
-                    console.log("here");
 
-                    console.log(data.r1['CONTRACTSUM']);
-                    console.log(data.r3['vAmount']);
-                    console.log(data.r2['cAmount']);
-                    console.log("here");
+                    console.log("noow3");
+                    console.log(data.length);
+                    //  var tbl=$("<table/>").attr("id","mytable");
+                    //$("#div1").append(tbl);
 
-                    var val1 = data.r1['CONTRACTSUM'];
-                    var val2 = data.r2['cAmount'];
-                    var val3 = data.r3['vAmount'];
+                    $('#myMod1').html("");
+                    $('#cname').html("");
+                    $('#tcs').html("");
+                    $('#tc').html("");
+                    $('#tv').html("");
+                    $('#outs').html("");
 
-                    // var res11 = parseInt(val1) + parseInt(val3) - parseInt(val2);
+                    $('#cname').append(uid);
 
-                    var res11 = Number(val1) + Number(val3) - Number(val2);
-                    //console.log(val1 + val3);
-                    console.log(res11);
+                    var totals1 = 0;
+                    var totals2 = 0;
+                    var totals3 = 0;
+                    for(var i=0;i<data.length;i++)
+                    {
 
-                    console.log("here");
+                        var tr="<tr>";
+                        // var td1="<td>"+data[i]["PROJECTID"]+"</td>";
+                        //  var td2="<td>"+data[i]["CONTRACTOR"]+"</td>";
+                        var td3="<td>"+data[i]["TITLE"]+"</td>";
+                        var td4="<td class='currency-format'>"+Number(data[i]["CONTRACTSUM"])+"</td>";
+                        var td5="<td class='currency-format'>"+Number(data[i]["vAmount"])+"</td>";
+                        var td6="<td class='currency-format'>"+Number(data[i]["cAmount"])+"</td>";
 
+                        var outstandin = Number(data[i]["CONTRACTSUM"]) + Number(data[i]["vAmount"]) - Number(data[i]["cAmount"]);
+                        var td7="<td class='currency-format'>"+outstandin+"</td></tr>";
 
+                        //   console.log(Number(data[i]["CONTRACTSUM"]));
 
-                    $('#dynamic-content').hide(); // hide dynamic div
-                    $('#dynamic-content').show(); // show dynamic div
-                    $('#txt_mda').html(data.r1['PROCURINGENTITY']);
-                    $('#txt_title').html(data.r1['TITLE']);
-                    $('#txt_bal').html(res11);
-                    $('#txt_id').html(data.r1['PROJECTID']);
-                    $('#txt_status').html(data.r3['vAmount']);
-                    $('#txt_lga').html(data.r2['cAmount']);
-                    $('#txt_csum').html(data.r1['CONTRACTSUM']);
-                    $('#txt_contr').html(data.r1['CONTRACTOR']);
-                    $('#txt_location').html(data.r1['LOCATION']);
+                        $('#myMod1').append(tr+td3+td4+td5+td6+td7);
 
-                    //  document.getElementById()
+                        totals1 = totals1 +  Number(data[i]["CONTRACTSUM"]);
+                        totals2 = totals2 +  Number(data[i]["vAmount"]);
+                        totals3 = totals3 +  Number(data[i]["cAmount"]);
+
+                    }
+
+                    var outstan = totals1 + totals2 - totals3;
+                    $('#tcs').append(totals1);
+                    $('#tc').append(totals3);
+                    $('#tv').append(totals2);
+                    $('#outs').append(outstan);
+
 
                     $('.currency-format').each(function(index, element) {
                         $(element).text(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
                         console.log(kendo.toString(kendo.parseFloat($(element).text().trim()), 'n2'));
                     });
 
-                    $('#modal-loader').hide();    // hide ajax loader
-                    //  $('#imagefile').attr("src","../php/"+data.FilePath);
 
                     console.log("Completed");
 
@@ -572,16 +538,6 @@ else{
             }
         );
 
-        $('#modal-dialog').DataTable(
-            {
-                dom: 'Bfrtip',
-                lengthChange: true,
-                pageLength: 10,
-                lengthMenu: [ 10, 15, 20, 50, 100 ],
-                buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
-            }
-        );
-
     });
 </script>
 
@@ -591,9 +547,7 @@ else{
     });
 </script>
 
-<?php
-audit_traii("viewed All Projects financial Records");
-?>
+
 
 </body>
 </html>
