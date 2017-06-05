@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7134703d-734b-42f7-a70f-d1193c7de7ae" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mdareports/mdarep5.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mdareports/mdrep7.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mdareports/datatables.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mdareports/datatables.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mdareports/tests.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboard.php" afterPath="$PROJECT_DIR$/dashboard.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mdareport8.php" afterPath="$PROJECT_DIR$/mdareport8.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mdareport99.php" afterPath="$PROJECT_DIR$/mdareport99.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mdareports/mdareport4.php" afterPath="$PROJECT_DIR$/mdareports/mdareport4.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mdareports/mdareport7.php" afterPath="$PROJECT_DIR$/mdareports/mdareport7.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -127,15 +123,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mdareport7.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mdareport7.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mdareport7.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="381" column="1" lean-forward="false" selection-start-line="381" selection-start-column="1" selection-end-line="381" selection-end-column="1" />
+            <state relative-caret-position="493">
+              <caret line="409" column="42" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="617" selection-end-column="7" />
               <folding>
-                <marker date="1496323832125" expanded="true" signature="6198:6758" ph="SELECT proje... projectdetails" />
-                <marker date="1496323832125" expanded="true" signature="6260:6384" ph="SELECT SUM(A... certificates" />
-                <marker date="1496323832125" expanded="true" signature="6399:6517" ph="SELECT SUM(A... variations" />
+                <marker date="1496323857204" expanded="true" signature="6198:6758" ph="SELECT proje... projectdetails" />
+                <marker date="1496323857204" expanded="true" signature="6260:6384" ph="SELECT SUM(A... certificates" />
+                <marker date="1496323857204" expanded="true" signature="6399:6517" ph="SELECT SUM(A... variations" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tests.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mdareports/tests.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="563">
+              <caret line="446" column="0" lean-forward="true" selection-start-line="446" selection-start-column="0" selection-end-line="446" selection-end-column="0" />
+              <folding>
+                <element signature="e#6#90#0#PHP" expanded="true" />
+                <marker date="1496652267086" expanded="true" signature="7073:7633" ph="SELECT proje... projectdetails" />
+                <marker date="1496652267086" expanded="true" signature="7135:7259" ph="SELECT SUM(A... certificates" />
+                <marker date="1496652267086" expanded="true" signature="7274:7392" ph="SELECT SUM(A... variations" />
               </folding>
             </state>
           </provider>
@@ -175,7 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/php/addvariations.php" />
         <option value="$PROJECT_DIR$/php/addcertificate.php" />
         <option value="$PROJECT_DIR$/php/addvariations.php" />
         <option value="$PROJECT_DIR$/php/allconsultants.php" />
@@ -226,6 +236,7 @@
         <option value="&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/php/certifications.php" />
         <option value="&lt;4097f0b4-8d01-4854-b572-e704e22f01c1&gt;/update-project.php" />
         <option value="$PROJECT_DIR$/mdareport7.php" />
+        <option value="$PROJECT_DIR$/mdareports/tests.php" />
       </list>
     </option>
   </component>
@@ -239,8 +250,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="784" />
+    <option name="width" value="1378" />
+    <option name="height" value="780" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -281,39 +292,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="php" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="edpms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="edpms" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="php" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oth" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="edpms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="edpms" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="mdareports" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -458,7 +437,10 @@
       <workItem from="1496088177286" duration="10006000" />
       <workItem from="1496161127996" duration="5240000" />
       <workItem from="1496222980168" duration="7655000" />
-      <workItem from="1496322782937" duration="1031000" />
+      <workItem from="1496322782937" duration="1869000" />
+      <workItem from="1496331589186" duration="689000" />
+      <workItem from="1496393681106" duration="1636000" />
+      <workItem from="1496417478527" duration="1462000" />
     </task>
     <task id="LOCAL-00001" summary="Arranging for my Localhost">
       <created>1493901998226</created>
@@ -607,11 +589,18 @@
       <option name="project" value="LOCAL" />
       <updated>1495810556408</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="completing the app">
+      <created>1496323897786</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1496323897786</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220905000" />
+    <option name="totallyTimeSpent" value="225530000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -623,20 +612,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <frame x="-8" y="-8" width="1378" height="780" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13842663" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21709532" sideWeight="0.49199083" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13808802" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22610015" sideWeight="0.49199083" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.265745" sideWeight="0.4969743" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52425665" sideWeight="0.50610685" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13969466" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22535211" sideWeight="0.48789713" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32707354" sideWeight="0.48487142" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18910742" sideWeight="0.50800914" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1797235" sideWeight="0.49394855" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -702,15 +691,14 @@
     <MESSAGE value="Working on Dashboard" />
     <MESSAGE value=" More on Dashboard" />
     <MESSAGE value="moving on with app" />
-    <option name="LAST_COMMIT_MESSAGE" value="moving on with app" />
+    <MESSAGE value="completing the app" />
+    <option name="LAST_COMMIT_MESSAGE" value="completing the app" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="dbSrc:///284b4f1f/a5f85944-27b9-4be6-80e3-fa2a6320d195/schema/edpms/routine/myProc.().sql" />
-    <entry file="dbSrc:///284b4f1f/a5f85944-27b9-4be6-80e3-fa2a6320d195/schema/edpms/routine/myProc1.().sql" />
     <entry file="dbSrc:///284b4f1f/a5f85944-27b9-4be6-80e3-fa2a6320d195/schema/edpms/routine/myProc3.(varchar(4)).sql" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a5f85944-27b9-4be6-80e3-fa2a6320d195/console_2.sql">
       <provider selected="true" editor-type-id="text-editor">
@@ -830,13 +818,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="16" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="14" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/getinf.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1041,14 +1022,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/getinf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="35" column="43" lean-forward="true" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+          <folding>
+            <marker date="1493116538000" expanded="true" signature="243:294" ph="SELECT * fro... projectdetails" />
+            <marker date="1493116538000" expanded="true" signature="312:381" ph="SELECT SUM(A... certificates" />
+            <marker date="1493116538000" expanded="true" signature="399:487" ph="SELECT SUM(A... variations" />
+            <marker date="1493116538000" expanded="true" signature="505:1216" ph="SELECT proje... projectdetails" />
+            <marker date="1493116538000" expanded="true" signature="670:764" ph="SELECT SUM(A... certificates" />
+            <marker date="1493116538000" expanded="true" signature="798:910" ph="SELECT SUM(A... variations" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mdareport7.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="381" column="1" lean-forward="false" selection-start-line="381" selection-start-column="1" selection-end-line="381" selection-end-column="1" />
+        <state relative-caret-position="493">
+          <caret line="409" column="42" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="617" selection-end-column="7" />
           <folding>
-            <marker date="1496323832125" expanded="true" signature="6198:6758" ph="SELECT proje... projectdetails" />
-            <marker date="1496323832125" expanded="true" signature="6260:6384" ph="SELECT SUM(A... certificates" />
-            <marker date="1496323832125" expanded="true" signature="6399:6517" ph="SELECT SUM(A... variations" />
+            <marker date="1496323857204" expanded="true" signature="6198:6758" ph="SELECT proje... projectdetails" />
+            <marker date="1496323857204" expanded="true" signature="6260:6384" ph="SELECT SUM(A... certificates" />
+            <marker date="1496323857204" expanded="true" signature="6399:6517" ph="SELECT SUM(A... variations" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mdareports/datatables.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mdareports/tests.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="446" column="0" lean-forward="true" selection-start-line="446" selection-start-column="0" selection-end-line="446" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#90#0#PHP" expanded="true" />
+            <marker date="1496652267086" expanded="true" signature="7073:7633" ph="SELECT proje... projectdetails" />
+            <marker date="1496652267086" expanded="true" signature="7135:7259" ph="SELECT SUM(A... certificates" />
+            <marker date="1496652267086" expanded="true" signature="7274:7392" ph="SELECT SUM(A... variations" />
           </folding>
         </state>
       </provider>
