@@ -35,7 +35,7 @@ $firstname = $_SESSION['firstname'];
 <!--                    <li><a href="javascript:;"> Profile</a></li>-->
             
                     <li><a data-toggle="modal" data-target="#passwordMod">Change Password</a></li>
-					<li><a href="javascript:;">Help</a></li>
+					<li><a href="manual.php">Help Manual</a></li>
                     <li><a href="php/logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>

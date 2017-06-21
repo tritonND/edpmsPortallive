@@ -50,6 +50,7 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>EDPMS | Report Summary</title>
+      
 
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
