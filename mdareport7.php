@@ -193,6 +193,7 @@ else{
                 <h3>All Projects Financial Report</h3>
               </div>
 
+
           <!--    <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                   <div class="input-group">
@@ -218,7 +219,7 @@ else{
                                 <p class="category">All MDAs Projects Showing Financial Details </p>
                             </div>
 
-                            <div id="daterange"  style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #0b97c4;  width: 30%">
+                            <div id="daterange"  style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #0b97c4;  width: 28%; margin-left: 2%">
                                 <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
                                 <span></span> <b class="caret"></b>
 
@@ -564,7 +565,7 @@ else{
 
             var x = $.ajax({
                 type: "POST",
-                url: 'allreport.php',
+                url: 'php/oth/allfinancials.php',
                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                 data: "yr=" + encodeURIComponent(startYr) + "&yr2=" + encodeURIComponent(endYr),
                 dataType: "text"
