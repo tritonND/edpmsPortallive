@@ -45,6 +45,7 @@ else{
     <link href="build/css/custom.min.css" rel="stylesheet">
 
       <link href="dt/datatables.min.css" rel="stylesheet">
+      <link href="css/daterangepicker.css" rel="stylesheet">
       <!--
  <link href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet">
   <link href="/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -216,6 +217,14 @@ else{
                                 <h4 class="title">Projects Financials</h4>
                                 <p class="category">All MDAs Projects Showing Financial Details </p>
                             </div>
+
+                            <div id="daterange"  style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #0b97c4;  width: 30%">
+                                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+                                <span></span> <b class="caret"></b>
+
+                            </div>
+
+
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart">
                                     
@@ -444,6 +453,8 @@ else{
 
     <!-- jQuery -->
     <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <script src="js/moment.min.js"></script>
+
     <!-- Bootstrap -->
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
@@ -452,6 +463,7 @@ else{
     <script src="vendors/nprogress/nprogress.js"></script>
 
     <script src="dt/datatables.min.js"></script>
+    <script src="js/daterangepicker.js"></script>
     <!--
 
     <script src="http://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
@@ -479,6 +491,111 @@ else{
 	<script src="js/kendo.core.min.js"></script>
 
 
+
+    <script>
+
+
+        $(document).ready(function(){
+
+            // create the required start and end dates
+            var start = moment(new Date(new Date().getFullYear(), 0, 1));
+            var end = moment(new Date());
+
+            // initialise date range widget
+            $('#daterange').daterangepicker({
+                startDate: start,
+                endDate: end,
+                ranges: {
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')]
+                },
+                linkedCalendars: false,
+                "locale": {
+                    "format": "DD/MM/YYYY",
+                    "separator": " - ",
+                    "applyLabel": "Apply",
+                    "cancelLabel": "Cancel",
+                    "fromLabel": "From",
+                    "toLabel": "To",
+                    "customRangeLabel": "Custom",
+                    "weekLabel": "W",
+                    "daysOfWeek": [
+                        "Su",
+                        "Mo",
+                        "Tu",
+                        "We",
+                        "Th",
+                        "Fr",
+                        "Sa"
+                    ],
+                    "monthNames": [
+                        "January",
+                        "February",
+                        "March",
+                        "April",
+                        "May",
+                        "June",
+                        "July",
+                        "August",
+                        "September",
+                        "October",
+                        "November",
+                        "December"
+                    ],
+                    "firstDay": 1
+                }
+            }, updateDateRange);
+
+            updateDateRange(start, end);
+        });
+
+
+        // function used to update the the date range display
+        function updateDateRange(start, end){
+            $('#daterange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        }
+
+        $('#daterange').on('apply.daterangepicker', function(ev, picker) {
+            console.log(picker.startDate.format('YYYY-MM-DD'));
+            console.log(picker.endDate.format('YYYY-MM-DD'));
+
+            var startYr = picker.startDate.format('YYYY-MM-DD');
+            var endYr = picker.endDate.format('YYYY-MM-DD');
+
+            var x = $.ajax({
+                type: "POST",
+                url: 'allreport.php',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                data: "yr=" + encodeURIComponent(startYr) + "&yr2=" + encodeURIComponent(endYr),
+                dataType: "text"
+            });
+
+            x.done(function(serverResponse)
+            {
+                var servervalue=serverResponse.trim();
+                if(servervalue=='error')
+                {
+                    //swal("Error!", "An error occured, please try again later ", "error");
+                }
+
+                else
+                {
+                    $('#myTable').html(serverResponse.trim());
+
+                }
+            });
+
+            x.fail(function(){
+                // swal("Server Error!", "Server could not process this request, please try again later!", "error");
+            });
+
+
+
+        });
+
+
+
+    </script>
 
 
 

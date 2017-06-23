@@ -12,7 +12,7 @@ if(isset($_SESSION['privileges']))
     }
 
     else{//take him to general page
-        echo "<script>alert('You do not have the privilege to access this page');location.href='create-project.php';</script>";
+        echo "<script>alert('You do not have the privilege to access this page');location.href='summaryreports.php';</script>";
     }
 }
 else{

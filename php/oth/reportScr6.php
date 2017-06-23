@@ -3,6 +3,7 @@ require_once ("../dbconnect.php");
 //$conn= new mysqli_connect("localhost", "root", "minowss", "edpms");
 
 $yr =  mysqli_real_escape_string($con, $_POST['yr']);
+$yr2 =  mysqli_real_escape_string($con, $_POST['yr2']);
 
 
 echo " <table id=\"table7\" class=\"table table-striped table-bordered table-hover\">";
@@ -19,7 +20,7 @@ echo "<tbody>";
 $query1 = " SELECT projectdetails.PROJECTID, projectdetails.CONTRACTSUM,
 (SELECT SUM(AMOUNT) from certificates WHERE projectdetails.PROJECTID = certificates.PROJECTID AND YEAR(DATEISSUED) = '".$yr."'  GROUP BY certificates.PROJECTID) as cAmount,
 (SELECT SUM(AMOUNT) from variations WHERE projectdetails.PROJECTID = variations.PROJECTID AND YEAR(DATEISSUED) = '".$yr."'  GROUP BY variations.PROJECTID ) as vAmount
-FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4";
+FROM projectdetails  where (projectdetails.DATEOFAWARD) BETWEEN '".$yr."' AND '".$yr2."' LIMIT 4";
 
 
 $result = mysqli_query($con, $query1);

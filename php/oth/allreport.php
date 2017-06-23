@@ -3,6 +3,7 @@ require_once ("php/dbconnect.php");
 //$conn= new mysqli_connect("localhost", "root", "minowss", "edpms");
 
  $yr =  mysqli_real_escape_string($conn, $_POST['yr']);
+$yr2 =  mysqli_real_escape_string($conn, $_POST['yr2']);
 
 
  if ($yr != 0){
@@ -20,7 +21,7 @@ require_once ("php/dbconnect.php");
    echo "<tbody>";
 
  // $query1 = "SELECT lga, count(*) FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' order BY lga LIMIT 5";
-$query1 = "SELECT PROJECTID, PROCURINGENTITY, TITLE, DESCRIPTION, LGA FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' ";
+$query1 = "SELECT PROJECTID, PROCURINGENTITY, TITLE, DESCRIPTION, LGA FROM projectdetails WHERE (DATEOFAWARD) BETWEEN '".$yr."'  AND '".$yr2."'  LIMIT 4";
 
   $result = mysqli_query($conn, $query1);
  
@@ -66,7 +67,7 @@ else
    echo "<tbody>";
 
  // $query1 = "SELECT lga, count(*) FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' order BY lga LIMIT 5";
-$query1 = "SELECT PROJECTID, PROCURINGENTITY, TITLE, DESCRIPTION, LGA FROM projectdetails ";
+$query1 = "SELECT PROJECTID, PROCURINGENTITY, TITLE, DESCRIPTION, LGA FROM projectdetails  WHERE (DATEOFAWARD) BETWEEN '".$yr."'  AND '".$yr2."' LIMIT 4";
 
   $result = mysqli_query($conn, $query1);
  

@@ -2,7 +2,8 @@
 require_once ("../dbconnect.php");
 //$conn= new mysqli_connect("localhost", "root", "minowss", "edpms");
 
- $yr =  mysqli_real_escape_string($con, $_POST['yr']);
+ $startyr =  mysqli_real_escape_string($con, $_POST['yr']);
+ $endyr = mysqli_real_escape_string($con, $_POST['yr2']);
 
  
 
@@ -16,9 +17,12 @@ require_once ("../dbconnect.php");
    echo "<tbody>";
 
  // $query1 = "SELECT lga, count(*) FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' order BY lga LIMIT 5";
-  $query1 = "SELECT lga, count(*) FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' GROUP BY LGA LIMIT 5";
+ // $query1 = "SELECT lga, count(*) FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' GROUP BY LGA LIMIT 5";
 
-  $result = mysqli_query($con, $query1);
+$query1 = "SELECT lga, count(*) FROM projectdetails WHERE DATEOFAWARD BETWEEN '".$startyr."' AND '".$endyr."' GROUP BY LGA LIMIT 5";
+
+
+$result = mysqli_query($con, $query1);
  
   if(  mysqli_num_rows($result) >0)
     {

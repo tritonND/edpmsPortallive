@@ -70,7 +70,8 @@ else{
       <link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"  rel="stylesheet">
       <link href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.dataTables.min.css"  rel="stylesheet">
 
-   
+
+      <link href="css/daterangepicker.css" rel="stylesheet">
     
     <style>
     .card1 {
@@ -194,6 +195,7 @@ else{
 	
 	 <!-- jQuery -->
     <script src="vendors/jquery/dist/jquery.min.js"></script>
+      <script src="js/moment.min.js"></script>
     <!-- Bootstrap -->
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="js/kendo.core.min.js"></script>
@@ -239,9 +241,18 @@ else{
            
                 <div class="title_left">
                 <span> <h4>Choose Project Year to View Report</h4>
+
+      <div id="daterange"  style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #0b97c4;  width: 30%">
+         <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+         <span></span> <b class="caret"></b>
+
+     </div>
+      <br>
+
+                    <!--
                <select class="selectpicker" data-width = "fit" data-style="btn-info" id="yearoption" >
                         <option value="0">All</option>
-                        <option selected value="<?php echo date('Y')?>"> <?php echo date('Y')?></option>
+                        <option selected value="<?php // echo date('Y')?>"> <?php // echo date('Y')?></option>
                         <option value="2016">2016</option>
                         <option value="2015">2015</option>
                         <option value="2014">2014</option>
@@ -252,6 +263,7 @@ else{
                         <option value="2009">2009</option>
                         <option value="2008">2008</option>
                     </select>
+                    -->
                  </span> 
               </div>
 
@@ -506,6 +518,8 @@ else{
     <script src="js/searchtable.js"></script>
     <script src="js/autofilter.js"></script>
 
+    <script src="js/daterangepicker.js"></script>
+
 	
     
 <script>
@@ -616,7 +630,107 @@ function(){
 
 <script>
 
-$(document).on("change", "#yearoption", function(event)
+    $(document).ready(function(){
+
+        // create the required start and end dates
+        var start = moment(new Date(new Date().getFullYear(), 0, 1));
+        var end = moment(new Date());
+
+        // initialise date range widget
+        $('#daterange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')]
+            },
+            linkedCalendars: false,
+            "locale": {
+                "format": "DD/MM/YYYY",
+                "separator": " - ",
+                "applyLabel": "Apply",
+                "cancelLabel": "Cancel",
+                "fromLabel": "From",
+                "toLabel": "To",
+                "customRangeLabel": "Custom",
+                "weekLabel": "W",
+                "daysOfWeek": [
+                    "Su",
+                    "Mo",
+                    "Tu",
+                    "We",
+                    "Th",
+                    "Fr",
+                    "Sa"
+                ],
+                "monthNames": [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December"
+                ],
+                "firstDay": 1
+            }
+        }, updateDateRange);
+
+        updateDateRange(start, end);
+    });
+
+
+    // function used to update the the date range display
+    function updateDateRange(start, end){
+        $('#daterange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+    }
+
+    $('#daterange').on('apply.daterangepicker', function(ev, picker) {
+        console.log(picker.startDate.format('YYYY-MM-DD'));
+        console.log(picker.endDate.format('YYYY-MM-DD'));
+        var startYr = picker.startDate.format('YYYY-MM-DD');
+        var endYr = picker.endDate.format('YYYY-MM-DD');
+
+
+        var x = $.ajax({
+            type: "POST",
+            url: 'allreport.php',
+            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+            data: "yr=" + encodeURIComponent(startYr) + "&yr2=" + encodeURIComponent(endYr),
+            dataType: "text"
+        });
+
+        x.done(function(serverResponse)
+        {
+            var servervalue=serverResponse.trim();
+            if(servervalue=='error')
+            {
+                //swal("Error!", "An error occured, please try again later ", "error");
+            }
+
+            else
+            {
+                $('#myTable').html(serverResponse.trim());
+
+            }
+        });
+
+        x.fail(function(){
+            // swal("Server Error!", "Server could not process this request, please try again later!", "error");
+        });
+
+
+
+
+    });
+
+
+    $(document).on("change", "#yearoption", function(event)
     {
 
       var yr = $('#yearoption').val();

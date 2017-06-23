@@ -52,7 +52,8 @@ else{
  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
     <link href="build/css/custom.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
+      <link href="css/daterangepicker.css" rel="stylesheet">
 
  
     <style>
@@ -165,10 +166,13 @@ else{
 
 	 <!-- jQuery -->
     <script src="vendors/jquery/dist/jquery.min.js"></script>
+      <script src="js/moment.min.js"></script>
     <!-- Bootstrap -->
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 	 <script src="js/kendo.core.min.js"></script>
-    
+
+
+
 
   </head>
 
@@ -234,10 +238,11 @@ if(  mysqli_num_rows($results) >0)
  ?>
  <div class="row tile_count" style="font-family: 'Montserrat', sans-serif;">
 
-             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
                <span class="count_top"><i class="fa fa-user"></i> Choose Year Range </span>
 
                  <span>
+          <!--
                      <div >  </div>
               <div class="col-sm-5" >
                <select  data-style="btn-primary" id="yearoption" onchange="myfunc()">
@@ -269,6 +274,14 @@ if(  mysqli_num_rows($results) >0)
                          <option value="2008">2008</option>
                      </select>
                  </div>
+              -->
+
+     <div id="daterange"  style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #0b97c4;  width: 90%">
+         <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+         <span></span> <b class="caret"></b>
+     </div>
+
+
                  </span>
 
             </div>
@@ -292,7 +305,7 @@ if(  mysqli_num_rows($results) >0)
             </div>
 
 
-     <div class="col-md-4 col-sm-6 col-xs-6 tile_stats_count">
+     <div class="col-md-2 col-sm-6 col-xs-6 tile_stats_count">
          <span class="count_top"><i class="fa fa-user"></i> Projects Contractors </span>
          <div  class="count green" style="font-size: xx-large"> <?php echo  $row11[0]; ?> </div>
      </div>
@@ -348,12 +361,14 @@ if(  mysqli_num_rows($results) >0)
 
 
 
-            <div class="">
-            <div class="page-title">
-              <div class="title_left" style="font-family: 'Montserrat', sans-serif;">
-               <h3>All Projects Summary <a href="mdareport.php"> <input type="button" class="btn btn-primary" value="View All Project Data" > </a>
-    </h3>  
-              </div>
+   <div class="">
+   <div class="page-title">
+   <div class="title_left" style="font-family: 'Montserrat', sans-serif;">
+   <h3>All Projects Summary <a href="mdareport.php"> <input type="button" class="btn btn-primary" value="View All Project Data" > </a> </h3>
+       <br>
+
+
+   </div>
              
 
 <!--
@@ -1042,11 +1057,13 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
 
      <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGJ0w067KDql_zWI3tur698n-UE3eaQMk&callback=initMap">
-    </script>                                    
+    </script>
 
-	
-	
-	<script>
+        <script src="js/daterangepicker.js"></script>
+
+
+
+        <script>
 	var pf = kendo.toString(kendo.parseFloat($('#projfund').text().trim()), 'n2');
 	$('#projfund').text(pf);
 	//console.log(pf
@@ -1057,6 +1074,80 @@ FROM projectdetails  where YEAR(projectdetails.DATEOFAWARD) = '".$yr."' LIMIT 4"
 	});
 	
 	</script>
+
+
+        <script>
+
+            $(document).ready(function(){
+
+               // console.log("inside daterange");
+                // create the required start and end dates
+                var start = moment(new Date(new Date().getFullYear(), 0, 1));
+                var end = moment(new Date());
+
+                // initialise date range widget
+                $('#daterange').daterangepicker({
+                    startDate: start,
+                    endDate: end,
+                    ranges: {
+                        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                        'This Month': [moment().startOf('month'), moment().endOf('month')]
+                    },
+                    linkedCalendars: false,
+                    "locale": {
+                        "format": "DD/MM/YYYY",
+                        "separator": " - ",
+                        "applyLabel": "Apply",
+                        "cancelLabel": "Cancel",
+                        "fromLabel": "From",
+                        "toLabel": "To",
+                        "customRangeLabel": "Custom",
+                        "weekLabel": "W",
+                        "daysOfWeek": [
+                            "Su",
+                            "Mo",
+                            "Tu",
+                            "We",
+                            "Th",
+                            "Fr",
+                            "Sa"
+                        ],
+                        "monthNames": [
+                            "January",
+                            "February",
+                            "March",
+                            "April",
+                            "May",
+                            "June",
+                            "July",
+                            "August",
+                            "September",
+                            "October",
+                            "November",
+                            "December"
+                        ],
+                        "firstDay": 1
+                    }
+                }, updateDateRange);
+
+               // console.log(start);
+               // console.log(end);
+
+                updateDateRange(start, end);
+            });
+
+            $('#daterange').on('apply.daterangepicker', function(ev, picker) {
+
+                console.log(picker.startDate.format('YYYY-MM-DD'));
+                console.log(picker.endDate.format('YYYY-MM-DD'));
+            });
+
+
+            // function used to update the the date range display
+            function updateDateRange(start, end){
+                $('#daterange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            }
+        </script>
 
 
 <script>

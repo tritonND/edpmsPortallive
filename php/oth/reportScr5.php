@@ -3,6 +3,7 @@ require_once ("../dbconnect.php");
 //$conn= new mysqli_connect("localhost", "root", "minowss", "edpms");
 
  $yr =  mysqli_real_escape_string($con, $_POST['yr']);
+$yr2 =  mysqli_real_escape_string($con, $_POST['yr2']);
 
 
    echo " <table id=\"table5\" class=\"table table-striped table-bordered table-hover\">";
@@ -15,7 +16,7 @@ require_once ("../dbconnect.php");
    echo "</thead>";
    echo "<tbody>";
 
-  $query1 = "SELECT projectid, title, status FROM projectdetails WHERE YEAR(DATEOFAWARD)='".$yr."' order BY lga LIMIT 3";
+  $query1 = "SELECT projectid, title, status FROM projectdetails WHERE (DATEOFAWARD) BETWEEN  '".$yr."' AND '".$yr2."' order BY lga LIMIT 3";
   $result = mysqli_query($con, $query1);
  
   if(  mysqli_num_rows($result) >0)
